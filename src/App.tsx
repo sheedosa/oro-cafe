@@ -39,7 +39,7 @@ export default function App() {
               hidden: { opacity: 0, y: 15 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
             }}
-            src="https://lh3.googleusercontent.com/d/1F7SrkPOYAcXOybNuZkQPt12jfky65Nj_"
+            src="/src/assets/images/regenerated_image_1777631777128.png"
             alt="Oro Cafe Logo"
             loading="eager"
             fetchPriority="high"
