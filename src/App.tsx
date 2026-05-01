@@ -5,7 +5,6 @@
 
 import { motion } from 'motion/react';
 import { Facebook } from 'lucide-react';
-import logo from './assets/logo-oro-v3.png';
 
 export default function App() {
   return (
@@ -34,21 +33,6 @@ export default function App() {
           }}
           className="flex flex-col items-center w-full"
         >
-          {/* Logo */}
-          <motion.img
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
-            }}
-            src={logo}
-            alt="Oro - Sweets & Pastries Logo"
-            loading="eager"
-            fetchPriority="high"
-            decoding="sync"
-            className="w-64 sm:w-52 md:w-56 lg:w-64 mb-8 sm:mb-10 -mt-24 sm:mt-0 object-contain mx-auto"
-            referrerPolicy="no-referrer"
-          />
-          
           {/* Heavy Coming Soon */}
           <h1 className="flex flex-col items-center justify-center text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[140px] leading-[0.8] font-sans font-bold tracking-tighter mb-8 text-center uppercase relative">
             <motion.span 
