@@ -5,6 +5,7 @@
 
 import { motion } from 'motion/react';
 import { Facebook } from 'lucide-react';
+import logo from './assets/images/regenerated_image_1777631777128.png';
 
 export default function App() {
   return (
@@ -39,8 +40,8 @@ export default function App() {
               hidden: { opacity: 0, y: 15 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
             }}
-            src="/src/assets/images/regenerated_image_1777631777128.png"
-            alt="Oro Cafe Logo"
+            src={logo}
+            alt="Oro - Sweets & Pastries Logo"
             loading="eager"
             fetchPriority="high"
             decoding="sync"
