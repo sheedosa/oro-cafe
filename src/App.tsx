@@ -44,7 +44,7 @@ export default function App() {
             loading="eager"
             fetchPriority="high"
             decoding="sync"
-            className="w-48 sm:w-52 md:w-56 lg:w-64 mb-8 sm:mb-10 -mt-16 sm:mt-0 object-contain mx-auto"
+            className="w-64 sm:w-52 md:w-56 lg:w-64 mb-8 sm:mb-10 -mt-24 sm:mt-0 object-contain mx-auto"
             referrerPolicy="no-referrer"
           />
           
