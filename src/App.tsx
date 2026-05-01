@@ -5,6 +5,7 @@
 
 import { motion } from 'motion/react';
 import { Facebook } from 'lucide-react';
+import logo from './assets/logo-oro-v3.png';
 
 export default function App() {
   return (
@@ -39,7 +40,7 @@ export default function App() {
               hidden: { opacity: 0, y: 15 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
             }}
-            src="/logo-oro.png"
+            src={logo}
             alt="Oro - Sweets & Pastries Logo"
             loading="eager"
             fetchPriority="high"
