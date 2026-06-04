@@ -68,7 +68,7 @@ export const site = {
   moments: [
     { word: 'Coffee', caption: 'Single-origin beans, pulled with precision', image: '/images/moment-coffee.jpg', video: '/videos/coffee-moment.mp4', blend: true },
     { word: 'Pastries', caption: 'Laminated by hand, baked before dawn', image: '/images/moment-pastries.webp', video: '', blend: true },
-    { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.jpg', video: '', blend: false },
+    { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.webp', video: '', blend: true },
   ],
 
   // Vision / Mission / Values — shared by the homepage band and the About page.
