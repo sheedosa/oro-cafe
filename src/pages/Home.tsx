@@ -23,6 +23,7 @@ export default function Home() {
               src={assetUrl(site.video.hero)}
               autoPlay
               muted
+              loop
               playsInline
               preload="metadata"
               controls={false}
@@ -44,19 +45,6 @@ export default function Home() {
         {/* Content over the video. A soft text-shadow keeps it legible — this is a
             text property, not an overlay layer over the video. */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl [text-shadow:0_2px_18px_rgba(28,26,23,0.65)]">
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-4 mb-4 text-cream"
-          >
-            <div className="w-8 h-px bg-cream/70"></div>
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] font-semibold">Coffee &bull; Pastries &bull; Hospitality</span>
-            <div className="w-8 h-px bg-cream/70"></div>
-          </motion.div>
-
           {/* Title */}
           <motion.h1
             initial={{ scale: 0.95 }}
