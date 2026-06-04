@@ -33,8 +33,9 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
   });
   const y = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['-6%', '6%']);
 
-  // Feather the media edges into the burgundy background.
-  const blendMask = blend
+  // Feather a blended *video's* edges into the background. Transparent cutout
+  // images blend on their own, so they don't need (and shouldn't get) a mask.
+  const blendMask = blend && video
     ? {
         WebkitMaskImage: 'radial-gradient(ellipse at center, #000 50%, transparent 85%)',
         maskImage: 'radial-gradient(ellipse at center, #000 50%, transparent 85%)',
@@ -69,7 +70,13 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
                 aria-hidden="true"
               />
             ) : (
-              <SmartImage src={image} alt={word} text={word} className="w-full h-full" />
+              <SmartImage
+                src={image}
+                alt={word}
+                text={word}
+                className="w-full h-full"
+                imgClassName={blend ? 'object-contain' : ''}
+              />
             )}
           </motion.div>
 

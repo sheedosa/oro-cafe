@@ -31,6 +31,9 @@ export default function SmartImage({
     return <ImagePlaceholder className={className} text={text} />;
   }
 
+  // Default to object-cover unless the caller specifies an object-fit.
+  const fit = imgClassName.includes('object-') ? '' : 'object-cover';
+
   return (
     <img
       src={assetUrl(src)}
@@ -38,7 +41,7 @@ export default function SmartImage({
       loading="lazy"
       decoding="async"
       onError={() => setFailed(true)}
-      className={`object-cover ${className} ${imgClassName}`}
+      className={`${fit} ${className} ${imgClassName}`.trim()}
     />
   );
 }
