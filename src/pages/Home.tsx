@@ -8,9 +8,7 @@ import ParallaxMoment from '../components/ParallaxMoment';
 import { site, menuUrl, assetUrl } from '../config/site';
 
 export default function Home() {
-  const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(
-    site.contact.addressLines.join(', '),
-  )}&output=embed`;
+  const mapEmbed = `https://www.google.com/maps?q=${site.contact.coords}&z=17&output=embed`;
 
   return (
     <div className="flex flex-col w-full">

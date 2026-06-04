@@ -24,7 +24,10 @@ export const site = {
     email: 'sales@orocafe.ly',
     website: 'www.orosweet.ly',
     websiteHref: 'https://www.orosweet.ly',
-    mapsUrl: 'https://maps.google.com/?q=Finisia+Street,+Benghazi,+Libya',
+    // Exact shop location (Oro Sweets & Pastries, Benghazi).
+    coords: '32.0593966,20.0740673',
+    // "Get Directions" — opens the place in Google Maps.
+    mapsUrl: 'https://www.google.com/maps/place/Oro+Sweets+%26+Pastries/@32.0593966,20.0740673,17z/data=!3m1!4b1!4m6!3m5!1s0x13831b006d4053eb:0x1024f5228f3d1543!8m2!3d32.0593966!4d20.0740673!16s%2Fg%2F11zj6n6byk',
   },
 
   // TODO: confirm real opening hours with the client before launch.

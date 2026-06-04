@@ -4,9 +4,7 @@ import PageHero from '../components/PageHero';
 import { site } from '../config/site';
 
 export default function ContactPage() {
-  const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(
-    site.contact.addressLines.join(', '),
-  )}&output=embed`;
+  const mapEmbed = `https://www.google.com/maps?q=${site.contact.coords}&z=17&output=embed`;
 
   const details = [
     { icon: MapPin, label: 'Location', value: site.contact.addressLines.join(', '), href: site.contact.mapsUrl, external: true },
