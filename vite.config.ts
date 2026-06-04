@@ -6,8 +6,8 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // Deployed as a GitHub Pages project site at /ORO-Cafe-/.
-    base: '/ORO-Cafe-/',
+    // Served at the custom-domain root (https://orosweets.ly/).
+    base: '/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || ""),
