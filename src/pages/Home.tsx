@@ -8,6 +8,7 @@ import ParallaxMoment from '../components/ParallaxMoment';
 import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl, assetUrl } from '../config/site';
 import { useLang } from '../i18n/useLang';
+import logo from '../assets/logo-oro-v3.png';
 
 export default function Home() {
   const { t, lang } = useLang();
@@ -41,15 +42,17 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl [text-shadow:0_2px_18px_rgba(28,26,23,0.65)]">
-          <motion.h1
-            initial={{ scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.15 }}
-            className="font-brand font-serif text-[72px] md:text-[104px] lg:text-[128px] leading-none text-gold mb-3 [text-shadow:0_4px_28px_rgba(28,26,23,0.7)]"
-          >
-            ORO
-          </motion.h1>
+          <h1 className="contents">
+            <motion.img
+              src={logo}
+              alt={site.fullName}
+              initial={{ scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.15 }}
+              className="w-64 md:w-80 lg:w-[26rem] mb-2 drop-shadow-[0_6px_30px_rgba(28,26,23,0.8)]"
+            />
+          </h1>
 
           <motion.p
             initial={{ y: 10 }}
