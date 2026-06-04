@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-arabic: "Cairo", "Inter", sans-serif;
+
+  /* Brand palette — use these tokens (text-gold, bg-burgundy, border-gold, …)
+     instead of raw hex values so colours stay consistent. */
+  --color-burgundy: #5a2829;      /* page background (the deep red) */
+  --color-burgundy-soft: #683033; /* raised panels / cards on the burgundy */
+  --color-cream: #FDFBF7;         /* light foreground — text on dark/gold */
+  --color-gold: #c6a85b;          /* brand accent — headings, lines, display type */
+  --color-gold-deep: #c4a35a;     /* readable gold for small labels on burgundy */
+  --color-ink: #f0e4e0;           /* body copy — light/blush, reads on burgundy */
+  --color-espresso: #1c1a17;      /* darkest accent bands */
+}
+
+/* Background videos must never show native controls or the WebKit
+   "start playback" / paused play-button overlay (desktop & mobile). */
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Respect users who prefer reduced motion: neutralise CSS transitions/animations.
+   (Continuous JS-driven motion is also disabled in the components.) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
