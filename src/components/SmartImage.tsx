@@ -31,8 +31,9 @@ export default function SmartImage({
     return <ImagePlaceholder className={className} text={text} />;
   }
 
-  // Default to object-cover unless the caller specifies an object-fit.
-  const fit = imgClassName.includes('object-') ? '' : 'object-cover';
+  // Default to object-cover unless the caller specifies an object-FIT
+  // (object-position classes like object-top should NOT disable it).
+  const fit = /object-(contain|cover|fill|none|scale-down)/.test(imgClassName) ? '' : 'object-cover';
 
   return (
     <img

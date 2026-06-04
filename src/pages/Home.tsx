@@ -198,6 +198,7 @@ export default function Home() {
               alt="Oro storefront in Benghazi"
               text="Storefront Photo"
               className="w-full h-full"
+              imgClassName="object-top"
             />
           </motion.div>
 
