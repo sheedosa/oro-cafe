@@ -45,14 +45,29 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
   return (
     <section className="py-12 md:py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* Text — comes first (title before the image) */}
+        <motion.div
+          initial={{ y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className={reverse ? 'md:order-2' : ''}
+        >
+          {index != null && (
+            <span className="block font-sans text-[11px] uppercase tracking-[0.4em] text-gold-deep mb-4">0{index}</span>
+          )}
+          <h2 className="font-serif italic text-5xl md:text-7xl lg:text-8xl text-gold leading-none">{word}</h2>
+          <p className="mt-5 font-sans text-sm md:text-base text-ink/90 max-w-sm leading-relaxed">{caption}</p>
+        </motion.div>
+
         {/* Media panel (drifts within its own bounds) */}
         <motion.div
           ref={ref}
-          initial={{ x: reverse ? 24 : -24 }}
+          initial={{ x: reverse ? -24 : 24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative w-full ${blend ? 'aspect-square' : 'aspect-[4/5] overflow-hidden'} ${reverse ? 'md:order-2' : ''}`}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className={`relative w-full ${blend ? 'aspect-square' : 'aspect-[4/5] overflow-hidden'} ${reverse ? 'md:order-1' : ''}`}
         >
           <motion.div style={{ y, ...blendMask }} className="absolute inset-0 scale-110 will-change-transform">
             {video ? (
@@ -84,21 +99,6 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
           {!blend && (
             <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10"></div>
           )}
-        </motion.div>
-
-        {/* Text */}
-        <motion.div
-          initial={{ y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className={reverse ? 'md:order-1' : ''}
-        >
-          {index != null && (
-            <span className="block font-sans text-[11px] uppercase tracking-[0.4em] text-gold-deep mb-4">0{index}</span>
-          )}
-          <h2 className="font-serif italic text-5xl md:text-7xl lg:text-8xl text-gold leading-none">{word}</h2>
-          <p className="mt-5 font-sans text-sm md:text-base text-ink/90 max-w-sm leading-relaxed">{caption}</p>
         </motion.div>
       </div>
     </section>

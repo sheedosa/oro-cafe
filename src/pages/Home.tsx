@@ -104,22 +104,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Marquee ribbon */}
-      <section aria-hidden className="bg-espresso py-6 md:py-9 border-y border-gold/15">
+      {/* 2. Follow our journey — auto-scrolling gallery strip (straight after the hero) */}
+      <section id="social" className="py-24 md:py-32 bg-burgundy overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
+          <SectionHeading eyebrow="Stay Connected" title="Follow Our Journey" className="mb-3" />
+          <motion.p
+            initial={{ y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center font-sans text-sm tracking-[0.2em] text-gold-deep mb-12"
+          >
+            {site.social.handle}
+          </motion.p>
+        </div>
+
+        {/* Full-width auto-scrolling strip */}
         <Marquee
-          items={site.marqueeWords}
-          speed={26}
-          gap="0"
-          renderItem={(w) => (
-            <span className="inline-flex items-center">
-              <span className="font-serif italic text-3xl md:text-5xl text-gold whitespace-nowrap">{w}</span>
-              <span className="mx-6 md:mx-10 text-gold/40 text-lg md:text-2xl">&#9670;</span>
-            </span>
-          )}
+          items={site.social.posts}
+          speed={45}
+          gap="0.75rem"
+          renderItem={(post, i) => {
+            const href = post.url || site.socials.instagram || site.socials.facebook || '#';
+            return (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View Oro post ${i + 1} on social media`}
+                className="group relative block w-44 h-44 md:w-60 md:h-60 overflow-hidden bg-gold/5"
+              >
+                <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
+                  <SmartImage src={post.image} alt="" text="Post" className="w-full h-full" />
+                </div>
+                <div className="absolute inset-0 bg-espresso/0 group-hover:bg-espresso/45 transition-colors duration-300 flex items-center justify-center">
+                  <Instagram size={22} className="text-cream opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300" />
+                </div>
+              </a>
+            );
+          }}
         />
+
+        {/* Follow buttons */}
+        <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            {site.socials.instagram && (
+              <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
+                <Instagram size={16} /> Follow on Instagram <ArrowUpRight size={14} />
+              </a>
+            )}
+            {site.socials.facebook && (
+              <a href={site.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold/60 bg-transparent text-gold-deep px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold hover:text-cream transition-colors">
+                <Facebook size={16} /> Facebook
+              </a>
+            )}
+          </div>
+        </div>
       </section>
 
-      {/* 3. Signature moments — full-bleed parallax bands */}
+      {/* 3. Signature moments — title first, then image */}
       <div id="menu">
         {site.moments.map((m, i) => (
           <div key={m.word}>
@@ -188,65 +231,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Follow our journey — auto-scrolling gallery strip */}
-      <section id="social" className="py-24 md:py-32 bg-burgundy overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <SectionHeading eyebrow="Stay Connected" title="Follow Our Journey" className="mb-3" />
-          <motion.p
-            initial={{ y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center font-sans text-sm tracking-[0.2em] text-gold-deep mb-12"
-          >
-            {site.social.handle}
-          </motion.p>
-        </div>
-
-        {/* Full-width auto-scrolling strip */}
-        <Marquee
-          items={site.social.posts}
-          speed={45}
-          gap="0.75rem"
-          renderItem={(post, i) => {
-            const href = post.url || site.socials.instagram || site.socials.facebook || '#';
-            return (
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`View Oro post ${i + 1} on social media`}
-                className="group relative block w-44 h-44 md:w-60 md:h-60 overflow-hidden bg-gold/5"
-              >
-                <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
-                  <SmartImage src={post.image} alt="" text="Post" className="w-full h-full" />
-                </div>
-                <div className="absolute inset-0 bg-espresso/0 group-hover:bg-espresso/45 transition-colors duration-300 flex items-center justify-center">
-                  <Instagram size={22} className="text-cream opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300" />
-                </div>
-              </a>
-            );
-          }}
-        />
-
-        {/* Follow buttons */}
-        <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            {site.socials.instagram && (
-              <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-                <Instagram size={16} /> Follow on Instagram <ArrowUpRight size={14} />
-              </a>
-            )}
-            {site.socials.facebook && (
-              <a href={site.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold/60 bg-transparent text-gold-deep px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold hover:text-cream transition-colors">
-                <Facebook size={16} /> Facebook
-              </a>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Visit / Contact preview */}
+      {/* 5. Visit / Contact preview */}
       <section id="visit" className="py-24 md:py-32 px-4 md:px-8 max-w-6xl mx-auto w-full">
         <SectionHeading eyebrow="Visit Us" title="Come for the coffee." className="mb-16" />
 
