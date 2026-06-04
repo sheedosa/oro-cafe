@@ -38,7 +38,7 @@ export const site = {
 
   // Leave a value empty ('') to hide that social icon.
   socials: {
-    facebook: 'https://www.facebook.com/p/Oro-sweets-pastries-61557170640518/',
+    facebook: 'https://www.facebook.com/Orosweets/',
     instagram: '', // TODO: add the Instagram profile URL to show the icon.
   },
 
