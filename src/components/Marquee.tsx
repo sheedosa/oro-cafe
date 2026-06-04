@@ -56,7 +56,7 @@ export default function Marquee<T>({
   return (
     <div className={`overflow-hidden flex ${className}`}>
       <motion.div
-        className="flex shrink-0"
+        className="flex shrink-0 will-change-transform [backface-visibility:hidden]"
         animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
         transition={{ duration: speed, ease: 'linear', repeat: Infinity }}
       >

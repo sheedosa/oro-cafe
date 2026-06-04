@@ -22,6 +22,7 @@ export default function AutoCarousel({ items }: AutoCarouselProps) {
   const ref = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const idleRef = useRef<number | undefined>(undefined);
+  const dirRef = useRef(1);
   const reduce = useReducedMotion();
 
   const stepPx = () => {
@@ -63,8 +64,10 @@ export default function AutoCarousel({ items }: AutoCarouselProps) {
     const id = window.setInterval(() => {
       if (pausedRef.current) return;
       const max = el.scrollWidth - el.clientWidth;
-      if (el.scrollLeft >= max - 4) el.scrollTo({ left: 0, behavior: 'smooth' });
-      else el.scrollBy({ left: stepPx(), behavior: 'smooth' });
+      // Ping-pong at the ends so it glides back instead of a jarring rewind.
+      if (dirRef.current > 0 && el.scrollLeft >= max - 4) dirRef.current = -1;
+      else if (dirRef.current < 0 && el.scrollLeft <= 4) dirRef.current = 1;
+      el.scrollBy({ left: dirRef.current * stepPx(), behavior: 'smooth' });
     }, 3500);
 
     return () => {
