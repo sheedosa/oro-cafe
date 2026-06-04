@@ -62,12 +62,13 @@ export const site = {
   // Words for the homepage marquee ribbon.
   marqueeWords: ['Coffee', 'Pastries', 'Desserts', 'Hospitality', 'Breakfast', 'Specialty'],
 
-  // Full-bleed "signature moments" on the homepage (parallax bands).
-  // Drop a wide photo for each (see public/images/README.md); placeholder shows until then.
+  // "Signature moments" on the homepage (parallax panels beside big type).
+  // Each may use an image OR a video; `blend: true` renders it frameless with
+  // edges feathered into the background. Drop matching files in public/.
   moments: [
-    { word: 'Coffee', caption: 'Single-origin beans, pulled with precision', image: '/images/moment-coffee.jpg' },
-    { word: 'Pastries', caption: 'Laminated by hand, baked before dawn', image: '/images/moment-pastries.jpg' },
-    { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.jpg' },
+    { word: 'Coffee', caption: 'Single-origin beans, pulled with precision', image: '/images/moment-coffee.jpg', video: '/videos/coffee-moment.mp4', blend: true },
+    { word: 'Pastries', caption: 'Laminated by hand, baked before dawn', image: '/images/moment-pastries.jpg', video: '', blend: false },
+    { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.jpg', video: '', blend: false },
   ],
 
   // Vision / Mission / Values — shared by the homepage band and the About page.

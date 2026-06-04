@@ -127,6 +127,8 @@ export default function Home() {
               word={m.word}
               caption={m.caption}
               image={m.image}
+              video={m.video}
+              blend={m.blend}
               index={i + 1}
               reverse={i % 2 === 1}
             />

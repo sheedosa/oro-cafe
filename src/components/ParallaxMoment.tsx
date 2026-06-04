@@ -1,11 +1,16 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import SmartImage from './SmartImage';
+import { assetUrl } from '../config/site';
 
 interface ParallaxMomentProps {
   word: string;
   caption: string;
   image?: string;
+  /** Optional video shown instead of the image. */
+  video?: string;
+  /** Render the media frameless and feather its edges into the background. */
+  blend?: boolean;
   /** Place the image on the left instead of the right. */
   reverse?: boolean;
   /** 1-based index, shown as a faint marker. */
@@ -13,12 +18,12 @@ interface ParallaxMomentProps {
 }
 
 /**
- * A contained "signature moment": a framed image panel beside a large serif
- * word + caption. The image drifts gently inside its frame on scroll (parallax)
- * — it never fills the screen or becomes a page background. Parallax is
- * disabled under prefers-reduced-motion.
+ * A contained "signature moment": a framed image (or video) panel beside a
+ * large serif word + caption. The media drifts gently on scroll (parallax).
+ * With `blend`, the media is frameless and its edges are feathered with a
+ * radial mask so it melts seamlessly into the page background.
  */
-export default function ParallaxMoment({ word, caption, image, reverse = false, index }: ParallaxMomentProps) {
+export default function ParallaxMoment({ word, caption, image, video, blend = false, reverse = false, index }: ParallaxMomentProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
@@ -28,23 +33,50 @@ export default function ParallaxMoment({ word, caption, image, reverse = false, 
   });
   const y = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['-6%', '6%']);
 
+  // Feather the media edges into the burgundy background.
+  const blendMask = blend
+    ? {
+        WebkitMaskImage: 'radial-gradient(ellipse at center, #000 50%, transparent 85%)',
+        maskImage: 'radial-gradient(ellipse at center, #000 50%, transparent 85%)',
+      }
+    : undefined;
+
   return (
     <section className="py-12 md:py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-        {/* Framed image panel (drifts within its own bounds) */}
+        {/* Media panel (drifts within its own bounds) */}
         <motion.div
           ref={ref}
           initial={{ x: reverse ? 24 : -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative w-full aspect-[4/5] overflow-hidden ${reverse ? 'md:order-2' : ''}`}
+          className={`relative w-full ${blend ? 'aspect-square' : 'aspect-[4/5] overflow-hidden'} ${reverse ? 'md:order-2' : ''}`}
         >
-          <motion.div style={{ y }} className="absolute inset-0 scale-110 will-change-transform">
-            <SmartImage src={image} alt={word} text={word} className="w-full h-full" />
+          <motion.div style={{ y, ...blendMask }} className="absolute inset-0 scale-110 will-change-transform">
+            {video ? (
+              <video
+                className="w-full h-full object-cover pointer-events-none"
+                src={assetUrl(video)}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                controls={false}
+                disablePictureInPicture
+                tabIndex={-1}
+                aria-hidden="true"
+              />
+            ) : (
+              <SmartImage src={image} alt={word} text={word} className="w-full h-full" />
+            )}
           </motion.div>
-          {/* Decorative offset frame, matching the rest of the site */}
-          <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10"></div>
+
+          {/* Decorative offset frame — only when not blending */}
+          {!blend && (
+            <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10"></div>
+          )}
         </motion.div>
 
         {/* Text */}
