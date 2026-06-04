@@ -53,6 +53,7 @@ export const site = {
     valuesImage: '/images/values.jpg',  // homepage dark "Values" band
     storefront: '/images/storefront.jpg',// homepage Visit + Contact page
     contactHero: '/images/contact-hero.jpg', // Contact page banner
+    contactShowcase: '/images/contact-showcase.jpg', // Contact page feature photo (after the title)
   },
 
   // Hero background video (plays muted + looping behind the hero text).

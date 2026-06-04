@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Facebook, Instagram, MapPin, Phone, Mail, Globe } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import SmartImage from '../components/SmartImage';
 import { site } from '../config/site';
 import { useLang } from '../i18n/useLang';
 
@@ -24,6 +25,25 @@ export default function ContactPage() {
         image={site.images.contactHero}
         imageText="Contact Banner Image"
       />
+
+      {/* Feature photo — straight after the title */}
+      <section className="px-4 md:px-8 max-w-6xl mx-auto w-full mt-10 md:mt-16">
+        <motion.div
+          initial={{ y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full aspect-[4/3] md:aspect-[3/2] rounded-2xl overflow-hidden border border-gold/25 shadow-lg shadow-espresso/20"
+        >
+          <SmartImage
+            src={site.images.contactShowcase}
+            alt="Inside Oro — the pastry display"
+            text="Contact Showcase Image"
+            className="w-full h-full"
+            imgClassName="object-center"
+          />
+        </motion.div>
+      </section>
 
       <section className="py-20 md:py-28 px-4 md:px-8 max-w-6xl mx-auto w-full">
         <div className="flex flex-col md:flex-row gap-12 md:gap-16">
