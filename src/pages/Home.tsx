@@ -26,7 +26,7 @@ export default function Home() {
               autoPlay
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               controls={false}
               disablePictureInPicture
               controlsList="nodownload nofullscreen noremoteplayback"
@@ -48,7 +48,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl [text-shadow:0_2px_18px_rgba(28,26,23,0.65)]">
           {/* Eyebrow */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -61,7 +61,7 @@ export default function Home() {
 
           {/* Title */}
           <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.15 }}
@@ -72,7 +72,7 @@ export default function Home() {
 
           {/* Tagline */}
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.25 }}
@@ -83,7 +83,7 @@ export default function Home() {
 
           {/* Buttons */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -137,7 +137,7 @@ export default function Home() {
       {/* Menu CTA */}
       <section className="py-20 md:py-28 px-4 bg-burgundy text-center">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -158,7 +158,7 @@ export default function Home() {
             {statementWords.map((w, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0.12 }}
+                initial={{ opacity: 0.4 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
@@ -169,7 +169,7 @@ export default function Home() {
           </p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -191,7 +191,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <SectionHeading eyebrow="Stay Connected" title="Follow Our Journey" className="mb-3" />
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
@@ -251,7 +251,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
           {/* Storefront image */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -268,7 +268,7 @@ export default function Home() {
 
           {/* Details */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}

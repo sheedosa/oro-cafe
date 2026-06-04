@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="w-full relative z-20 bg-burgundy border-t border-gold/20 py-16 px-4 flex flex-col items-center justify-center text-gold-deep">
        <motion.div
-         initial={{ opacity: 0, y: 20 }}
+         initial={{ y: 20 }}
          whileInView={{ opacity: 1, y: 0 }}
          viewport={{ once: true }}
          transition={{ duration: 0.6 }}

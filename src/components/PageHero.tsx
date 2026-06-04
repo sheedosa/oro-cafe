@@ -21,7 +21,7 @@ export default function PageHero({ eyebrow, title, subtitle, image, imageText = 
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center px-4"

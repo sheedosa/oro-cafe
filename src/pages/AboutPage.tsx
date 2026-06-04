@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 px-4 md:px-8 max-w-6xl mx-auto w-full">
         <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -31,7 +31,7 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -65,7 +65,7 @@ export default function AboutPage() {
         />
         <div className="max-w-5xl mx-auto px-4 md:px-8 w-full relative z-10 text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}

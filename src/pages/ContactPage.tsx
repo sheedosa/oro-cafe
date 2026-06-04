@@ -29,7 +29,7 @@ export default function ContactPage() {
         <div className="flex flex-col md:flex-row gap-12 md:gap-16">
           {/* Details + hours */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -83,7 +83,7 @@ export default function ContactPage() {
 
           {/* Map */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}

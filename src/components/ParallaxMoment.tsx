@@ -34,7 +34,7 @@ export default function ParallaxMoment({ word, caption, image, reverse = false, 
         {/* Framed image panel (drifts within its own bounds) */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, x: reverse ? 24 : -24 }}
+          initial={{ x: reverse ? 24 : -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -49,7 +49,7 @@ export default function ParallaxMoment({ word, caption, image, reverse = false, 
 
         {/* Text */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.15 }}
