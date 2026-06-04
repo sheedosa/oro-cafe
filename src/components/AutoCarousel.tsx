@@ -23,6 +23,7 @@ interface AutoCarouselProps {
 export default function AutoCarousel({ items, onLight = false }: AutoCarouselProps) {
   const ref = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
+  const visibleRef = useRef(false);
   const idleRef = useRef<number | undefined>(undefined);
   const dirRef = useRef(1);
   const reduce = useReducedMotion();
@@ -63,8 +64,17 @@ export default function AutoCarousel({ items, onLight = false }: AutoCarouselPro
     el.addEventListener('wheel', onInteract, { passive: true });
     el.addEventListener('touchstart', onInteract, { passive: true });
 
+    // Only auto-advance while the carousel is actually on screen — running a
+    // horizontal smooth-scroll while the user scrolls the page past it is what
+    // makes it feel like it "glitches".
+    const io = new IntersectionObserver(
+      ([entry]) => { visibleRef.current = entry.isIntersecting; },
+      { threshold: 0.35 },
+    );
+    io.observe(el);
+
     const id = window.setInterval(() => {
-      if (pausedRef.current) return;
+      if (pausedRef.current || !visibleRef.current) return;
       const max = el.scrollWidth - el.clientWidth;
       // Ping-pong at the ends so it glides back instead of a jarring rewind.
       if (dirRef.current > 0 && el.scrollLeft >= max - 4) dirRef.current = -1;
@@ -75,6 +85,7 @@ export default function AutoCarousel({ items, onLight = false }: AutoCarouselPro
     return () => {
       window.clearInterval(id);
       window.clearTimeout(idleRef.current);
+      io.disconnect();
       el.removeEventListener('pointerdown', onInteract);
       el.removeEventListener('wheel', onInteract);
       el.removeEventListener('touchstart', onInteract);
@@ -89,7 +100,7 @@ export default function AutoCarousel({ items, onLight = false }: AutoCarouselPro
     >
       <div
         ref={ref}
-        className="flex gap-5 md:gap-6 overflow-x-auto snap-x snap-mandatory px-4 md:px-10 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="flex gap-5 md:gap-6 overflow-x-auto overscroll-x-contain snap-x snap-proximity px-4 md:px-10 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [overflow-anchor:none] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((it, i) => (
           <div key={i} className="snap-center shrink-0 w-[72%] sm:w-[46%] md:w-[31%] lg:w-[23.5%]">

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import SmartImage from './SmartImage';
-import { assetUrl } from '../config/site';
+import BgVideo from './BgVideo';
 
 interface ParallaxMomentProps {
   word: string;
@@ -43,8 +43,8 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
     : undefined;
 
   return (
-    <section className="py-12 md:py-20 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+    <section className="py-8 md:py-12 px-4 md:px-8">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
         {/* Text — comes first (title before the image) */}
         <motion.div
           initial={{ y: 24 }}
@@ -54,10 +54,10 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
           className={reverse ? 'md:order-2' : ''}
         >
           {index != null && (
-            <span className="block font-sans text-[11px] uppercase tracking-[0.4em] text-sand mb-4">0{index}</span>
+            <span className="block font-sans text-[11px] uppercase tracking-[0.4em] text-sand mb-3">0{index}</span>
           )}
-          <h2 className="font-serif italic text-5xl md:text-7xl lg:text-8xl text-gold leading-none">{word}</h2>
-          <p className="mt-5 font-sans text-sm md:text-base text-ink/90 max-w-sm leading-relaxed">{caption}</p>
+          <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl text-gold leading-none">{word}</h2>
+          <p className="mt-4 font-sans text-sm text-ink/90 max-w-sm leading-relaxed">{caption}</p>
         </motion.div>
 
         {/* Media panel (drifts within its own bounds) */}
@@ -67,23 +67,11 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative w-full ${blend ? 'aspect-square' : 'aspect-[4/5] overflow-hidden'} ${reverse ? 'md:order-1' : ''}`}
+          className={`relative w-full max-w-[16rem] md:max-w-[20rem] mx-auto ${blend ? 'aspect-square' : 'aspect-[4/5] overflow-hidden'} ${reverse ? 'md:order-1' : ''}`}
         >
           <motion.div style={{ y, ...blendMask }} className="absolute inset-0 scale-110 will-change-transform">
             {video ? (
-              <video
-                className="w-full h-full object-cover pointer-events-none"
-                src={assetUrl(video)}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                controls={false}
-                disablePictureInPicture
-                tabIndex={-1}
-                aria-hidden="true"
-              />
+              <BgVideo src={video} className="w-full h-full object-cover pointer-events-none" />
             ) : (
               <SmartImage
                 src={image}
