@@ -54,7 +54,7 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
           className={reverse ? 'md:order-2' : ''}
         >
           {index != null && (
-            <span className="block font-sans text-[11px] uppercase tracking-[0.4em] text-gold-deep mb-4">0{index}</span>
+            <span className="block font-sans text-[11px] uppercase tracking-[0.4em] text-sand mb-4">0{index}</span>
           )}
           <h2 className="font-serif italic text-5xl md:text-7xl lg:text-8xl text-gold leading-none">{word}</h2>
           <p className="mt-5 font-sans text-sm md:text-base text-ink/90 max-w-sm leading-relaxed">{caption}</p>
@@ -97,7 +97,7 @@ export default function ParallaxMoment({ word, caption, image, video, blend = fa
 
           {/* Decorative offset frame — only when not blending */}
           {!blend && (
-            <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10"></div>
+            <div className="absolute inset-0 border border-sand/40 translate-x-4 translate-y-4 -z-10"></div>
           )}
         </motion.div>
       </div>

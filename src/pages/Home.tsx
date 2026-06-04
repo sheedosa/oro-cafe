@@ -158,16 +158,16 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Gallery — Discover what we serve */}
-      <section className="py-20 md:py-28 bg-burgundy overflow-hidden">
+      {/* Gallery — Discover what we serve (light "intermission" band) */}
+      <section className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} className="mb-12 md:mb-14" />
+          <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} onLight className="mb-12 md:mb-14" />
         </div>
 
-        <AutoCarousel items={galleryItems} />
+        <AutoCarousel items={galleryItems} onLight />
 
         <div className="text-center mt-12 px-4">
-          <a href={menuLink} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
+          <a href={menuLink} className="inline-block border border-burgundy bg-burgundy text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-burgundy-soft hover:border-burgundy-soft transition-colors">
             {t.gallery.button}
           </a>
         </div>

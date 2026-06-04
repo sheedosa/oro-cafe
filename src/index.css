@@ -15,6 +15,14 @@
   --color-gold-deep: #c4a35a;     /* readable gold for small labels on burgundy */
   --color-ink: #f0e4e0;           /* body copy — light/blush, reads on burgundy */
   --color-espresso: #1c1a17;      /* darkest accent bands */
+
+  /* Light "intermission" palette — lets the burgundy breathe. Used on a single
+     light band per page (gallery / values / contact details) and as a recurring
+     warm accent woven through the dark sections. */
+  --color-sand: #C6B39A;          /* warm taupe/gold accent — lines, cards, markers */
+  --color-linen: #ECE4D3;         /* airy cream — light SECTION backgrounds */
+  --color-gold-dark: #9d8242;     /* readable gold for labels/eyebrows ON light */
+  --color-cocoa: #3d2b24;         /* warm near-black body text ON light */
 }
 
 /* ============ Arabic (RTL) typography ============

@@ -7,14 +7,16 @@ interface SectionHeadingProps {
   title: string;
   /** Light variant for use on the dark espresso band. */
   light?: boolean;
+  /** On a light (linen/cream) background: darker gold labels, sand rules, burgundy title. */
+  onLight?: boolean;
   className?: string;
 }
 
 /** The repeated "eyebrow + hairline + italic serif heading" block used across sections. */
-export default function SectionHeading({ eyebrow, title, light = false, className = '' }: SectionHeadingProps) {
-  const accent = light ? 'text-gold' : 'text-gold-deep';
-  const line = light ? 'bg-gold/40' : 'bg-gold/40';
-  const heading = light ? 'text-gold' : 'text-gold';
+export default function SectionHeading({ eyebrow, title, light = false, onLight = false, className = '' }: SectionHeadingProps) {
+  const accent = onLight ? 'text-gold-dark' : light ? 'text-gold' : 'text-gold-deep';
+  const line = onLight ? 'bg-sand' : 'bg-gold/40';
+  const heading = onLight ? 'text-burgundy' : 'text-gold';
 
   return (
     <motion.div

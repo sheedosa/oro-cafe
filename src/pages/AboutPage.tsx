@@ -52,10 +52,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision · Mission · Values */}
-      <section className="py-20 md:py-28 bg-espresso text-gold relative overflow-hidden">
+      {/* Vision · Mission · Values (light "intermission" band) */}
+      <section className="py-20 md:py-28 bg-linen text-cocoa relative overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
         <div
-          className="absolute inset-0 pointer-events-none z-0 opacity-10"
+          className="absolute inset-0 pointer-events-none z-0 opacity-[0.05]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
           }}
@@ -66,25 +66,25 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="font-serif italic text-3xl md:text-4xl leading-tight mb-14 max-w-3xl mx-auto"
+            className="font-serif italic text-3xl md:text-4xl leading-tight mb-14 max-w-3xl mx-auto text-burgundy"
           >
             &ldquo;{t.values.statement}&rdquo;
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12 text-start max-w-2xl mx-auto">
             <div>
-              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 opacity-70">{t.about.visionLabel}</h3>
-              <p className="font-sans text-sm font-normal tracking-wide">{t.values.vision}</p>
+              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 text-gold-dark">{t.about.visionLabel}</h3>
+              <p className="font-sans text-sm font-normal tracking-wide text-cocoa/85">{t.values.vision}</p>
             </div>
             <div>
-              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 opacity-70">{t.about.missionLabel}</h3>
-              <p className="font-sans text-sm font-normal tracking-wide">{t.values.mission}</p>
+              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 text-gold-dark">{t.about.missionLabel}</h3>
+              <p className="font-sans text-sm font-normal tracking-wide text-cocoa/85">{t.values.mission}</p>
             </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
             {t.values.pillars.map(val => (
-              <span key={val} className="border border-gold/30 px-4 py-1.5 font-sans text-xs tracking-wider rounded-full hover:bg-gold hover:text-espresso transition-colors">{val}</span>
+              <span key={val} className="border border-sand px-4 py-1.5 font-sans text-xs tracking-wider rounded-full text-cocoa hover:bg-burgundy hover:text-cream hover:border-burgundy transition-colors">{val}</span>
             ))}
           </div>
         </div>

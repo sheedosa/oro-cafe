@@ -10,6 +10,8 @@ interface GalleryItem {
 
 interface AutoCarouselProps {
   items: readonly GalleryItem[];
+  /** Style for a light (linen/cream) section: cream cards, burgundy labels, light arrows. */
+  onLight?: boolean;
 }
 
 /**
@@ -18,7 +20,7 @@ interface AutoCarouselProps {
  * desktop arrows. Auto-advance pauses while the user interacts or hovers, and
  * is disabled entirely for prefers-reduced-motion.
  */
-export default function AutoCarousel({ items }: AutoCarouselProps) {
+export default function AutoCarousel({ items, onLight = false }: AutoCarouselProps) {
   const ref = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const idleRef = useRef<number | undefined>(undefined);
@@ -91,7 +93,7 @@ export default function AutoCarousel({ items }: AutoCarouselProps) {
       >
         {items.map((it, i) => (
           <div key={i} className="snap-center shrink-0 w-[72%] sm:w-[46%] md:w-[31%] lg:w-[23.5%]">
-            <div className="relative aspect-square rounded-2xl bg-burgundy-soft border border-gold/20 shadow-lg shadow-espresso/20 overflow-hidden flex items-center justify-center p-5">
+            <div className={`relative aspect-square rounded-2xl border overflow-hidden flex items-center justify-center p-5 ${onLight ? 'bg-cream border-sand/50 shadow-lg shadow-sand/30' : 'bg-burgundy-soft border-gold/20 shadow-lg shadow-espresso/20'}`}>
               <SmartImage
                 src={it.image}
                 alt={it.label || ''}
@@ -101,7 +103,7 @@ export default function AutoCarousel({ items }: AutoCarouselProps) {
               />
             </div>
             {it.label && (
-              <p className="mt-3 text-center font-serif italic text-lg text-gold">{it.label}</p>
+              <p className={`mt-3 text-center font-serif italic text-lg ${onLight ? 'text-burgundy' : 'text-gold'}`}>{it.label}</p>
             )}
           </div>
         ))}
@@ -112,7 +114,7 @@ export default function AutoCarousel({ items }: AutoCarouselProps) {
         type="button"
         aria-label="Previous"
         onClick={() => go(-1)}
-        className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-burgundy/85 border border-gold/30 text-gold hover:bg-gold hover:text-burgundy transition-all opacity-0 group-hover/carousel:opacity-100"
+        className={`hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full border transition-all opacity-0 group-hover/carousel:opacity-100 ${onLight ? 'bg-cream/90 border-burgundy/30 text-burgundy hover:bg-burgundy hover:text-cream' : 'bg-burgundy/85 border-gold/30 text-gold hover:bg-gold hover:text-burgundy'}`}
       >
         <ChevronLeft size={20} />
       </button>
@@ -120,7 +122,7 @@ export default function AutoCarousel({ items }: AutoCarouselProps) {
         type="button"
         aria-label="Next"
         onClick={() => go(1)}
-        className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-burgundy/85 border border-gold/30 text-gold hover:bg-gold hover:text-burgundy transition-all opacity-0 group-hover/carousel:opacity-100"
+        className={`hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full border transition-all opacity-0 group-hover/carousel:opacity-100 ${onLight ? 'bg-cream/90 border-burgundy/30 text-burgundy hover:bg-burgundy hover:text-cream' : 'bg-burgundy/85 border-gold/30 text-gold hover:bg-gold hover:text-burgundy'}`}
       >
         <ChevronRight size={20} />
       </button>
