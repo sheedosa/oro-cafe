@@ -111,6 +111,8 @@ export const site = {
       { image: '/images/social/4.jpg', url: '' },
       { image: '/images/social/5.jpg', url: '' },
       { image: '/images/social/6.jpg', url: '' },
+      { image: '/images/social/7.jpg', url: '' },
+      { image: '/images/social/8.jpg', url: '' },
     ],
   },
 
