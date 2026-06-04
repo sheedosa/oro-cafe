@@ -76,7 +76,7 @@ export default function Home() {
       {/* 2. Follow our journey — auto-scrolling post carousel (light band) */}
       <section id="social" className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <SectionHeading eyebrow={t.social.eyebrow} title={t.social.title} onLight className="mb-3" />
+          <SectionHeading eyebrow={t.social.eyebrow} title={t.social.title} className="mb-3" />
           <motion.p
             initial={{ y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
