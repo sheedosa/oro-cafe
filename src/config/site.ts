@@ -30,10 +30,9 @@ export const site = {
     mapsUrl: 'https://www.google.com/maps/place/Oro+Sweets+%26+Pastries/@32.0593966,20.0740673,17z/data=!3m1!4b1!4m6!3m5!1s0x13831b006d4053eb:0x1024f5228f3d1543!8m2!3d32.0593966!4d20.0740673!16s%2Fg%2F11zj6n6byk',
   },
 
-  // TODO: confirm real opening hours with the client before launch.
   hours: [
-    { days: 'Saturday – Thursday', time: '8:00 AM – 12:00 AM' },
-    { days: 'Friday', time: '2:00 PM – 12:00 AM' },
+    { days: 'Saturday – Thursday', time: '08:00 – 23:00' },
+    { days: 'Friday', time: '10:00 – 23:00' },
   ],
 
   // Leave a value empty ('') to hide that social icon.
