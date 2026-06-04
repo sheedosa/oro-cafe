@@ -73,8 +73,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Follow our journey — auto-scrolling post carousel (light band) */}
-      <section id="social" className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
+      {/* 2. Follow our journey — auto-scrolling post carousel */}
+      <section id="social" className="py-24 md:py-32 bg-burgundy overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <SectionHeading eyebrow={t.social.eyebrow} title={t.social.title} className="mb-3" />
           <motion.p
@@ -82,7 +82,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-center font-sans text-sm tracking-[0.2em] text-gold-dark mb-12"
+            className="text-center font-sans text-sm tracking-[0.2em] text-gold-deep mb-12"
           >
             {site.social.handle}
           </motion.p>
@@ -100,7 +100,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Oro post ${i + 1}`}
-                className="group relative block w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl border border-sand/50 shadow-lg shadow-sand/30 bg-cream"
+                className="group relative block w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl border border-gold/15 shadow-lg shadow-espresso/20 bg-burgundy-soft"
               >
                 <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
                   <SmartImage src={post.image} alt="" text="Post" className="w-full h-full" />
@@ -116,12 +116,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             {site.socials.instagram && (
-              <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-burgundy bg-burgundy text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-burgundy-soft hover:border-burgundy-soft transition-colors">
+              <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
                 <Instagram size={16} /> {t.social.followInstagram} <ArrowUpRight size={14} />
               </a>
             )}
             {site.socials.facebook && (
-              <a href={site.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-burgundy bg-burgundy text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-burgundy-soft hover:border-burgundy-soft transition-colors">
+              <a href={site.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
                 <Facebook size={16} /> {t.social.followFacebook} <ArrowUpRight size={14} />
               </a>
             )}
