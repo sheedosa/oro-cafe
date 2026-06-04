@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, Instagram, Facebook, ArrowUpRight } from 'lucide-react';
 import SmartImage from '../components/SmartImage';
 import SectionHeading from '../components/SectionHeading';
+import Marquee from '../components/Marquee';
 import ParallaxMoment from '../components/ParallaxMoment';
 import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl, assetUrl } from '../config/site';
 
 export default function Home() {
   const mapEmbed = `https://www.google.com/maps?q=${site.contact.coords}&z=17&output=embed`;
-  const fbEmbed =
-    `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(site.socials.facebook)}` +
-    `&tabs=timeline&width=500&height=640&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true`;
 
   return (
     <div className="flex flex-col w-full">
@@ -92,8 +90,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Follow our journey — live Facebook feed (straight after the hero) */}
-      <section id="social" className="py-24 md:py-32 bg-burgundy">
+      {/* 2. Follow our journey — auto-scrolling post carousel (straight after the hero) */}
+      <section id="social" className="py-24 md:py-32 bg-burgundy overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <SectionHeading eyebrow="Stay Connected" title="Follow Our Journey" className="mb-3" />
           <motion.p
@@ -105,27 +103,36 @@ export default function Home() {
           >
             {site.social.handle}
           </motion.p>
+        </div>
 
-          {/* Live Facebook page feed in a clean rounded frame */}
-          <motion.div
-            initial={{ y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mx-auto w-full max-w-[500px] rounded-2xl overflow-hidden border border-gold/25 shadow-xl shadow-espresso/30 bg-white"
-          >
-            <iframe
-              title="Oro Sweets & Pastries on Facebook"
-              src={fbEmbed}
-              className="w-full block"
-              style={{ height: 640, border: 'none' }}
-              scrolling="no"
-              loading="lazy"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            />
-          </motion.div>
+        {/* Full-width auto-scrolling strip of posts (drops into public/images/social/) */}
+        <Marquee
+          items={site.social.posts}
+          speed={45}
+          gap="1rem"
+          renderItem={(post, i) => {
+            const href = post.url || site.socials.facebook || site.socials.instagram || '#';
+            return (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View Oro post ${i + 1} on Facebook`}
+                className="group relative block w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl border border-gold/15 shadow-lg shadow-espresso/20 bg-burgundy-soft"
+              >
+                <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
+                  <SmartImage src={post.image} alt="" text="Post" className="w-full h-full" />
+                </div>
+                <div className="absolute inset-0 bg-espresso/0 group-hover:bg-espresso/45 transition-colors duration-300 flex items-center justify-center">
+                  <Facebook size={22} className="text-cream opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300" />
+                </div>
+              </a>
+            );
+          }}
+        />
 
-          {/* Follow buttons */}
+        {/* Follow buttons */}
+        <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             {site.socials.instagram && (
               <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
