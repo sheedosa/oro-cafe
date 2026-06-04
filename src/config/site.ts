@@ -74,6 +74,19 @@ export const site = {
     { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.webp', video: '', blend: true },
   ],
 
+  // "Discover what we serve" — auto-playing, browsable image gallery.
+  // Drop photos into public/images/gallery/ and list them here (label optional).
+  gallery: [
+    { image: '/images/gallery/croissant.webp', label: 'Honey Croissant' },
+    { image: '/images/gallery/crepe.webp', label: 'Pistachio Crepe' },
+    { image: '/images/gallery/cinnabon.webp', label: 'Cinnamon Roll' },
+    { image: '/images/gallery/pancakes.webp', label: 'Pancakes' },
+    { image: '/images/gallery/cold-drinks.webp', label: 'Cold Drinks' },
+    { image: '/images/gallery/mojito.webp', label: 'Mojito' },
+    { image: '/images/gallery/smoothie.webp', label: 'Smoothie' },
+    { image: '/images/gallery/tea-chocolate.webp', label: 'Hot Chocolate' },
+  ],
+
   // Vision / Mission / Values — shared by the homepage band and the About page.
   values: {
     statement: 'To be the first name in delivering an exceptional coffee & hospitality experience.',

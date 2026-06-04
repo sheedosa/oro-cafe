@@ -5,6 +5,7 @@ import SmartImage from '../components/SmartImage';
 import SectionHeading from '../components/SectionHeading';
 import Marquee from '../components/Marquee';
 import ParallaxMoment from '../components/ParallaxMoment';
+import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl, assetUrl } from '../config/site';
 
 export default function Home() {
@@ -176,34 +177,48 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Menu CTA */}
-      <section className="py-20 md:py-28 px-4 bg-burgundy text-center">
-        <motion.p
-          initial={{ y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="font-serif italic text-2xl md:text-4xl text-gold mb-8"
-        >
-          Discover everything we serve.
-        </motion.p>
-        <a href={menuUrl} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-          View the Full Menu
-        </a>
+      {/* Gallery — Discover what we serve (auto-playing, browsable) */}
+      <section className="py-20 md:py-28 bg-burgundy overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
+          <SectionHeading eyebrow="A Taste of Oro" title="Discover What We Serve" className="mb-12 md:mb-14" />
+        </div>
+
+        <AutoCarousel items={site.gallery} />
+
+        <div className="text-center mt-12 px-4">
+          <a href={menuUrl} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
+            View the Full Menu
+          </a>
+        </div>
       </section>
 
-      {/* 4. Visit / Contact preview */}
+      {/* 4. Visit / Contact preview — storefront image + map, then details */}
       <section id="visit" className="py-24 md:py-32 px-4 md:px-8 max-w-6xl mx-auto w-full">
-        <SectionHeading eyebrow="Visit Us" title="Come for the coffee." className="mb-16" />
+        <SectionHeading eyebrow="Visit Us" title="Come for the coffee." className="mb-12 md:mb-16" />
 
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
-          {/* Map — Oro location in Benghazi */}
+        {/* Storefront photo + map, side by side on desktop, stacked on mobile */}
+        <div className="grid md:grid-cols-2 gap-5 md:gap-8 mb-12 md:mb-16">
           <motion.div
-            initial={{ x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full md:w-1/2 aspect-[4/3] relative"
+            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gold/25 shadow-lg shadow-espresso/20"
+          >
+            <SmartImage
+              src={site.images.storefront}
+              alt="Oro storefront in Benghazi"
+              text="Storefront Photo"
+              className="w-full h-full"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.12 }}
+            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gold/25 shadow-lg shadow-espresso/20"
           >
             <iframe
               title="Oro — Benghazi location map"
@@ -214,54 +229,52 @@ export default function Home() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-            <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10 bg-burgundy pointer-events-none"></div>
-          </motion.div>
-
-          {/* Details */}
-          <motion.div
-            initial={{ x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full md:w-1/2"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
-              <div>
-                <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Location</h3>
-                <p className="font-sans text-sm text-ink/90 leading-relaxed">
-                  {site.contact.addressLines.map((line, i) => (
-                    <span key={i}>{line}{i < site.contact.addressLines.length - 1 && <br/>}</span>
-                  ))}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Phone</h3>
-                <a href={site.contact.phoneHref} className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors">{site.contact.phone}</a>
-              </div>
-              <div>
-                <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Email</h3>
-                <a href={`mailto:${site.contact.email}`} className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-all">{site.contact.email}</a>
-              </div>
-              <div>
-                <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Hours</h3>
-                <ul className="font-sans text-sm text-ink/90 space-y-1">
-                  {site.hours.map((h) => (
-                    <li key={h.days}>{h.days}<br/><span className="text-ink/70">{h.time}</span></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.contact.mapsUrl} target="_blank" rel="noreferrer" className="inline-block text-center border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-                Get Directions
-              </a>
-              <Link to="/contact" className="inline-block text-center border border-gold/60 bg-transparent text-gold-deep px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold hover:text-cream transition-colors">
-                Contact Us
-              </Link>
-            </div>
           </motion.div>
         </div>
+
+        {/* Details */}
+        <motion.div
+          initial={{ y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+            <div>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Location</h3>
+              <p className="font-sans text-sm text-ink/90 leading-relaxed">
+                {site.contact.addressLines.map((line, i) => (
+                  <span key={i}>{line}{i < site.contact.addressLines.length - 1 && <br/>}</span>
+                ))}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Phone</h3>
+              <a href={site.contact.phoneHref} className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors">{site.contact.phone}</a>
+            </div>
+            <div>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Email</h3>
+              <a href={`mailto:${site.contact.email}`} className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-all">{site.contact.email}</a>
+            </div>
+            <div>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Hours</h3>
+              <ul className="font-sans text-sm text-ink/90 space-y-1">
+                {site.hours.map((h) => (
+                  <li key={h.days}>{h.days}<br/><span className="text-ink/70">{h.time}</span></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={site.contact.mapsUrl} target="_blank" rel="noreferrer" className="inline-block text-center border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
+              Get Directions
+            </a>
+            <Link to="/contact" className="inline-block text-center border border-gold/60 bg-transparent text-gold-deep px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold hover:text-cream transition-colors">
+              Contact Us
+            </Link>
+          </div>
+        </motion.div>
       </section>
     </div>
   );
