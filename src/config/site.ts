@@ -80,10 +80,10 @@ export const site = {
     { image: '/images/gallery/crepe.webp', label: 'Pistachio Crepe' },
     { image: '/images/gallery/cinnabon.webp', label: 'Cinnamon Roll' },
     { image: '/images/gallery/pancakes.webp', label: 'Pancakes' },
-    { image: '/images/gallery/cold-drinks.webp', label: 'Cold Drinks' },
     { image: '/images/gallery/mojito.webp', label: 'Mojito' },
     { image: '/images/gallery/smoothie.webp', label: 'Smoothie' },
     { image: '/images/gallery/tea-chocolate.webp', label: 'Hot Chocolate' },
+    { image: '/images/gallery/cold-drinks.webp', label: 'Cold Drinks' },
   ],
 
   // Vision / Mission / Values — shared by the homepage band and the About page.

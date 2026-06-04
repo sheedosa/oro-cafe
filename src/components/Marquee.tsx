@@ -45,7 +45,7 @@ export default function Marquee<T>({
 
   if (reduce) {
     return (
-      <div className={`overflow-x-auto ${className}`}>
+      <div dir="ltr" className={`overflow-x-auto ${className}`}>
         <div className="flex w-max">
           <Sequence tag="a" />
         </div>
@@ -54,7 +54,7 @@ export default function Marquee<T>({
   }
 
   return (
-    <div className={`overflow-hidden flex ${className}`}>
+    <div dir="ltr" className={`overflow-hidden flex ${className}`}>
       <motion.div
         className="flex shrink-0 will-change-transform [backface-visibility:hidden]"
         animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}

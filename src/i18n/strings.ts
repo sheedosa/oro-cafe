@@ -31,10 +31,10 @@ const en = {
       'Pistachio Crepe',
       'Cinnamon Roll',
       'Pancakes',
-      'Cold Drinks',
       'Mojito',
       'Smoothie',
       'Hot Chocolate',
+      'Cold Drinks',
     ],
   },
 
@@ -132,10 +132,10 @@ const ar: typeof en = {
       'كريب بالفستق',
       'سينابون',
       'بان كيك',
-      'مشروبات باردة',
       'موخيتو',
       'سموذي',
       'شوكولاتة ساخنة',
+      'مشروبات باردة',
     ],
   },
 
