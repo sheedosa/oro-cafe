@@ -19,7 +19,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-burgundy/10 shadow-sm">
+      <nav className="fixed top-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center text-gold bg-burgundy/85 backdrop-blur-md border-b border-gold/15 rounded-b-3xl shadow-lg shadow-espresso/20">
         <Link to="/" className="z-50 shrink-0 inline-block focus:outline-none" aria-label={`${site.fullName} — home`}>
           <img
             src={logo}
@@ -35,7 +35,7 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.path}
-                className="text-xs uppercase tracking-[0.2em] font-sans transition-colors border-b border-transparent pb-1 text-burgundy/70 hover:text-burgundy"
+                className="text-xs uppercase tracking-[0.2em] font-sans transition-colors border-b border-transparent pb-1 text-gold-deep hover:text-gold"
               >
                 {link.name}
               </a>
@@ -46,7 +46,7 @@ export default function Navigation() {
                 end={link.path === '/'}
                 className={({ isActive }) =>
                   `text-xs uppercase tracking-[0.2em] font-sans transition-colors border-b pb-1 ${
-                    isActive ? 'text-burgundy border-gold' : 'text-burgundy/70 border-transparent hover:text-burgundy'
+                    isActive ? 'text-gold border-gold' : 'text-gold-deep border-transparent hover:text-gold'
                   }`
                 }
               >
@@ -58,7 +58,7 @@ export default function Navigation() {
 
         {/* Mobile Nav Toggle */}
         <button
-          className="md:hidden z-50 p-2 text-burgundy"
+          className="md:hidden z-50 p-2 text-gold-deep"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
@@ -75,7 +75,7 @@ export default function Navigation() {
           open: { opacity: 1, pointerEvents: 'auto', backdropFilter: 'blur(10px)' },
           closed: { opacity: 0, pointerEvents: 'none', backdropFilter: 'blur(0px)' },
         }}
-        className="fixed inset-0 z-40 bg-white/97 flex flex-col items-center justify-center"
+        className="fixed inset-0 z-40 bg-burgundy/95 flex flex-col items-center justify-center"
       >
         <div className="flex flex-col items-center gap-8">
           {navLinks.map((link, i) => (
@@ -90,7 +90,7 @@ export default function Navigation() {
                 <a
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl uppercase tracking-[0.2em] font-serif text-burgundy"
+                  className="text-2xl uppercase tracking-[0.2em] font-serif text-gold"
                 >
                   {link.name}
                 </a>
@@ -100,7 +100,7 @@ export default function Navigation() {
                   end={link.path === '/'}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `text-2xl uppercase tracking-[0.2em] font-serif ${isActive ? 'text-gold-deep' : 'text-burgundy'}`
+                    `text-2xl uppercase tracking-[0.2em] font-serif ${isActive ? 'text-gold-deep' : 'text-gold'}`
                   }
                 >
                   {link.name}

@@ -7,11 +7,10 @@ import Marquee from '../components/Marquee';
 import ParallaxMoment from '../components/ParallaxMoment';
 import { site, menuUrl, assetUrl } from '../config/site';
 
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")";
-
 export default function Home() {
-  const statementWords = site.values.statement.split(' ');
+  const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(
+    site.contact.addressLines.join(', '),
+  )}&output=embed`;
 
   return (
     <div className="flex flex-col w-full">
@@ -195,48 +194,12 @@ export default function Home() {
         </a>
       </section>
 
-      {/* 4. Kinetic brand statement */}
-      <section className="relative bg-espresso py-28 md:py-40 px-6 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: GRAIN }} />
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <p className="font-serif italic text-3xl md:text-5xl lg:text-6xl leading-snug text-gold flex flex-wrap justify-center gap-x-3 md:gap-x-4 gap-y-1">
-            {statementWords.map((w, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0.4 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-              >
-                {w}
-              </motion.span>
-            ))}
-          </p>
-
-          <motion.div
-            initial={{ y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-12 flex flex-wrap justify-center gap-3"
-          >
-            {site.values.pillars.map((val) => (
-              <span key={val} className="border border-gold/25 text-gold/80 px-4 py-1.5 font-sans text-[11px] tracking-[0.15em] uppercase rounded-full">{val}</span>
-            ))}
-          </motion.div>
-
-          <Link to="/about" className="inline-block mt-12 font-sans text-xs uppercase tracking-[0.2em] font-bold text-gold border-b border-gold/40 pb-1 hover:text-cream transition-colors">
-            Our story →
-          </Link>
-        </div>
-      </section>
-
-      {/* 5. Visit / Contact preview */}
+      {/* 4. Visit / Contact preview */}
       <section id="visit" className="py-24 md:py-32 px-4 md:px-8 max-w-6xl mx-auto w-full">
         <SectionHeading eyebrow="Visit Us" title="Come for the coffee." className="mb-16" />
 
         <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
-          {/* Storefront image */}
+          {/* Map — Oro location in Benghazi */}
           <motion.div
             initial={{ x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -244,13 +207,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="w-full md:w-1/2 aspect-[4/3] relative"
           >
-            <SmartImage
-              src={site.images.storefront}
-              alt="Oro storefront in Benghazi"
-              text="Storefront Photo"
-              className="w-full h-full"
+            <iframe
+              title="Oro — Benghazi location map"
+              src={mapEmbed}
+              className="absolute inset-0 w-full h-full"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
-            <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10 bg-burgundy"></div>
+            <div className="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 -z-10 bg-burgundy pointer-events-none"></div>
           </motion.div>
 
           {/* Details */}
