@@ -2,23 +2,25 @@ import { motion } from 'motion/react';
 import { Facebook, Instagram, MapPin, Phone, Mail, Globe } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { site } from '../config/site';
+import { useLang } from '../i18n/useLang';
 
 export default function ContactPage() {
+  const { t } = useLang();
   const mapEmbed = `https://www.google.com/maps?q=${site.contact.coords}&z=17&output=embed`;
 
   const details = [
-    { icon: MapPin, label: 'Location', value: site.contact.addressLines.join(', '), href: site.contact.mapsUrl, external: true },
-    { icon: Phone, label: 'Phone', value: site.contact.phone, href: site.contact.phoneHref },
-    { icon: Mail, label: 'Email', value: site.contact.email, href: `mailto:${site.contact.email}` },
-    { icon: Globe, label: 'Online', value: site.contact.website, href: site.contact.websiteHref, external: true },
+    { icon: MapPin, label: t.contact.locationLabel, value: t.visit.addressLines.join('، '), href: site.contact.mapsUrl, external: true, dir: undefined as string | undefined },
+    { icon: Phone, label: t.contact.phoneLabel, value: site.contact.phone, href: site.contact.phoneHref, external: false, dir: 'ltr' },
+    { icon: Mail, label: t.contact.emailLabel, value: site.contact.email, href: `mailto:${site.contact.email}`, external: false, dir: 'ltr' },
+    { icon: Globe, label: t.contact.onlineLabel, value: site.contact.website, href: site.contact.websiteHref, external: true, dir: 'ltr' },
   ];
 
   return (
     <div className="flex flex-col w-full">
       <PageHero
-        eyebrow="Get in Touch"
-        title="Contact"
-        subtitle={`We'd love to welcome you to Oro in ${site.location}.`}
+        eyebrow={t.contact.heroEyebrow}
+        title={t.contact.heroTitle}
+        subtitle={t.contact.heroSubtitle}
         image={site.images.contactHero}
         imageText="Contact Banner Image"
       />
@@ -34,7 +36,7 @@ export default function ContactPage() {
             className="w-full md:w-1/2"
           >
             <div className="space-y-7">
-              {details.map(({ icon: Icon, label, value, href, external }) => (
+              {details.map(({ icon: Icon, label, value, href, external, dir }) => (
                 <div key={label} className="flex items-start gap-4">
                   <div className="mt-0.5 text-gold-deep shrink-0"><Icon size={18} /></div>
                   <div>
@@ -42,7 +44,8 @@ export default function ContactPage() {
                     <a
                       href={href}
                       {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                      className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-words"
+                      {...(dir ? { dir } : {})}
+                      className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-words inline-block"
                     >
                       {value}
                     </a>
@@ -53,12 +56,12 @@ export default function ContactPage() {
 
             {/* Hours */}
             <div className="mt-10 border border-gold/25 bg-burgundy-soft shadow-sm px-7 py-6 max-w-sm">
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.3em] font-bold mb-5 text-gold-deep">Opening Hours</h3>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.3em] font-bold mb-5 text-gold-deep">{t.contact.hoursTitle}</h3>
               <ul className="space-y-2">
-                {site.hours.map((h) => (
+                {t.visit.hoursList.map((h) => (
                   <li key={h.days} className="flex items-center justify-between gap-6 font-sans text-sm text-ink/90">
                     <span className="tracking-wide">{h.days}</span>
-                    <span className="font-medium whitespace-nowrap">{h.time}</span>
+                    <span dir="ltr" className="font-medium whitespace-nowrap">{h.time}</span>
                   </li>
                 ))}
               </ul>
@@ -104,7 +107,7 @@ export default function ContactPage() {
               rel="noreferrer"
               className="inline-block mt-5 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors"
             >
-              Get Directions
+              {t.contact.getDirections}
             </a>
           </motion.div>
         </div>

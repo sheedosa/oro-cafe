@@ -1,8 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Set language/direction before the app renders to avoid a flash. Default: Arabic. -->
+    <script>
+      (function () {
+        try {
+          var l = localStorage.getItem('oro-lang');
+          if (l !== 'en') l = 'ar';
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+        } catch (e) {}
+      })();
+    </script>
     <meta name="theme-color" content="#5a2829" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

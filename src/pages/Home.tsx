@@ -7,15 +7,18 @@ import Marquee from '../components/Marquee';
 import ParallaxMoment from '../components/ParallaxMoment';
 import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl, assetUrl } from '../config/site';
+import { useLang } from '../i18n/useLang';
 
 export default function Home() {
+  const { t, lang } = useLang();
   const mapEmbed = `https://www.google.com/maps?q=${site.contact.coords}&z=17&output=embed`;
+  const menuLink = `${menuUrl}?lang=${lang}`;
+  const galleryItems = site.gallery.map((g, i) => ({ image: g.image, label: t.gallery.labels[i] }));
 
   return (
     <div className="flex flex-col w-full">
-      {/* 1. Hero — full-bleed background video (plays once, freezes on last frame; no overlay) */}
+      {/* 1. Hero — full-bleed background video */}
       <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 overflow-hidden">
-        {/* Full-bleed video background — no overlay/tint over it */}
         <div className="absolute inset-0 z-0">
           {site.video.hero ? (
             <video
@@ -33,30 +36,21 @@ export default function Home() {
               aria-hidden="true"
             />
           ) : (
-            <SmartImage
-              src={site.images.hero}
-              alt="Oro — sweets, pastries and specialty coffee"
-              text="Hero Video / Image"
-              className="w-full h-full"
-            />
+            <SmartImage src={site.images.hero} alt="Oro" text="Hero Video / Image" className="w-full h-full" />
           )}
         </div>
 
-        {/* Content over the video. A soft text-shadow keeps it legible — this is a
-            text property, not an overlay layer over the video. */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl [text-shadow:0_2px_18px_rgba(28,26,23,0.65)]">
-          {/* Title */}
           <motion.h1
             initial={{ scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.15 }}
-            className="font-serif text-[72px] md:text-[104px] lg:text-[128px] leading-none text-gold mb-3 [text-shadow:0_4px_28px_rgba(28,26,23,0.7)]"
+            className="font-brand font-serif text-[72px] md:text-[104px] lg:text-[128px] leading-none text-gold mb-3 [text-shadow:0_4px_28px_rgba(28,26,23,0.7)]"
           >
             ORO
           </motion.h1>
 
-          {/* Tagline */}
           <motion.p
             initial={{ y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,10 +58,9 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="font-sans text-[11px] md:text-xs uppercase tracking-[0.3em] font-semibold text-cream mb-9"
           >
-            {site.tagline} &nbsp;&middot;&nbsp; {site.location}
+            {t.hero.tagline} &nbsp;&middot;&nbsp; {t.hero.location}
           </motion.p>
 
-          {/* Buttons */}
           <motion.div
             initial={false}
             whileInView={{ opacity: 1 }}
@@ -75,25 +68,24 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-5 font-sans text-xs uppercase tracking-[0.2em] [text-shadow:none]"
           >
-            <a href={menuUrl} className="border border-gold bg-gold text-cream px-8 py-4 shadow-lg hover:bg-gold-deep hover:border-gold-deep transition-colors">
-              View the Menu
+            <a href={menuLink} className="border border-gold bg-gold text-cream px-8 py-4 shadow-lg hover:bg-gold-deep hover:border-gold-deep transition-colors">
+              {t.hero.viewMenu}
             </a>
             <Link to="/contact" className="border border-cream text-cream px-8 py-4 hover:bg-cream hover:text-burgundy transition-colors">
-              Find Us
+              {t.hero.findUs}
             </Link>
           </motion.div>
         </div>
 
-        {/* Scroll cue */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 text-cream/70 animate-bounce">
           <ChevronDown size={22} />
         </div>
       </section>
 
-      {/* 2. Follow our journey — auto-scrolling post carousel (straight after the hero) */}
+      {/* 2. Follow our journey — auto-scrolling post carousel */}
       <section id="social" className="py-24 md:py-32 bg-burgundy overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <SectionHeading eyebrow="Stay Connected" title="Follow Our Journey" className="mb-3" />
+          <SectionHeading eyebrow={t.social.eyebrow} title={t.social.title} className="mb-3" />
           <motion.p
             initial={{ y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +97,6 @@ export default function Home() {
           </motion.p>
         </div>
 
-        {/* Full-width auto-scrolling strip of posts (drops into public/images/social/) */}
         <Marquee
           items={site.social.posts}
           speed={45}
@@ -117,7 +108,7 @@ export default function Home() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`View Oro post ${i + 1} on Facebook`}
+                aria-label={`Oro post ${i + 1}`}
                 className="group relative block w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl border border-gold/15 shadow-lg shadow-espresso/20 bg-burgundy-soft"
               >
                 <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110">
@@ -131,17 +122,16 @@ export default function Home() {
           }}
         />
 
-        {/* Follow buttons */}
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             {site.socials.instagram && (
               <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-                <Instagram size={16} /> Follow on Instagram <ArrowUpRight size={14} />
+                <Instagram size={16} /> {t.social.followInstagram} <ArrowUpRight size={14} />
               </a>
             )}
             {site.socials.facebook && (
               <a href={site.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-                <Facebook size={16} /> Follow on Facebook <ArrowUpRight size={14} />
+                <Facebook size={16} /> {t.social.followFacebook} <ArrowUpRight size={14} />
               </a>
             )}
           </div>
@@ -151,10 +141,10 @@ export default function Home() {
       {/* 3. Signature moments — title first, then image */}
       <div id="menu">
         {site.moments.map((m, i) => (
-          <div key={m.word}>
+          <div key={i}>
             <ParallaxMoment
-              word={m.word}
-              caption={m.caption}
+              word={t.moments[i].word}
+              caption={t.moments[i].caption}
               image={m.image}
               video={m.video}
               blend={m.blend}
@@ -165,26 +155,25 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Gallery — Discover what we serve (auto-playing, browsable) */}
+      {/* Gallery — Discover what we serve */}
       <section className="py-20 md:py-28 bg-burgundy overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <SectionHeading eyebrow="A Taste of Oro" title="Discover What We Serve" className="mb-12 md:mb-14" />
+          <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} className="mb-12 md:mb-14" />
         </div>
 
-        <AutoCarousel items={site.gallery} />
+        <AutoCarousel items={galleryItems} />
 
         <div className="text-center mt-12 px-4">
-          <a href={menuUrl} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-            View the Full Menu
+          <a href={menuLink} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
+            {t.gallery.button}
           </a>
         </div>
       </section>
 
       {/* 4. Visit / Contact preview — storefront image + map, then details */}
       <section id="visit" className="py-24 md:py-32 px-4 md:px-8 max-w-6xl mx-auto w-full">
-        <SectionHeading eyebrow="Visit Us" title="Come for the coffee." className="mb-12 md:mb-16" />
+        <SectionHeading eyebrow={t.visit.eyebrow} title={t.visit.title} className="mb-12 md:mb-16" />
 
-        {/* Storefront photo + map, side by side on desktop, stacked on mobile */}
         <div className="grid md:grid-cols-2 gap-5 md:gap-8 mb-12 md:mb-16">
           <motion.div
             initial={{ y: 24 }}
@@ -193,13 +182,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gold/25 shadow-lg shadow-espresso/20"
           >
-            <SmartImage
-              src={site.images.storefront}
-              alt="Oro storefront in Benghazi"
-              text="Storefront Photo"
-              className="w-full h-full"
-              imgClassName="object-top"
-            />
+            <SmartImage src={site.images.storefront} alt="Oro storefront in Benghazi" text="Storefront Photo" className="w-full h-full" imgClassName="object-top" />
           </motion.div>
 
           <motion.div
@@ -221,35 +204,29 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Details */}
-        <motion.div
-          initial={{ y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+        <motion.div initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center md:text-start">
             <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Location</h3>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.locationLabel}</h3>
               <p className="font-sans text-sm text-ink/90 leading-relaxed">
-                {site.contact.addressLines.map((line, i) => (
-                  <span key={i}>{line}{i < site.contact.addressLines.length - 1 && <br/>}</span>
+                {t.visit.addressLines.map((line, i) => (
+                  <span key={i}>{line}{i < t.visit.addressLines.length - 1 && <br />}</span>
                 ))}
               </p>
             </div>
             <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Phone</h3>
-              <a href={site.contact.phoneHref} className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors">{site.contact.phone}</a>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.phoneLabel}</h3>
+              <a href={site.contact.phoneHref} dir="ltr" className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors inline-block">{site.contact.phone}</a>
             </div>
             <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Email</h3>
-              <a href={`mailto:${site.contact.email}`} className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-all">{site.contact.email}</a>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.emailLabel}</h3>
+              <a href={`mailto:${site.contact.email}`} dir="ltr" className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-all inline-block">{site.contact.email}</a>
             </div>
             <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">Hours</h3>
+              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.hoursLabel}</h3>
               <ul className="font-sans text-sm text-ink/90 space-y-1">
-                {site.hours.map((h) => (
-                  <li key={h.days}>{h.days}<br/><span className="text-ink/70">{h.time}</span></li>
+                {t.visit.hoursList.map((h) => (
+                  <li key={h.days}>{h.days}<br /><span dir="ltr" className="text-ink/70 inline-block">{h.time}</span></li>
                 ))}
               </ul>
             </div>
@@ -257,10 +234,10 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={site.contact.mapsUrl} target="_blank" rel="noreferrer" className="inline-block text-center border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-              Get Directions
+              {t.visit.getDirections}
             </a>
             <Link to="/contact" className="inline-block text-center border border-gold/60 bg-transparent text-gold-deep px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold hover:text-cream transition-colors">
-              Contact Us
+              {t.visit.contactUs}
             </Link>
           </div>
         </motion.div>

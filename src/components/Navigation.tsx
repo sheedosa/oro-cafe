@@ -1,21 +1,25 @@
 import { motion } from 'motion/react';
-import { Menu as MenuIcon, X } from 'lucide-react';
+import { Menu as MenuIcon, X, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo-oro-v3.png';
 import { site, menuUrl } from '../config/site';
+import { useLang } from '../i18n/useLang';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, lang, toggle } = useLang();
 
-  // `Menu` is a standalone self-hosted page, so it's a plain link (external: true)
-  // rather than an in-app route.
+  // `Menu` is a standalone self-hosted page (passes the language as a query param),
+  // so it's a plain link (external: true) rather than an in-app route.
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Menu', path: menuUrl, external: true },
-    { name: 'Contact', path: '/contact' },
+    { name: t.nav.home, path: '/' },
+    { name: t.nav.about, path: '/about' },
+    { name: t.nav.menu, path: `${menuUrl}?lang=${lang}`, external: true },
+    { name: t.nav.contact, path: '/contact' },
   ];
+
+  const toggleLabel = lang === 'ar' ? 'EN' : 'العربية';
 
   return (
     <>
@@ -54,17 +58,33 @@ export default function Navigation() {
               </NavLink>
             ),
           )}
+          <button
+            onClick={toggle}
+            aria-label="Switch language"
+            className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 px-3 py-1.5 text-[11px] font-sans font-bold tracking-[0.1em] text-gold-deep hover:bg-gold hover:text-burgundy transition-colors"
+          >
+            <Globe size={13} /> {toggleLabel}
+          </button>
         </div>
 
-        {/* Mobile Nav Toggle */}
-        <button
-          className="md:hidden z-50 p-2 text-gold-deep"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
-        </button>
+        {/* Mobile controls */}
+        <div className="md:hidden flex items-center gap-1">
+          <button
+            onClick={toggle}
+            aria-label="Switch language"
+            className="z-50 inline-flex items-center gap-1 rounded-full border border-gold/40 px-3 py-1.5 text-[11px] font-sans font-bold tracking-[0.1em] text-gold-deep hover:bg-gold hover:text-burgundy transition-colors"
+          >
+            <Globe size={13} /> {toggleLabel}
+          </button>
+          <button
+            className="z-50 p-2 text-gold-deep"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Nav Overlay */}

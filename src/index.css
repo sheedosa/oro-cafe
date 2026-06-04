@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -15,6 +15,33 @@
   --color-gold-deep: #c4a35a;     /* readable gold for small labels on burgundy */
   --color-ink: #f0e4e0;           /* body copy — light/blush, reads on burgundy */
   --color-espresso: #1c1a17;      /* darkest accent bands */
+}
+
+/* ============ Arabic (RTL) typography ============
+   When the site is in Arabic, render everything in Cairo (matching the menu),
+   and neutralise the Latin typographic treatments that break Arabic:
+   uppercasing (Arabic has no case), letter-spacing (breaks ligatures), and
+   faux-italic. The Latin "ORO" wordmark keeps its serif via .font-brand. */
+html[lang="ar"] {
+  font-family: var(--font-arabic);
+}
+html[lang="ar"] .font-serif,
+html[lang="ar"] .font-sans {
+  font-family: var(--font-arabic);
+}
+html[lang="ar"] .uppercase {
+  text-transform: none;
+}
+html[lang="ar"] [class*="tracking-"] {
+  letter-spacing: 0;
+}
+html[lang="ar"] .italic {
+  font-style: normal;
+}
+/* The ORO wordmark stays Latin/serif in both languages. */
+.font-brand,
+html[lang="ar"] .font-brand {
+  font-family: var(--font-serif);
 }
 
 /* Background videos must never show native controls or the WebKit

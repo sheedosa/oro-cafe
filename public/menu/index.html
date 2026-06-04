@@ -80,6 +80,55 @@
   .en-serif { font-family: 'Cormorant SC', 'Cormorant Garamond', serif; letter-spacing: .25em; font-weight: 500; }
   .en-display { font-family: 'Cormorant Garamond', serif; }
 
+  /* ============ Single-language filtering (driven by ?lang= on the URL) ============
+     The site links here with ?lang=ar or ?lang=en so the menu shows ONLY that
+     language: Arabic on the Arabic site, English on the English site. A small
+     head script adds .lang-ar / .lang-en to <html>. Defaults to Arabic. */
+  html.lang-ar .item .name .en,
+  html.lang-ar .category-scroll a .nav-en,
+  html.lang-ar .section-head .en-title,
+  html.lang-ar .hero-scroll .scroll-en,
+  html.lang-ar .note-en,
+  html.lang-ar .subcat-en { display: none !important; }
+
+  html.lang-en .item .name .ar,
+  html.lang-en .category-scroll a .nav-ar,
+  html.lang-en .section-head .ar-title,
+  html.lang-en .hero-scroll .scroll-ar,
+  html.lang-en .note-ar,
+  html.lang-en .subcat-ar { display: none !important; }
+
+  /* Per-language note + subcat text styling (only one language ever shows). */
+  .note-ar { font-family: 'Cairo', 'Tajawal', sans-serif; direction: rtl; }
+  .note-en { direction: ltr; }
+  .subcat-ar { direction: rtl; }
+  html.lang-en .subcat .subcat-en {
+    font-family: 'Cormorant SC', 'Cormorant Garamond', serif;
+    letter-spacing: .18em;
+  }
+
+  /* English-only: promote the English text from a faded subtitle to the primary line. */
+  html.lang-en .item .name .en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2vw, 20px);
+    font-style: normal;
+    font-weight: 500;
+    opacity: 1;
+    letter-spacing: .02em;
+  }
+  html.lang-en .category-scroll a .nav-en {
+    font-size: 13px;
+    letter-spacing: .12em;
+    opacity: 1;
+  }
+  html.lang-en .section-head .en-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: .1em;
+    font-size: clamp(30px, 5vw, 52px);
+    margin-top: 0;
+  }
+
   .container {
     width: min(1180px, 100% - 40px);
     margin-inline: auto;
@@ -643,6 +692,19 @@
     .category-scroll a { padding: 12px 16px; font-size: 11px; letter-spacing: .2em; }
   }
 </style>
+<!-- Show a single language based on ?lang= (ar | en). Default: Arabic (site default).
+     Runs before paint so only the active language is ever rendered. -->
+<script>
+  (function () {
+    var l = 'ar';
+    try {
+      var p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en') l = 'en';
+    } catch (e) {}
+    document.documentElement.lang = l;
+    document.documentElement.classList.add('lang-' + l);
+  })();
+</script>
 </head>
 <body>
 
@@ -713,14 +775,14 @@
       <div class="items-cell">
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">فلات وايت</span><span class="en">Flat White</span></div><div class="price">5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">إسبريسو</span><span class="en">Espresso</span><span class="note">دبل + 2 د.ل · Double +2</span></div><div class="price">4<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">مكياطة</span><span class="en">Macchiato</span><span class="note">دبل + 2 د.ل · Double +2</span></div><div class="price">5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">أمريكانو</span><span class="en">Americano</span><span class="note">دبل + 3 د.ل · Double +3</span></div><div class="price">5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span><span class="note">دبل + 3 د.ل · Double +3</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كافيه لاتيه</span><span class="en">Café Latte</span><span class="note">دبل + 3 د.ل · Double +3</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">نسكافيه</span><span class="en">Nescafé</span><span class="note">دبل + 2 · محلى + 2 د.ل</span></div><div class="price">5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">إسبريسو</span><span class="en">Espresso</span><span class="note"><span class="note-ar">دبل + 2 د.ل</span><span class="note-en">Double +2</span></span></div><div class="price">4<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">مكياطة</span><span class="en">Macchiato</span><span class="note"><span class="note-ar">دبل + 2 د.ل</span><span class="note-en">Double +2</span></span></div><div class="price">5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">أمريكانو</span><span class="en">Americano</span><span class="note"><span class="note-ar">دبل + 3 د.ل</span><span class="note-en">Double +3</span></span></div><div class="price">5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span><span class="note"><span class="note-ar">دبل + 3 د.ل</span><span class="note-en">Double +3</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كافيه لاتيه</span><span class="en">Café Latte</span><span class="note"><span class="note-ar">دبل + 3 د.ل</span><span class="note-en">Double +3</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">نسكافيه</span><span class="en">Nescafé</span><span class="note"><span class="note-ar">دبل + 2 · محلى + 2 د.ل</span><span class="note-en">Double +2 · Sweetened +2 LYD</span></span></div><div class="price">5<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">قهوة عربية</span><span class="en">Arabic Coffee</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">سبسيال</span><span class="en">Special</span><span class="note">دبل + 2 د.ل · Double +2</span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">سبسيال</span><span class="en">Special</span><span class="note"><span class="note-ar">دبل + 2 د.ل</span><span class="note-en">Double +2</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
         </ul>
       </div>
     </div>
@@ -736,22 +798,22 @@
         <div class="caption">Tea &amp; chocolate</div>
       </div>
       <div class="items-cell">
-        <div class="subcat ar">شاي أحمر · Red Tea</div>
+        <div class="subcat"><span class="subcat-ar">شاي أحمر</span><span class="subcat-en">Red Tea</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">ليبتون</span><span class="en">Lipton</span></div><div class="price">3<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">شاي تونسي</span><span class="en">Tunisian Tea</span></div><div class="price">4<span class="unit">LYD</span></div></li>
         </ul>
-        <div class="subcat ar">شاي أخضر · Green Tea</div>
+        <div class="subcat"><span class="subcat-ar">شاي أخضر</span><span class="subcat-en">Green Tea</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">ليبتون</span><span class="en">Lipton</span></div><div class="price">3<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">شاي تونسي</span><span class="en">Tunisian Tea</span></div><div class="price">4<span class="unit">LYD</span></div></li>
         </ul>
-        <div class="subcat ar">هوت شوكليت · Hot Chocolate</div>
+        <div class="subcat"><span class="subcat-ar">هوت شوكليت</span><span class="subcat-en">Hot Chocolate</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">هوت شوكليت بالمكسرات</span><span class="en">Hot Chocolate with Nuts</span></div><div class="price">12<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">هوت شوكليت تيراميسو</span><span class="en">Hot Chocolate Tiramisu</span></div><div class="price">14<span class="unit">LYD</span></div></li>
         </ul>
-        <div class="subcat ar">سنترا · Sentra</div>
+        <div class="subcat"><span class="subcat-ar">سنترا</span><span class="subcat-en">Sentra</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">سنترا — صغير</span><span class="en">Sentra — Small</span></div><div class="price">10<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">سنترا — كبير</span><span class="en">Sentra — Large</span></div><div class="price">18<span class="unit">LYD</span></div></li>
@@ -974,7 +1036,7 @@
           <li class="item"><div class="name"><span class="ar">نوتيلا</span><span class="en">Nutella</span></div><div class="price">12<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">بستاشيو</span><span class="en">Pistachio</span></div><div class="price">12<span class="unit">LYD</span></div></li>
         </ul>
-        <div class="subcat ar">علبة — 8 قطع · Box of 8</div>
+        <div class="subcat"><span class="subcat-ar">علبة — 8 قطع</span><span class="subcat-en">Box of 8</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">علبة كوكيز شوكلاتة</span><span class="en">Chocolate Cookie Box</span></div><div class="price">20<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">علبة كوكيز بستاشيو</span><span class="en">Pistachio Cookie Box</span></div><div class="price">20<span class="unit">LYD</span></div></li>
@@ -1086,12 +1148,12 @@
     </div>
     <div class="menu-grid">
       <div class="items-cell">
-        <div class="subcat ar">قمح — شعير — شوفان · Wheat · Barley · Oat</div>
+        <div class="subcat"><span class="subcat-ar">قمح — شعير — شوفان</span><span class="subcat-en">Wheat · Barley · Oat</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">ساندوتش أومليت</span><span class="en">Omelette Sandwich</span></div><div class="price">8<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">ساندوتش تن وجبنة</span><span class="en">Tuna &amp; Cheese Sandwich</span></div><div class="price">10<span class="unit">LYD</span></div></li>
         </ul>
-        <div class="subcat ar">إفطار صباحي صحي · Healthy Breakfast</div>
+        <div class="subcat"><span class="subcat-ar">إفطار صباحي صحي</span><span class="subcat-en">Healthy Breakfast</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">بوكس ساندوتش</span><span class="en">Sandwich Box</span></div><div class="price">12<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">توست أجبان</span><span class="en">Cheese Toast</span></div><div class="price">16<span class="unit">LYD</span></div></li>
@@ -1155,7 +1217,7 @@
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">سادة</span><span class="en">Plain</span></div><div class="price">7<span class="unit">LYD</span></div></li>
         </ul>
-        <div class="subcat ar">إضافة · Add‑on</div>
+        <div class="subcat"><span class="subcat-ar">إضافة</span><span class="subcat-en">Add‑on</span></div>
         <ul class="item-list">
           <li class="item"><div class="name"><span class="ar">نوتيلا</span><span class="en">Nutella</span></div><div class="price">+3<span class="unit">LYD</span></div></li>
           <li class="item"><div class="name"><span class="ar">فستق</span><span class="en">Pistachio</span></div><div class="price">+3<span class="unit">LYD</span></div></li>
@@ -1216,26 +1278,26 @@
     <div class="menu-grid">
       <div class="items-cell">
         <ul class="item-list">
-          <li class="item"><div class="name"><span class="ar">مسخن</span><span class="en">Musakhan</span><span class="note">رول صغير من خبز الصاج محشو بدجاج مطهو مع السماق، الزيتون والبصل.</span></div><div class="price">3<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">صفيحة جبنة</span><span class="en">Cheese Sfeeha</span><span class="note">عجينة خفيفة مغطاة بمزيج من الأجبان الغنية، مخبوزة حتى الذوبان.</span></div><div class="price">3<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">صفيحة سبانخ</span><span class="en">Spinach Sfeeha</span><span class="note">عجينة خفيفة محشوة بالسبانخ الطازجة مع الليمون والسماق.</span></div><div class="price">3.5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">صفيحة سبانخ وجبنة</span><span class="en">Spinach &amp; Cheese Sfeeha</span><span class="note">عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.</span></div><div class="price">3<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">صفيحة مفروم</span><span class="en">Minced Meat Sfeeha</span><span class="note">رقاقة عجين مقرمشة، تعلوها طبقة من اللحم المتبل مع البصل والطماطم.</span></div><div class="price">4<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">بوريك جبنة</span><span class="en">Cheese Borek</span><span class="note">أصابع من العجين الهش محشوة بمزيج الأجبان البيضاء والأعشاب.</span></div><div class="price">3.5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">بوريك مفروم</span><span class="en">Minced Meat Borek</span><span class="note">طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل.</span></div><div class="price">4<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كرواسون تن</span><span class="en">Tuna Croissant</span><span class="note">كرواسون محشو بالتن المتبل مع الزيتون والأعشاب الساخنة.</span></div><div class="price">3.5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">شاورما دجاج</span><span class="en">Chicken Shawarma</span><span class="note">لفائف صغيرة (ميني) من شاورما الدجاج المتبلة، مع الثومية والمخلل.</span></div><div class="price">4<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">ميني بيتزا</span><span class="en">Mini Pizza</span><span class="note">قطع بيتزا صغيرة، مغطاة بصلصة الطماطم وجبنة الموزاريلا.</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">ميني برجر</span><span class="en">Mini Burger</span><span class="note">قطعة صغيرة من لحم البقر المشوي داخل خبز طري، مع جبنة ذائبة.</span></div><div class="price">5.5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">بيتزا ملفوفة تن</span><span class="en">Tuna Pizza Roll</span><span class="note">رول من عجينة البيتزا الهشة محشو بالتن الفاخر وصلصة الطماطم.</span></div><div class="price">5.5<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">بيتزا ملفوفة مفروم</span><span class="en">Minced Meat Pizza Roll</span><span class="note">لفائف من العجين الذهبي بداخلها مزيج من اللحم المفروم المتبل.</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">رهيفة دجاج</span><span class="en">Chicken Reheefa</span><span class="note">رول من عجينة البيتزا الهشة محشو بالتن الفاخر، صوص الطماطم، جبنة موزاريلا الساخنة.</span></div><div class="price">7<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">رهيفة مفروم</span><span class="en">Minced Meat Reheefa</span><span class="note">رقاقة عجين مقرمشة ومخبوزة، تعلوها طبقة من اللحم المفروم المتبل.</span></div><div class="price">8<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كرواسون فاهيتا</span><span class="en">Fajita Croissant</span><span class="note">قطع كرواسون صغيرة ومقرمشة، محشوة بدجاج الفاهيتا المتبل مع الفلفل الملون.</span></div><div class="price">7<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كرسبي دجاج</span><span class="en">Crispy Chicken</span><span class="note">قطع دجاج مقرمشة ذهبية من الخارج، طرية من الداخل، متبلة بخلطتنا السرية.</span></div><div class="price">7<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كباب</span><span class="en">Kabab</span><span class="note">قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">كفتة</span><span class="en">Kofta</span><span class="note">أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.</span></div><div class="price">6<span class="unit">LYD</span></div></li>
-          <li class="item"><div class="name"><span class="ar">تارت دجاج</span><span class="en">Chicken Tart</span><span class="note">طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل مع البصل والبهارات.</span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">مسخن</span><span class="en">Musakhan</span><span class="note"><span class="note-ar">رول صغير من خبز الصاج محشو بدجاج مطهو مع السماق، الزيتون والبصل.</span><span class="note-en">A small saj-bread roll filled with chicken cooked with sumac, olives and onion.</span></span></div><div class="price">3<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">صفيحة جبنة</span><span class="en">Cheese Sfeeha</span><span class="note"><span class="note-ar">عجينة خفيفة مغطاة بمزيج من الأجبان الغنية، مخبوزة حتى الذوبان.</span><span class="note-en">Light dough topped with a blend of rich cheeses, baked until melted.</span></span></div><div class="price">3<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">صفيحة سبانخ</span><span class="en">Spinach Sfeeha</span><span class="note"><span class="note-ar">عجينة خفيفة محشوة بالسبانخ الطازجة مع الليمون والسماق.</span><span class="note-en">Light dough filled with fresh spinach, lemon and sumac.</span></span></div><div class="price">3.5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">صفيحة سبانخ وجبنة</span><span class="en">Spinach &amp; Cheese Sfeeha</span><span class="note"><span class="note-ar">عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.</span><span class="note-en">Light dough filled with fresh spinach and a blend of white cheeses.</span></span></div><div class="price">3<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">صفيحة مفروم</span><span class="en">Minced Meat Sfeeha</span><span class="note"><span class="note-ar">رقاقة عجين مقرمشة، تعلوها طبقة من اللحم المتبل مع البصل والطماطم.</span><span class="note-en">Crisp thin dough topped with seasoned meat, onion and tomato.</span></span></div><div class="price">4<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">بوريك جبنة</span><span class="en">Cheese Borek</span><span class="note"><span class="note-ar">أصابع من العجين الهش محشوة بمزيج الأجبان البيضاء والأعشاب.</span><span class="note-en">Crisp pastry fingers filled with a blend of white cheeses and herbs.</span></span></div><div class="price">3.5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">بوريك مفروم</span><span class="en">Minced Meat Borek</span><span class="note"><span class="note-ar">طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل.</span><span class="note-en">Layers of crisp jallash pastry filled with spiced minced meat.</span></span></div><div class="price">4<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كرواسون تن</span><span class="en">Tuna Croissant</span><span class="note"><span class="note-ar">كرواسون محشو بالتن المتبل مع الزيتون والأعشاب الساخنة.</span><span class="note-en">Croissant filled with seasoned tuna, olives and warm herbs.</span></span></div><div class="price">3.5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">شاورما دجاج</span><span class="en">Chicken Shawarma</span><span class="note"><span class="note-ar">لفائف صغيرة (ميني) من شاورما الدجاج المتبلة، مع الثومية والمخلل.</span><span class="note-en">Mini rolls of seasoned chicken shawarma with garlic sauce and pickles.</span></span></div><div class="price">4<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">ميني بيتزا</span><span class="en">Mini Pizza</span><span class="note"><span class="note-ar">قطع بيتزا صغيرة، مغطاة بصلصة الطماطم وجبنة الموزاريلا.</span><span class="note-en">Small pizza pieces topped with tomato sauce and mozzarella.</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">ميني برجر</span><span class="en">Mini Burger</span><span class="note"><span class="note-ar">قطعة صغيرة من لحم البقر المشوي داخل خبز طري، مع جبنة ذائبة.</span><span class="note-en">A small grilled beef patty in soft bread with melted cheese.</span></span></div><div class="price">5.5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">بيتزا ملفوفة تن</span><span class="en">Tuna Pizza Roll</span><span class="note"><span class="note-ar">رول من عجينة البيتزا الهشة محشو بالتن الفاخر وصلصة الطماطم.</span><span class="note-en">A roll of crisp pizza dough filled with premium tuna and tomato sauce.</span></span></div><div class="price">5.5<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">بيتزا ملفوفة مفروم</span><span class="en">Minced Meat Pizza Roll</span><span class="note"><span class="note-ar">لفائف من العجين الذهبي بداخلها مزيج من اللحم المفروم المتبل.</span><span class="note-en">Rolls of golden dough filled with a blend of spiced minced meat.</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">رهيفة دجاج</span><span class="en">Chicken Reheefa</span><span class="note"><span class="note-ar">رول من عجينة البيتزا الهشة محشو بالتن الفاخر، صوص الطماطم، جبنة موزاريلا الساخنة.</span><span class="note-en">A roll of crisp pizza dough filled with premium tuna, tomato sauce and hot mozzarella.</span></span></div><div class="price">7<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">رهيفة مفروم</span><span class="en">Minced Meat Reheefa</span><span class="note"><span class="note-ar">رقاقة عجين مقرمشة ومخبوزة، تعلوها طبقة من اللحم المفروم المتبل.</span><span class="note-en">Crisp baked thin dough topped with a layer of spiced minced meat.</span></span></div><div class="price">8<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كرواسون فاهيتا</span><span class="en">Fajita Croissant</span><span class="note"><span class="note-ar">قطع كرواسون صغيرة ومقرمشة، محشوة بدجاج الفاهيتا المتبل مع الفلفل الملون.</span><span class="note-en">Small, crisp croissant pieces filled with seasoned fajita chicken and bell peppers.</span></span></div><div class="price">7<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كرسبي دجاج</span><span class="en">Crispy Chicken</span><span class="note"><span class="note-ar">قطع دجاج مقرمشة ذهبية من الخارج، طرية من الداخل، متبلة بخلطتنا السرية.</span><span class="note-en">Golden, crispy chicken pieces — tender inside — seasoned with our secret blend.</span></span></div><div class="price">7<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كباب</span><span class="en">Kabab</span><span class="note"><span class="note-ar">قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.</span><span class="note-en">Small char-grilled kebab pieces with a rich, smoky seasoning.</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">كفتة</span><span class="en">Kofta</span><span class="note"><span class="note-ar">أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.</span><span class="note-en">Grilled kofta fingers seasoned with Eastern spices and herbs.</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
+          <li class="item"><div class="name"><span class="ar">تارت دجاج</span><span class="en">Chicken Tart</span><span class="note"><span class="note-ar">طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل مع البصل والبهارات.</span><span class="note-en">Layers of crisp jallash pastry filled with spiced minced meat, onion and spices.</span></span></div><div class="price">6<span class="unit">LYD</span></div></li>
         </ul>
       </div>
       <div class="photo-cell">

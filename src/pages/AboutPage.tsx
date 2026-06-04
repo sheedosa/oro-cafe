@@ -4,14 +4,17 @@ import PageHero from '../components/PageHero';
 import SectionHeading from '../components/SectionHeading';
 import SmartImage from '../components/SmartImage';
 import { site, menuUrl } from '../config/site';
+import { useLang } from '../i18n/useLang';
 
 export default function AboutPage() {
+  const { t, lang } = useLang();
+  const menuLink = `${menuUrl}?lang=${lang}`;
   return (
     <div className="flex flex-col w-full">
       <PageHero
-        eyebrow="Our Story"
-        title="About Oro"
-        subtitle={`${site.tagline} · ${site.location}`}
+        eyebrow={t.about.heroEyebrow}
+        title={t.about.heroTitle}
+        subtitle={`${t.hero.tagline} · ${t.hero.location}`}
         image={site.images.aboutHero}
         imageText="About Banner Image"
       />
@@ -38,18 +41,12 @@ export default function AboutPage() {
             className="w-full md:w-1/2 order-1 md:order-2"
           >
             <h2 className="font-serif italic text-4xl md:text-5xl text-gold mb-8 leading-tight">
-              Crafted with passion, <br/><span className="not-italic font-bold font-sans uppercase text-3xl tracking-tight text-ink">served with care.</span>
+              {t.about.headingLead} <br/><span className="not-italic font-bold font-sans uppercase text-3xl tracking-tight text-ink">{t.about.headingEmph}</span>
             </h2>
             <div className="font-sans text-sm text-ink/90 space-y-6 leading-relaxed">
-              <p>
-                Every morning, our kitchen comes alive before dawn. We believe in the slow arts—laminating dough by hand, sourcing single-origin beans, and refusing shortcuts. Our aesthetic is modern minimalism, ensuring that the vibrancy and texture of our creations take center stage.
-              </p>
-              <p>
-                Whether you're stepping in for your morning espresso ritual or selecting an elaborate entremet for a celebration, we invite you to experience the warmth and elegance of Oro.
-              </p>
-              <p>
-                From our home in {site.location}, we set out to make every cup and every pastry a small moment worth savouring — a place where quality, creativity and genuine hospitality meet.
-              </p>
+              {t.about.story.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -71,22 +68,22 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="font-serif italic text-3xl md:text-4xl leading-tight mb-14 max-w-3xl mx-auto"
           >
-            &ldquo;{site.values.statement}&rdquo;
+            &ldquo;{t.values.statement}&rdquo;
           </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12 text-left max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12 text-start max-w-2xl mx-auto">
             <div>
-              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 opacity-70">Vision</h3>
-              <p className="font-sans text-sm font-normal tracking-wide">{site.values.vision}</p>
+              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 opacity-70">{t.about.visionLabel}</h3>
+              <p className="font-sans text-sm font-normal tracking-wide">{t.values.vision}</p>
             </div>
             <div>
-              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 opacity-70">Mission</h3>
-              <p className="font-sans text-sm font-normal tracking-wide">{site.values.mission}</p>
+              <h3 className="uppercase text-[10px] tracking-[0.3em] font-bold mb-3 opacity-70">{t.about.missionLabel}</h3>
+              <p className="font-sans text-sm font-normal tracking-wide">{t.values.mission}</p>
             </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
-            {site.values.pillars.map(val => (
+            {t.values.pillars.map(val => (
               <span key={val} className="border border-gold/30 px-4 py-1.5 font-sans text-xs tracking-wider rounded-full hover:bg-gold hover:text-espresso transition-colors">{val}</span>
             ))}
           </div>
@@ -95,13 +92,13 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-20 md:py-28 px-4 md:px-8 max-w-4xl mx-auto w-full text-center">
-        <SectionHeading eyebrow="Come Say Hello" title="Taste the difference." className="mb-10" />
+        <SectionHeading eyebrow={t.about.ctaEyebrow} title={t.about.ctaTitle} className="mb-10" />
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={menuUrl} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
-            View the Menu
+          <a href={menuLink} className="inline-block border border-gold bg-gold text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
+            {t.hero.viewMenu}
           </a>
           <Link to="/contact" className="inline-block border border-gold/60 text-gold-deep px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold hover:text-cream transition-colors">
-            Find Us
+            {t.hero.findUs}
           </Link>
         </div>
       </section>
