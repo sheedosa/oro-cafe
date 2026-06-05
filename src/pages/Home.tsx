@@ -5,7 +5,7 @@ import SmartImage from '../components/SmartImage';
 import BgVideo from '../components/BgVideo';
 import SectionHeading from '../components/SectionHeading';
 import Marquee from '../components/Marquee';
-import ParallaxMoment from '../components/ParallaxMoment';
+import MomentCard from '../components/MomentCard';
 import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl } from '../config/site';
 import { useLang } from '../i18n/useLang';
@@ -129,31 +129,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Signature moments — title first, then image */}
-      <div id="menu">
-        {site.moments.map((m, i) => (
-          <div key={i}>
-            <ParallaxMoment
-              word={t.moments[i].word}
-              caption={t.moments[i].caption}
-              image={m.image}
-              video={m.video}
-              blend={m.blend}
-              index={i + 1}
-              reverse={i % 2 === 1}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Gallery — Discover what we serve (light "intermission" band) */}
-      <section className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
+      {/* 3. Discover what we serve (editorial preface + product carousel + CTA, all on one linen band) */}
+      <section id="menu" className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} onLight className="mb-12 md:mb-14" />
+
+          {/* Editorial 3-up: the former "Signature moments" now framed as the section's preface */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-14 md:mb-20">
+            {site.moments.map((m, i) => (
+              <div key={i} className="h-full">
+                <MomentCard
+                  word={t.moments[i].word}
+                  caption={t.moments[i].caption}
+                  image={m.image}
+                  index={i + 1}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* Product carousel (full-bleed within the linen band) */}
         <AutoCarousel items={galleryItems} onLight />
 
+        {/* Single CTA closes the discovery story */}
         <div className="text-center mt-12 px-4">
           <a href={menuLink} className="inline-block border border-burgundy bg-burgundy text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-burgundy-soft hover:border-burgundy-soft transition-colors">
             {t.gallery.button}
