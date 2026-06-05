@@ -28,10 +28,10 @@ export default function Footer() {
         </p>
 
         {/* Contact info with icons (same style as the Contact page) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 w-full mt-4 text-start">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 w-full mt-4 text-center md:text-start">
           {contactItems.map(({ icon: Icon, label, value, href, external, dir }) => (
-            <div key={label} className="flex items-start gap-3">
-              <div className="mt-0.5 text-gold-deep shrink-0"><Icon size={16} /></div>
+            <div key={label} className="flex flex-col items-center md:flex-row md:items-start gap-1.5 md:gap-3">
+              <div className="md:mt-0.5 text-gold-deep shrink-0"><Icon size={16} /></div>
               <div className="min-w-0">
                 <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-1 text-gold-deep">{label}</h3>
                 <a
@@ -47,8 +47,8 @@ export default function Footer() {
           ))}
 
           {/* Opening hours */}
-          <div className="flex items-start gap-3">
-            <div className="mt-0.5 text-gold-deep shrink-0"><Clock size={16} /></div>
+          <div className="flex flex-col items-center md:flex-row md:items-start gap-1.5 md:gap-3">
+            <div className="md:mt-0.5 text-gold-deep shrink-0"><Clock size={16} /></div>
             <div className="min-w-0">
               <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-1 text-gold-deep">{t.visit.hoursLabel}</h3>
               <ul className="font-sans text-xs text-ink/90 space-y-1">
