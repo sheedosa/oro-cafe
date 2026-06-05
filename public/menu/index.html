@@ -1471,6 +1471,26 @@
     });
   });
 
+  // On initial load: if the URL has a #hash (e.g. coming from the homepage
+  // category tiles), scroll to that section with the same sticky offset.
+  // The browser's native hash-jump fires before the sticky strip + images
+  // settle, so we re-apply after layout *and* once more after a short delay
+  // (for the now-loaded category photos), using `auto` so it works even when
+  // smooth-scroll is disabled by prefers-reduced-motion.
+  (function () {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var jump = function () {
+      var el = document.querySelector(hash);
+      if (!el) return;
+      var top = el.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+    };
+    var run = function () { jump(); setTimeout(jump, 250); };
+    if (document.readyState === 'complete') run();
+    else window.addEventListener('load', run);
+  })();
+
   // Active category highlight in sticky strip
   const strip = document.querySelector('.category-scroll');
   const links = strip ? [...strip.querySelectorAll('a')] : [];

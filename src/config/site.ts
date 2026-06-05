@@ -74,17 +74,39 @@ export const site = {
     { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.webp', video: '', blend: true },
   ],
 
+  // Menu categories shown as tiles on the homepage (each clicks into the
+  // matching section of the self-hosted menu via `${menuUrl}?lang=…#id`).
+  // The `id` MUST match a <section id="…"> in public/menu/index.html.
+  // Images are reused from the menu's own category photos.
+  categories: [
+    { id: 'hot-drinks',  image: '/menu/img/hot-drinks.webp'  },
+    { id: 'iced-coffee', image: '/menu/img/iced-coffee.webp' },
+    { id: 'milkshakes',  image: '/menu/img/milkshake.webp'   },
+    { id: 'mojitos',     image: '/menu/img/mojito.webp'      },
+    { id: 'smoothies',   image: '/menu/img/smoothie.webp'    },
+    { id: 'croissant',   image: '/menu/img/croissant.webp'   },
+    { id: 'waffles',     image: '/menu/img/waffle.webp'      },
+    { id: 'cinnabon',    image: '/menu/img/cinnabon.webp'    },
+    { id: 'appetizers',  image: '/menu/img/appetizers.webp'  },
+  ],
+
   // "Discover what we serve" — auto-playing, browsable image gallery.
   // Drop photos into public/images/gallery/ and list them here (label optional).
   gallery: [
-    { image: '/images/gallery/croissant.webp', label: 'Honey Croissant' },
-    { image: '/images/gallery/crepe.webp', label: 'Pistachio Crepe' },
-    { image: '/images/gallery/cinnabon.webp', label: 'Cinnamon Roll' },
-    { image: '/images/gallery/pancakes.webp', label: 'Pancakes' },
-    { image: '/images/gallery/mojito.webp', label: 'Mojito' },
-    { image: '/images/gallery/smoothie.webp', label: 'Smoothie' },
+    { image: '/images/gallery/croissant.webp',  label: 'Honey Croissant' },
+    { image: '/menu/img/waffle.webp',           label: 'Waffle Stick' },
+    { image: '/images/gallery/crepe.webp',      label: 'Pistachio Crepe' },
+    { image: '/images/gallery/pancakes.webp',   label: 'Pancakes' },
+    { image: '/menu/img/donuts.webp',           label: 'Filled Donut' },
+    { image: '/images/gallery/cinnabon.webp',   label: 'Cinnamon Roll' },
+    { image: '/menu/img/cookies.webp',          label: 'Pistachio Cookies' },
+    { image: '/menu/img/breakfast.webp',        label: 'Morning Toast' },
+    { image: '/images/gallery/mojito.webp',     label: 'Mojito' },
+    { image: '/images/gallery/smoothie.webp',   label: 'Smoothie' },
+    { image: '/menu/img/juice.webp',            label: 'Fresh Juice' },
+    { image: '/menu/img/iced-coffee.webp',      label: 'Iced Latte' },
     { image: '/images/gallery/tea-chocolate.webp', label: 'Hot Chocolate' },
-    { image: '/images/gallery/cold-drinks.webp', label: 'Cold Drinks' },
+    { image: '/images/gallery/cold-drinks.webp',label: 'Cold Drinks' },
   ],
 
   // Vision / Mission / Values — shared by the homepage band and the About page.

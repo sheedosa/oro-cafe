@@ -5,7 +5,7 @@ import SmartImage from '../components/SmartImage';
 import BgVideo from '../components/BgVideo';
 import SectionHeading from '../components/SectionHeading';
 import Marquee from '../components/Marquee';
-import MomentCard from '../components/MomentCard';
+import CategoryTile from '../components/CategoryTile';
 import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl } from '../config/site';
 import { useLang } from '../i18n/useLang';
@@ -129,27 +129,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Discover what we serve (editorial preface + product carousel + CTA, all on one linen band) */}
+      {/* 3. Discover what we serve — menu category tiles + product carousel + CTA, one linen band */}
       <section id="menu" className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
           <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} onLight className="mb-12 md:mb-14" />
 
-          {/* Editorial 3-up: the former "Signature moments" now framed as the section's preface */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-14 md:mb-20">
-            {site.moments.map((m, i) => (
-              <div key={i} className="h-full">
-                <MomentCard
-                  word={t.moments[i].word}
-                  caption={t.moments[i].caption}
-                  image={m.image}
-                  index={i + 1}
+          {/* Menu category tiles — 9 actual categories from the menu, each clicks into the matching section */}
+          <p className="text-center font-sans text-[11px] uppercase tracking-[0.3em] font-semibold text-gold-dark mb-6 md:mb-8">
+            {t.gallery.categoriesEyebrow}
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 mb-14 md:mb-20">
+            {site.categories.map((c, i) => (
+              <div key={c.id}>
+                <CategoryTile
+                  label={t.gallery.categories[i]}
+                  image={c.image}
+                  href={`${menuLink}#${c.id}`}
+                  index={i}
                 />
               </div>
             ))}
           </div>
+
+          {/* Product variety — a small eyebrow announces the carousel that follows */}
+          <p className="text-center font-sans text-[11px] uppercase tracking-[0.3em] font-semibold text-gold-dark mb-6 md:mb-8">
+            {t.gallery.galleryEyebrow}
+          </p>
         </div>
 
-        {/* Product carousel (full-bleed within the linen band) */}
+        {/* Product carousel (full-bleed within the linen band) — now 14 items */}
         <AutoCarousel items={galleryItems} onLight />
 
         {/* Single CTA closes the discovery story */}
