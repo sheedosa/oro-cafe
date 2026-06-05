@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { useReducedMotion } from 'motion/react';
 
 interface MarqueeProps<T> {
   items: readonly T[];
@@ -55,14 +55,13 @@ export default function Marquee<T>({
 
   return (
     <div dir="ltr" className={`overflow-hidden flex [contain:layout_paint] ${className}`}>
-      <motion.div
-        className="flex shrink-0 will-change-transform [backface-visibility:hidden] [transform:translateZ(0)]"
-        animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
-        transition={{ duration: speed, ease: 'linear', repeat: Infinity }}
+      <div
+        className="flex shrink-0 oro-marquee-track"
+        style={{ animationDuration: `${speed}s`, animationDirection: reverse ? 'reverse' : 'normal' }}
       >
         <Sequence tag="a" />
         <Sequence tag="b" />
-      </motion.div>
+      </div>
     </div>
   );
 }

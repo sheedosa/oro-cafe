@@ -52,6 +52,26 @@ html[lang="ar"] .font-brand {
   font-family: var(--font-serif);
 }
 
+/* ============ Marquee (social ribbon) ============
+   Driven by a compositor-thread CSS animation (not JS) so it keeps gliding
+   smoothly while the page is being scrolled — JS/rAF-driven transforms stall
+   on the busy main thread during scroll on mobile. The track is two identical
+   sequences wide, so translateX(-50%) loops seamlessly. */
+@keyframes oro-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.oro-marquee-track {
+  animation-name: oro-marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .oro-marquee-track { animation: none; }
+}
+
 /* Background videos must never show native controls or the WebKit
    "start playback" / paused play-button overlay (desktop & mobile). */
 video::-webkit-media-controls,
