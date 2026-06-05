@@ -195,33 +195,6 @@ export default function Home() {
         </div>
 
         <motion.div initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center md:text-start">
-            <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.locationLabel}</h3>
-              <p className="font-sans text-sm text-ink/90 leading-relaxed">
-                {t.visit.addressLines.map((line, i) => (
-                  <span key={i}>{line}{i < t.visit.addressLines.length - 1 && <br />}</span>
-                ))}
-              </p>
-            </div>
-            <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.phoneLabel}</h3>
-              <a href={site.contact.phoneHref} dir="ltr" className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors inline-block">{site.contact.phone}</a>
-            </div>
-            <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.emailLabel}</h3>
-              <a href={`mailto:${site.contact.email}`} dir="ltr" className="font-sans text-sm text-ink/90 hover:text-gold-deep transition-colors break-all inline-block">{site.contact.email}</a>
-            </div>
-            <div>
-              <h3 className="font-sans uppercase text-[10px] tracking-[0.2em] font-bold mb-2 text-gold-deep">{t.visit.hoursLabel}</h3>
-              <ul className="font-sans text-sm text-ink/90 space-y-1">
-                {t.visit.hoursList.map((h) => (
-                  <li key={h.days}>{h.days}<br /><span dir="ltr" className="text-ink/70 inline-block">{h.time}</span></li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={site.contact.mapsUrl} target="_blank" rel="noreferrer" className="inline-block text-center border border-gold bg-gold text-cream px-8 py-3.5 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-gold-deep hover:border-gold-deep transition-colors">
               {t.visit.getDirections}
