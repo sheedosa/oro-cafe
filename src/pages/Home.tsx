@@ -6,7 +6,6 @@ import BgVideo from '../components/BgVideo';
 import SectionHeading from '../components/SectionHeading';
 import Marquee from '../components/Marquee';
 import CategoryTile from '../components/CategoryTile';
-import AutoCarousel from '../components/AutoCarousel';
 import { site, menuUrl } from '../config/site';
 import { useLang } from '../i18n/useLang';
 import logo from '../assets/logo-oro-v3.png';
@@ -15,7 +14,6 @@ export default function Home() {
   const { t, lang } = useLang();
   const mapEmbed = `https://www.google.com/maps?q=${site.contact.coords}&z=17&output=embed`;
   const menuLink = `${menuUrl}?lang=${lang}`;
-  const galleryItems = site.gallery.map((g, i) => ({ image: g.image, label: t.gallery.labels[i] }));
 
   return (
     <div className="flex flex-col w-full">
@@ -129,16 +127,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Discover what we serve — menu category tiles + product carousel + CTA, one linen band */}
+      {/* 3. Discover what we serve — every menu category as a clickable card, one linen band */}
       <section id="menu" className="py-20 md:py-28 bg-linen overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem]">
         <div className="max-w-6xl mx-auto px-4 md:px-8 w-full">
-          <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} onLight className="mb-12 md:mb-14" />
+          <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} onLight className="mb-10 md:mb-12" />
 
-          {/* Menu category tiles — 9 actual categories from the menu, each clicks into the matching section */}
-          <p className="text-center font-sans text-[11px] uppercase tracking-[0.3em] font-semibold text-gold-dark mb-6 md:mb-8">
+          <p className="text-center font-sans text-[11px] uppercase tracking-[0.3em] font-semibold text-gold-dark mb-8 md:mb-10">
             {t.gallery.categoriesEyebrow}
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 mb-14 md:mb-20">
+
+          {/* Every menu category as a card — clicks straight to that section of the menu */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-5 mb-12 md:mb-16">
             {site.categories.map((c, i) => (
               <div key={c.id}>
                 <CategoryTile
@@ -151,20 +150,12 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Product variety — a small eyebrow announces the carousel that follows */}
-          <p className="text-center font-sans text-[11px] uppercase tracking-[0.3em] font-semibold text-gold-dark mb-6 md:mb-8">
-            {t.gallery.galleryEyebrow}
-          </p>
-        </div>
-
-        {/* Product carousel (full-bleed within the linen band) — now 14 items */}
-        <AutoCarousel items={galleryItems} onLight />
-
-        {/* Single CTA closes the discovery story */}
-        <div className="text-center mt-12 px-4">
-          <a href={menuLink} className="inline-block border border-burgundy bg-burgundy text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-burgundy-soft hover:border-burgundy-soft transition-colors">
-            {t.gallery.button}
-          </a>
+          {/* Single CTA closes the discovery story */}
+          <div className="text-center">
+            <a href={menuLink} className="inline-block border border-burgundy bg-burgundy text-cream px-10 py-4 font-sans uppercase text-[11px] tracking-[0.2em] font-bold hover:bg-burgundy-soft hover:border-burgundy-soft transition-colors">
+              {t.gallery.button}
+            </a>
+          </div>
         </div>
       </section>
 

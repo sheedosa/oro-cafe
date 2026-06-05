@@ -77,17 +77,25 @@ export const site = {
   // Menu categories shown as tiles on the homepage (each clicks into the
   // matching section of the self-hosted menu via `${menuUrl}?lang=…#id`).
   // The `id` MUST match a <section id="…"> in public/menu/index.html.
-  // Images are reused from the menu's own category photos.
+  // Images are reused from the menu's own category photos. Order mirrors the
+  // menu's nav so the homepage previews the menu's structure 1:1.
   categories: [
     { id: 'hot-drinks',  image: '/menu/img/hot-drinks.webp'  },
     { id: 'iced-coffee', image: '/menu/img/iced-coffee.webp' },
     { id: 'milkshakes',  image: '/menu/img/milkshake.webp'   },
     { id: 'mojitos',     image: '/menu/img/mojito.webp'      },
     { id: 'smoothies',   image: '/menu/img/smoothie.webp'    },
+    { id: 'juices',      image: '/menu/img/juice.webp'       },
+    { id: 'breakfast',   image: '/menu/img/breakfast.webp'   },
     { id: 'croissant',   image: '/menu/img/croissant.webp'   },
     { id: 'waffles',     image: '/menu/img/waffle.webp'      },
+    { id: 'crepes',      image: '/menu/img/crepe.webp'       },
+    { id: 'pancakes',    image: '/menu/img/pancakes.webp'    },
+    { id: 'donuts',      image: '/menu/img/donuts.webp'      },
     { id: 'cinnabon',    image: '/menu/img/cinnabon.webp'    },
+    { id: 'cookies',     image: '/menu/img/cookies.webp'     },
     { id: 'appetizers',  image: '/menu/img/appetizers.webp'  },
+    { id: 'cold-drinks', image: '/menu/img/cold-drinks.webp' },
   ],
 
   // "Discover what we serve" — auto-playing, browsable image gallery.
