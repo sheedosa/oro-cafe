@@ -69,7 +69,7 @@ export const site = {
   // Each may use an image OR a video; `blend: true` renders it frameless with
   // edges feathered into the background. Drop matching files in public/.
   moments: [
-    { word: 'Coffee', caption: 'Single-origin beans, pulled with precision', image: '/images/moment-coffee.jpg', video: '/videos/coffee-moment.mp4', blend: true },
+    { word: 'Coffee', caption: 'Single-origin beans, pulled with precision', image: '/images/moment-coffee.webp', video: '', blend: true },
     { word: 'Pastries', caption: 'Laminated by hand, baked before dawn', image: '/images/moment-pastries.webp', video: '', blend: true },
     { word: 'Desserts', caption: 'Artful, elegant, unforgettable', image: '/images/moment-desserts.webp', video: '', blend: true },
   ],
