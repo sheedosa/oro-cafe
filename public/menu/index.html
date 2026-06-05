@@ -89,14 +89,16 @@
   html.lang-ar .section-head .en-title,
   html.lang-ar .hero-scroll .scroll-en,
   html.lang-ar .note-en,
-  html.lang-ar .subcat-en { display: none !important; }
+  html.lang-ar .subcat-en,
+  html.lang-ar .filter-chip .chip-en { display: none !important; }
 
   html.lang-en .item .name .ar,
   html.lang-en .category-scroll a .nav-ar,
   html.lang-en .section-head .ar-title,
   html.lang-en .hero-scroll .scroll-ar,
   html.lang-en .note-ar,
-  html.lang-en .subcat-ar { display: none !important; }
+  html.lang-en .subcat-ar,
+  html.lang-en .filter-chip .chip-ar { display: none !important; }
 
   /* Per-language note + subcat text styling (only one language ever shows). */
   .note-ar { font-family: 'Cairo', 'Tajawal', sans-serif; direction: rtl; }
@@ -691,6 +693,102 @@
     .category-strip { top: 0; }
     .category-scroll a { padding: 12px 16px; font-size: 11px; letter-spacing: .2em; }
   }
+
+  /* ============ Two-column desktop layout ============
+     Place the category photo BESIDE the item list on wider screens; `.flip`
+     swaps the photo to the opposite side so sides alternate down the page.
+     Mobile keeps the stacked column (photo on top). */
+  @media (min-width: 861px) {
+    .menu-grid,
+    .menu-grid.flip {
+      flex-direction: row;
+      align-items: center;
+      gap: clamp(36px, 5vw, 72px);
+    }
+    .menu-grid > .photo-cell { order: 0; flex: 0 0 44%; max-width: 44%; }
+    .menu-grid > .items-cell { order: 1; flex: 1 1 auto; width: auto; }
+    .menu-grid.flip > .photo-cell { order: 2; }      /* photo on the right */
+    /* froby (no photo): keep the list comfortably narrow, not full-bleed */
+    .menu-grid:not(:has(.photo-cell)) > .items-cell { max-width: 760px; margin-inline: auto; }
+  }
+
+  /* ============ Interactive item rows (desktop pointer only) ============ */
+  @media (hover: hover) and (min-width: 861px) {
+    .item { transition: background-color .2s ease, box-shadow .2s ease; border-radius: 8px; }
+    section.dark .item:hover { background: rgba(196,163,90,.07); box-shadow: inset 0 0 0 1px rgba(196,163,90,.14); }
+    section.light .item:hover { background: rgba(86,26,43,.05); box-shadow: inset 0 0 0 1px rgba(86,26,43,.10); }
+    .item:hover .price { color: var(--gold-soft); }
+    section.light .item:hover .price { color: var(--gold-deep); }
+  }
+
+  /* ============ Scroll progress bar ============ */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 100%;
+    transform: scaleX(0); transform-origin: left;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-soft));
+    z-index: 60; pointer-events: none;
+    transition: transform .08s linear;
+  }
+
+  /* ============ Filter chips ============ */
+  .filter-bar {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
+    padding: 11px 0 10px;
+    border-bottom: 1px solid rgba(196,163,90,.12);
+  }
+  .filter-chip {
+    appearance: none; cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(196,163,90,.32);
+    color: rgba(255,255,255,.74);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    line-height: 1;
+    transition: color .2s, background .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .filter-chip .chip-ar {
+    font-family: 'Cairo', 'Tajawal', sans-serif; direction: rtl;
+    font-size: 13px; letter-spacing: 0; text-transform: none;
+  }
+  .filter-chip:hover { color: var(--gold-soft); border-color: rgba(196,163,90,.55); }
+  .filter-chip.active {
+    background: var(--gold); border-color: var(--gold);
+    color: var(--burgundy); font-weight: 600;
+  }
+  @media (max-width: 760px) {
+    .filter-bar {
+      flex-wrap: nowrap; justify-content: flex-start;
+      overflow-x: auto; scrollbar-width: none;
+      /* left gap so the first chip clears the fixed "← ORO" pill when sticky */
+      padding: 9px 0 8px 100px;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-chip { padding: 6px 13px; font-size: 10px; flex: 0 0 auto; }
+  }
+
+  /* Featured-only filter: hide every non-featured row + now-empty scaffolding */
+  body.filter-featured .item:not(.featured),
+  body.filter-featured .subcat,
+  body.filter-featured .size-row { display: none !important; }
+
+  /* ============ Back to top ============ */
+  .back-to-top {
+    position: fixed; right: 18px; bottom: 20px; z-index: 50;
+    width: 46px; height: 46px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(72,30,31,.82);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border: 1px solid rgba(196,163,90,.5);
+    color: var(--gold-soft); font-size: 20px; line-height: 1;
+    cursor: pointer;
+    opacity: 0; transform: translateY(12px); pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease, background .2s, color .2s;
+  }
+  .back-to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .back-to-top:hover { background: var(--gold); color: var(--burgundy); }
 </style>
 <!-- Show a single language based on ?lang= (ar | en). Default: Arabic (site default).
      Runs before paint so only the active language is ever rendered. -->
@@ -707,6 +805,7 @@
 </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Back to main ORO site (added when self-hosting the menu inside the ORO website) -->
 <a href="../" aria-label="Back to ORO home" style="position:fixed;top:14px;left:14px;z-index:1000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid rgba(196,163,90,.5);border-radius:999px;background:rgba(72,30,31,.65);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#d6bd7e;font-family:'Inter',system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;">&larr;&nbsp;ORO</a>
@@ -733,6 +832,13 @@
 <!-- ============ Category strip ============ -->
 <div id="menu" class="category-strip">
   <div class="container">
+    <div class="filter-bar" role="group" aria-label="Menu filters">
+      <button class="filter-chip active" data-filter="all"><span class="chip-ar">الكل</span><span class="chip-en">All</span></button>
+      <button class="filter-chip" data-filter="drinks"><span class="chip-ar">مشروبات</span><span class="chip-en">Drinks</span></button>
+      <button class="filter-chip" data-filter="sweets"><span class="chip-ar">حلويات</span><span class="chip-en">Sweets</span></button>
+      <button class="filter-chip" data-filter="savory"><span class="chip-ar">مأكولات</span><span class="chip-en">Savory</span></button>
+      <button class="filter-chip" data-filter="featured"><span class="chip-ar">★ مميّز</span><span class="chip-en">★ Featured</span></button>
+    </div>
     <nav class="category-scroll">
       <a href="#hot-drinks"><span class="nav-ar">مشروبات ساخنة</span><span class="nav-en">Hot Drinks</span></a>
       <a href="#iced-coffee"><span class="nav-ar">قهوة باردة</span><span class="nav-en">Iced Coffee</span></a>
@@ -758,7 +864,7 @@
 </div>
 
 <!-- ============ Menu sections ============ -->
-<section id="hot-drinks" class="menu-section dark pattern-bg">
+<section id="hot-drinks" data-group="drinks" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -794,7 +900,7 @@
   </div>
 </section>
 
-<section id="tea" class="menu-section dark pattern-bg">
+<section id="tea" data-group="drinks" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="menu-grid flip">
       <div class="photo-cell">
@@ -827,7 +933,7 @@
   </div>
 </section>
 
-<section id="iced-coffee" class="menu-section light pattern-bg">
+<section id="iced-coffee" data-group="drinks" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -859,7 +965,7 @@
   </div>
 </section>
 
-<section id="milkshakes" class="menu-section dark pattern-bg">
+<section id="milkshakes" data-group="drinks" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -889,7 +995,7 @@
   </div>
 </section>
 
-<section id="mojitos" class="menu-section light pattern-bg">
+<section id="mojitos" data-group="drinks" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -928,7 +1034,7 @@
   </div>
 </section>
 
-<section id="smoothies" class="menu-section dark pattern-bg">
+<section id="smoothies" data-group="drinks" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -961,7 +1067,7 @@
   </div>
 </section>
 
-<section id="froby" class="menu-section light pattern-bg">
+<section id="froby" data-group="drinks" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -990,7 +1096,7 @@
   </div>
 </section>
 
-<section id="juices" class="menu-section dark pattern-bg">
+<section id="juices" data-group="drinks" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1027,7 +1133,7 @@
   </div>
 </section>
 
-<section id="breakfast" class="menu-section light pattern-bg">
+<section id="breakfast" data-group="savory" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1061,7 +1167,7 @@
   </div>
 </section>
 
-<section id="croissant" class="menu-section dark pattern-bg">
+<section id="croissant" data-group="sweets" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1091,7 +1197,7 @@
   </div>
 </section>
 
-<section id="waffles" class="menu-section light pattern-bg">
+<section id="waffles" data-group="sweets" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1119,7 +1225,7 @@
   </div>
 </section>
 
-<section id="crepes" class="menu-section dark pattern-bg">
+<section id="crepes" data-group="sweets" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1145,7 +1251,7 @@
   </div>
 </section>
 
-<section id="pancakes" class="menu-section light pattern-bg">
+<section id="pancakes" data-group="sweets" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1173,7 +1279,7 @@
   </div>
 </section>
 
-<section id="donuts" class="menu-section dark pattern-bg">
+<section id="donuts" data-group="sweets" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1205,7 +1311,7 @@
   </div>
 </section>
 
-<section id="cinnabon" class="menu-section light pattern-bg">
+<section id="cinnabon" data-group="sweets" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1234,7 +1340,7 @@
   </div>
 </section>
 
-<section id="cookies" class="menu-section dark pattern-bg">
+<section id="cookies" data-group="sweets" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1268,7 +1374,7 @@
   </div>
 </section>
 
-<section id="appetizers" class="menu-section light pattern-bg">
+<section id="appetizers" data-group="savory" class="menu-section light pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1311,7 +1417,7 @@
   </div>
 </section>
 
-<section id="cold-drinks" class="menu-section dark pattern-bg">
+<section id="cold-drinks" data-group="drinks" class="menu-section dark pattern-bg">
   <div class="container">
     <div class="section-head">
       <div class="line"></div>
@@ -1372,16 +1478,29 @@
   let lastIdx = -1;
   let ticking = false;
 
+  // Scroll progress bar + back-to-top button (updated inside the rAF tick)
+  const progressBar = document.getElementById('scrollProgress');
+  const backBtn = document.getElementById('backToTop');
+  const docEl = document.documentElement;
+  function updateChrome() {
+    const max = docEl.scrollHeight - docEl.clientHeight;
+    const p = max > 0 ? docEl.scrollTop / max : 0;
+    if (progressBar) progressBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    if (backBtn) backBtn.classList.toggle('show', docEl.scrollTop > window.innerHeight * 0.8);
+  }
+
   const tick = () => {
     ticking = false;
+    updateChrome();
     const y = window.scrollY + 140;
-    let idx = 0;
+    let idx = -1;
     for (let i = 0; i < sections.length; i++) {
-      if (sections[i] && sections[i].offsetTop <= y) idx = i;
+      const s = sections[i];
+      if (s && s.offsetParent !== null && s.offsetTop <= y) idx = i;   // skip hidden (filtered) sections
     }
     if (idx === lastIdx) return;
     if (lastIdx >= 0 && links[lastIdx]) links[lastIdx].classList.remove('active');
-    if (links[idx]) {
+    if (idx >= 0 && links[idx]) {
       links[idx].classList.add('active');
       const linkLeft = links[idx].offsetLeft;
       const linkRight = linkLeft + links[idx].offsetWidth;
@@ -1435,7 +1554,49 @@
       });
     });
   }
+
+  // ============ Filter chips (All / Drinks / Sweets / Savory / Featured) ============
+  const chips = [...document.querySelectorAll('.filter-chip')];
+  const allSections = [...document.querySelectorAll('section.menu-section')];
+  const navLinkFor = id => links.find(l => l.getAttribute('href') === '#' + id);
+
+  function applyFilter(type) {
+    document.body.classList.toggle('filter-featured', type === 'featured');
+    allSections.forEach(sec => {
+      let show;
+      if (type === 'all') show = true;
+      else if (type === 'featured') show = !!sec.querySelector('.item.featured');
+      else show = sec.dataset.group === type;
+      sec.style.display = show ? '' : 'none';
+      const link = navLinkFor(sec.id);
+      if (link) link.style.display = show ? '' : 'none';
+    });
+    lastIdx = -1;
+    window.dispatchEvent(new Event('resize'));   // refresh strip edge-fades for the new link set
+    tick();
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      if (chip.classList.contains('active')) return;
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      applyFilter(chip.dataset.filter);
+      const menu = document.getElementById('menu');
+      if (menu) {
+        const top = menu.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY > top + 1) window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ============ Back to top ============
+  if (backBtn) backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('resize', updateChrome);
+  updateChrome();
 </script>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">&uarr;</button>
 
 </body>
 </html>
