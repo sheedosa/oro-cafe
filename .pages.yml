@@ -1,0 +1,97 @@
+# Pages CMS config — https://pagescms.org
+# The café owner edits the menu through a form at app.pagescms.org (linked from
+# orosweets.ly/admin). Saving commits menu.json to GitHub `main`; the existing
+# GitHub Action rebuilds the Vite site and the live menu updates in ~1–2 minutes.
+#
+# Organised like the website: a list of Menu Sections (by name), and inside each
+# a list of Items shown as "name — price". Technical settings are grouped under
+# "advanced" and rarely need touching. Every key that exists in menu.json is
+# declared below — Pages CMS drops undeclared keys on save, so leave them all in.
+
+media:
+  input: public/menu/img    # folder in the repo where menu photos live
+  output: /menu/img         # path written into menu.json (served at orosweets.ly/menu/img)
+
+content:
+  - name: menu
+    label: Menu
+    type: file
+    path: public/menu/menu.json
+    fields:
+      # ============ MENU SECTIONS (what the client edits) ============
+      - name: sections
+        label: Menu Sections
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title.en} · {fields.title.ar}"
+        fields:
+          - name: title
+            label: Section name
+            type: object
+            fields:
+              - { name: en, label: English name, type: string, required: false }
+              - { name: ar, label: Arabic name, type: string, required: false }
+
+          # ---- Items in this section ----
+          - name: items
+            label: Items
+            description: "Each row is a menu item. Edit its name and price, or use + / – to add and remove."
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fields.en} — {fields.price}{fields.priceSmall}"
+            fields:
+              - { name: ar, label: Arabic name, type: string }
+              - { name: en, label: English name, type: string }
+              - { name: price, label: "Price (e.g. 5, 3.5, +3)", type: string, required: false }
+              - { name: noteAr, label: "Note — Arabic (optional)", type: string, required: false }
+              - { name: noteEn, label: "Note — English (optional)", type: string, required: false }
+              - { name: featured, label: "Featured (gold highlight)", type: boolean, default: false }
+              # --- the following are only for special items; leave as-is for normal ones ---
+              - { name: twoPrice, label: "Two prices? small/large (advanced)", type: boolean, default: false }
+              - { name: priceSmall, label: "Price — small (advanced)", type: string, required: false }
+              - { name: priceLarge, label: "Price — large (advanced)", type: string, required: false }
+              - { name: subcatAr, label: "Start a subcategory — Arabic (advanced)", type: string, required: false }
+              - { name: subcatEn, label: "Start a subcategory — English (advanced)", type: string, required: false }
+
+          # ---- Section appearance & settings (advanced; rarely changed) ----
+          - name: group
+            label: "Filter group (advanced)"
+            type: select
+            options: { values: [drinks, sweets, savory] }
+            default: drinks
+          - name: media
+            label: "Photo / Video (advanced)"
+            type: object
+            fields:
+              - { name: type, type: select, options: { values: [image, video] }, default: image }
+              - { name: image, label: "Upload a photo", type: image, required: false }
+              - { name: base, label: "Image filename (no extension)", type: string, required: false }
+              - { name: poster, label: "Video poster filename", type: string, required: false }
+              - { name: alt, type: string, required: false }
+              - { name: caption, type: string, required: false }
+              - { name: width, type: number, required: false }
+              - { name: height, type: number, required: false }
+          # sizeRow: small/large price columns — Froby & Fresh Juices only.
+          # MUST stay declared even though most sections leave it blank, otherwise
+          # Pages CMS would wipe it from those two sections on the next save.
+          - name: sizeRow
+            label: "Size columns — juices/froby only, leave blank otherwise (advanced)"
+            type: object
+            required: false
+            fields:
+              - { name: smallAr, label: "Small (Arabic)", type: string, required: false }
+              - { name: smallEn, label: "Small (English)", type: string, required: false }
+              - { name: largeAr, label: "Large (Arabic)", type: string, required: false }
+              - { name: largeEn, label: "Large (English)", type: string, required: false }
+          - { name: id, label: "Section ID (advanced)", type: string }
+          - name: theme
+            label: "Theme (advanced)"
+            type: select
+            options: { values: [dark, light] }
+            default: dark
+          - { name: flip, label: "Flip layout (advanced)", type: boolean, default: false }
+          - { name: showHead, label: "Show header (advanced)", type: boolean, default: true }
