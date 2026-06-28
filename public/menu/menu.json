@@ -377,6 +377,13 @@
           "twoPrice": false
         },
         {
+          "ar": "باشن فروت",
+          "en": "Passion Fruit",
+          "price": "15",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
           "ar": "بلو أورنج",
           "en": "Blue Orange",
           "price": "20",
@@ -464,13 +471,6 @@
           "ar": "ريد بول",
           "en": "Red Bull",
           "price": "22",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "ar": "باشن فروت",
-          "en": "Passion Fruit",
-          "price": "15",
           "featured": false,
           "twoPrice": false
         }
