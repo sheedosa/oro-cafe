@@ -11,6 +11,7 @@
 media:
   input: public/menu/img    # folder in the repo where menu photos live
   output: /menu/img         # path written into menu.json (served at orosweets.ly/menu/img)
+  rename: safe              # slugify uploaded filenames (e.g. "IMG 1234 (1).jpg" -> safe path)
 
 content:
   - name: menu
