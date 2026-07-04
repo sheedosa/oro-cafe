@@ -643,19 +643,12 @@
     font-size: 14px;
     margin-bottom: 18px;
   }
-  .site-footer .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    color: var(--gold);
-    letter-spacing: .12em;
-    line-height: 1;
-  }
-  .site-footer .footer-sub {
-    font-family: 'Cormorant SC', serif;
-    letter-spacing: .35em;
-    font-size: 11px;
-    color: rgba(214,189,126,.7);
-    margin-top: 8px;
+  .site-footer .footer-logo-img {
+    display: block;
+    width: min(200px, 56vw);
+    height: auto;
+    margin: 0 auto;
+    image-rendering: -webkit-optimize-contrast;
   }
   .site-footer .footer-address {
     margin-top: 22px;
@@ -861,8 +854,11 @@
 <!-- ============ Footer ============ -->
 <footer class="site-footer pattern-bg">
   <div class="footer-ornament">· · ·</div>
-  <div class="footer-logo">ORO</div>
-  <div class="footer-sub">SWEETS &amp; PASTRIES</div>
+  <picture>
+    <source srcset="img/logo.webp" type="image/webp" />
+    <img src="img/logo.png" alt="ORO Sweets &amp; Pastries — أورو لصناعة وبيع الحلويات والمعجنات"
+         class="footer-logo-img" width="483" height="247" />
+  </picture>
   <div class="footer-address">
     <span class="footer-addr-ar">ديره - شارع فينيسيا، بالقرب من ملاهي السندباد، بنغازي</span>
     <span class="footer-addr-en">Deira · Finisia Street — near Sindbad Amusement Park, Benghazi</span>
