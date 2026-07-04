@@ -62,7 +62,7 @@ const en = {
     phoneLabel: 'Phone',
     emailLabel: 'Email',
     hoursLabel: 'Hours',
-    addressLines: ['Finisia Street', 'Benghazi, Libya'],
+    addressLines: ['Deira · Finisia Street', 'Near Sindbad Amusement Park', 'Benghazi'],
     hoursList: [
       { days: 'Saturday – Thursday', time: '08:00 – 23:00' },
       { days: 'Friday', time: '10:00 – 23:00' },
@@ -172,7 +172,7 @@ const ar: typeof en = {
     phoneLabel: 'الهاتف',
     emailLabel: 'البريد الإلكتروني',
     hoursLabel: 'أوقات العمل',
-    addressLines: ['شارع فينيسيا', 'بنغازي، ليبيا'],
+    addressLines: ['ديره - شارع فينيسيا', 'بالقرب من ملاهي السندباد', 'بنغازي'],
     hoursList: [
       { days: 'السبت – الخميس', time: '08:00 – 23:00' },
       { days: 'الجمعة', time: '10:00 – 23:00' },

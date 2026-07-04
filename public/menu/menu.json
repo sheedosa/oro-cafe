@@ -567,10 +567,10 @@
       "media": {
         "type": "image",
         "base": "smoothie",
-        "alt": "ORO smoothie bottles",
+        "alt": "ORO smoothie cups",
         "caption": "Fresh fruit blends",
-        "width": 689,
-        "height": 899
+        "width": 1000,
+        "height": 668
       },
       "id": "smoothies",
       "theme": "dark",
@@ -626,7 +626,12 @@
       ],
       "group": "drinks",
       "media": {
-        "type": "image"
+        "type": "image",
+        "base": "froby",
+        "alt": "ORO Froby bottled drinks",
+        "caption": "Blended & bottled",
+        "width": 1000,
+        "height": 1000
       },
       "sizeRow": {
         "smallAr": "صغير",

@@ -17,7 +17,7 @@ export const site = {
     'Oro — Sweets & Pastries. Specialty coffee, luxury desserts and fine pastries in Benghazi, Libya.',
 
   contact: {
-    addressLines: ['Finisia Street', 'Benghazi, Libya'],
+    addressLines: ['Deira · Finisia Street', 'Near Sindbad Amusement Park', 'Benghazi'],
     phone: '091 233 75 98',
     // International format for click-to-call (Libya +218, drop the leading 0).
     phoneHref: 'tel:+218912337598',

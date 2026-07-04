@@ -90,6 +90,7 @@
   html.lang-ar .hero-scroll .scroll-en,
   html.lang-ar .note-en,
   html.lang-ar .subcat-en,
+  html.lang-ar .footer-addr-en,
   html.lang-ar .filter-chip .chip-en { display: none !important; }
 
   html.lang-en .item .name .ar,
@@ -98,6 +99,7 @@
   html.lang-en .hero-scroll .scroll-ar,
   html.lang-en .note-ar,
   html.lang-en .subcat-ar,
+  html.lang-en .footer-addr-ar,
   html.lang-en .filter-chip .chip-ar { display: none !important; }
 
   /* Per-language note + subcat text styling (only one language ever shows). */
@@ -179,7 +181,7 @@
   /* Official ORO logo */
   .hero .logo-img {
     display: block;
-    width: min(360px, 72vw);
+    width: min(260px, 58vw);
     height: auto;
     margin: 0 auto;
     image-rendering: -webkit-optimize-contrast;
@@ -655,8 +657,19 @@
     color: rgba(214,189,126,.7);
     margin-top: 8px;
   }
-  .site-footer .footer-hours {
+  .site-footer .footer-address {
     margin-top: 22px;
+    font-size: 14px;
+    letter-spacing: .04em;
+    color: rgba(255,255,255,.72);
+    line-height: 1.5;
+  }
+  .site-footer .footer-addr-ar {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    direction: rtl;
+  }
+  .site-footer .footer-hours {
+    margin-top: 14px;
     font-size: 13px;
     letter-spacing: .14em;
     color: rgba(255,255,255,.7);
@@ -817,8 +830,8 @@
     <div class="eyebrow">EST. LIBYA</div>
     <picture>
       <source srcset="img/logo.webp" type="image/webp" />
-      <img src="img/logo.png" alt="ORO Sweets &amp; Pastries — أورو لصناعة وبيع الحلويات والمعجنات"
-           class="logo-img" width="495" height="258" />
+      <img src="img/logo.png" alt="ORO — Sweets &amp; Pastries"
+           class="logo-img" width="500" height="500" />
     </picture>
     <div class="divider"></div>
     <a href="#menu" class="hero-scroll">
@@ -850,6 +863,10 @@
   <div class="footer-ornament">· · ·</div>
   <div class="footer-logo">ORO</div>
   <div class="footer-sub">SWEETS &amp; PASTRIES</div>
+  <div class="footer-address">
+    <span class="footer-addr-ar">ديره - شارع فينيسيا، بالقرب من ملاهي السندباد، بنغازي</span>
+    <span class="footer-addr-en">Deira · Finisia Street — near Sindbad Amusement Park, Benghazi</span>
+  </div>
   <div class="footer-hours">
     <span>SAT — THU · 8 AM – 11 PM</span>
     <span class="footer-sep">|</span>
