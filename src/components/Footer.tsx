@@ -1,6 +1,6 @@
 import { Facebook, Instagram, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
-import logo from '../assets/logo-oro-v3.png';
+import logo from '../assets/logo-oro-ar.png';
 import { site } from '../config/site';
 import { useLang } from '../i18n/useLang';
 

@@ -97,13 +97,12 @@
       ],
       "group": "drinks",
       "media": {
-        "type": "video",
+        "type": "image",
         "base": "hot-drinks",
-        "poster": "hot-drinks-poster",
-        "alt": "Hot drinks in ORO branded cups",
+        "alt": "ORO hot drinks in branded cups",
         "caption": "Brewed in‑house",
-        "width": 640,
-        "height": 640
+        "width": 599,
+        "height": 309
       },
       "id": "hot-drinks",
       "theme": "dark",

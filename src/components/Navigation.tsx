@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Menu as MenuIcon, X, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/logo-oro-v3.png';
+import logo from '../assets/logo-oro-ar.png';
 import { site, menuUrl } from '../config/site';
 import { useLang } from '../i18n/useLang';
 

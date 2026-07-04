@@ -8,7 +8,7 @@ import Marquee from '../components/Marquee';
 import CategoryTile from '../components/CategoryTile';
 import { site, menuUrl } from '../config/site';
 import { useLang } from '../i18n/useLang';
-import logo from '../assets/logo-oro-v3.png';
+import logo from '../assets/logo-oro-ar.png';
 
 export default function Home() {
   const { t, lang } = useLang();
