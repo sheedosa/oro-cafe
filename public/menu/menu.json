@@ -770,13 +770,20 @@
           "twoPrice": false
         },
         {
-          "ar": "بوكس ساندوتش",
-          "en": "Box Sandwich",
+          "ar": " بوكس ساندوتش فلافل",
+          "en": "Flafel Box Sandwich ",
           "price": "12",
           "featured": false,
           "twoPrice": false,
           "subcatAr": "إفطار صباحي صحي",
           "subcatEn": "Healthy Breakfast"
+        },
+        {
+          "ar": "بوكس ساندوتش فلافل (بالمقليات)",
+          "en": "Flafel Box Sandwich",
+          "price": "16",
+          "featured": false,
+          "twoPrice": false
         },
         {
           "ar": "توست أجبان",
@@ -866,13 +873,6 @@
           "ar": "سماش لوتس",
           "en": "Smash · Lotus",
           "price": "12",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "ar": "ساندوتش",
-          "en": "Sandwich",
-          "price": "16",
           "featured": false,
           "twoPrice": false
         }
@@ -1435,6 +1435,13 @@
           "price": "3",
           "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.",
           "noteEn": "Light dough filled with fresh spinach and a blend of white cheeses.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "ar": "ميني شيش",
+          "en": "Mini Shish",
+          "price": "7",
           "featured": false,
           "twoPrice": false
         }
