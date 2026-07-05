@@ -421,18 +421,21 @@
           "ar": "فراولة",
           "en": "Strawberry",
           "price": "15",
+          "featured": false,
           "twoPrice": false
         },
         {
           "ar": "أناناس",
           "en": "Pineapple",
           "price": "15",
+          "featured": false,
           "twoPrice": false
         },
         {
           "ar": "بطيخ",
           "en": "Watermelon",
           "price": "15",
+          "featured": false,
           "twoPrice": false
         },
         {
@@ -467,6 +470,8 @@
           "ar": "بابل",
           "en": "Bubble",
           "price": "+5",
+          "featured": false,
+          "twoPrice": false,
           "subcatAr": "إضافة",
           "subcatEn": "Add‑on"
         }
@@ -793,13 +798,6 @@
           "price": "16",
           "featured": false,
           "twoPrice": false
-        },
-        {
-          "ar": "سميت أومليت وجبنة",
-          "en": "Simit · Omelette & Cheese",
-          "price": "16",
-          "featured": false,
-          "twoPrice": false
         }
       ],
       "group": "savory",
@@ -867,7 +865,9 @@
         {
           "ar": "سماش لوتس",
           "en": "Smash · Lotus",
-          "price": "12"
+          "price": "12",
+          "featured": false,
+          "twoPrice": false
         },
         {
           "ar": "ساندوتش",
