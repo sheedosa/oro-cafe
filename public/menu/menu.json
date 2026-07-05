@@ -780,8 +780,8 @@
         },
         {
           "ar": "بوكس ساندوتش فلافل (بالمقليات)",
-          "en": "Flafel Box Sandwich",
-          "price": "16",
+          "en": "Flafel Box Sandwich (Eggplant& Potato)",
+          "price": "15",
           "featured": false,
           "twoPrice": false
         },
@@ -800,8 +800,8 @@
           "twoPrice": false
         },
         {
-          "ar": "سميت بالقشطة والعسل",
-          "en": "Simit · Cream & Honey",
+          "ar": "بريوش جبنة ولانشون",
+          "en": "Cheese& Luncheon Croissant ",
           "price": "16",
           "featured": false,
           "twoPrice": false
