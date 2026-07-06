@@ -1,17 +1,27 @@
-# Pages CMS config — https://pagescms.org
-# The café owner edits the menu through a form at app.pagescms.org (linked from
-# orosweets.ly/admin). Saving commits menu.json to GitHub `main`; the existing
-# GitHub Action rebuilds the Vite site and the live menu updates in ~1–2 minutes.
+# ============================================================================
+#  ORO menu — content editor config   (edited at https://app.pagescms.org)
+# ============================================================================
+#  The café editor opens  orosweets.ly/admin  ->  "Open the editor", changes the
+#  menu in a simple form, and clicks Save. Saving commits menu.json to GitHub
+#  `main`; the site rebuilds automatically and the live menu updates in ~1-2 min.
 #
-# Organised like the website: a list of Menu Sections (by name), and inside each
-# a list of Items shown as "name — price". Technical settings are grouped under
-# "advanced" and rarely need touching. Every key that exists in menu.json is
-# declared below — Pages CMS drops undeclared keys on save, so leave them all in.
+#  This form is kept deliberately simple: it shows only the things a person
+#  actually edits — section names, item names, prices, notes, the gold
+#  highlight, and the section photo. All the technical settings (layout, theme,
+#  filters, image sizing, …) are marked `hidden: true`.
+#
+#  IMPORTANT for whoever maintains this file:
+#   • `hidden: true` does NOT delete a field — its value stays in menu.json,
+#     it's just not shown in the form. That's how we declutter without data loss.
+#   • Never REMOVE a field from this file. Pages CMS drops any menu.json key that
+#     isn't declared here, so deleting one would wipe that data on the next save.
+#   • Keep every field `name` exactly matching the key in menu.json.
+# ============================================================================
 
 media:
   input: public/menu/img    # folder in the repo where menu photos live
   output: /menu/img         # path written into menu.json (served at orosweets.ly/menu/img)
-  rename: safe              # slugify uploaded filenames (e.g. "IMG 1234 (1).jpg" -> safe path)
+  rename: safe              # tidy up uploaded filenames (e.g. "IMG 1234 (1).jpg")
 
 content:
   - name: menu
@@ -19,80 +29,74 @@ content:
     type: file
     path: public/menu/menu.json
     fields:
-      # ============ MENU SECTIONS (what the client edits) ============
+      # ============ MENU SECTIONS ============
       - name: sections
-        label: Menu Sections
+        label: Menu sections
+        description: "The menu categories, top to bottom. Click one to open it and edit its items."
         type: object
         list:
           collapsible:
             collapsed: true
             summary: "{fields.title.en} · {fields.title.ar}"
         fields:
+          # ---- Section name (the big heading) ----
           - name: title
             label: Section name
             type: object
             fields:
-              - { name: en, label: English name, type: string, required: false }
-              - { name: ar, label: Arabic name, type: string, required: false }
+              - { name: en, label: "Name (English)", type: string, required: false }
+              - { name: ar, label: "Name (Arabic)", type: string, required: false }
 
           # ---- Items in this section ----
           - name: items
             label: Items
-            description: "Each row is a menu item. Edit its name and price, or use + / – to add and remove."
+            description: "Each row is one item. Click a row to edit its name and price, then Save. Use + to add an item, or the trash icon to remove one."
             type: object
             list:
               collapsible:
                 collapsed: true
                 summary: "{fields.en} — {fields.price}{fields.priceSmall}"
             fields:
-              - { name: ar, label: Arabic name, type: string }
-              - { name: en, label: English name, type: string }
-              - { name: price, label: "Price (e.g. 5, 3.5, +3)", type: string, required: false }
-              - { name: noteAr, label: "Note — Arabic (optional)", type: string, required: false }
-              - { name: noteEn, label: "Note — English (optional)", type: string, required: false }
-              - { name: featured, label: "Featured (gold highlight)", type: boolean, default: false }
-              # --- the following are only for special items; leave as-is for normal ones ---
-              - { name: twoPrice, label: "Two prices? small/large (advanced)", type: boolean, default: false }
-              - { name: priceSmall, label: "Price — small (advanced)", type: string, required: false }
-              - { name: priceLarge, label: "Price — large (advanced)", type: string, required: false }
-              - { name: subcatAr, label: "Start a subcategory — Arabic (advanced)", type: string, required: false }
-              - { name: subcatEn, label: "Start a subcategory — English (advanced)", type: string, required: false }
+              - { name: en, label: "Name (English)", type: string }
+              - { name: ar, label: "Name (Arabic)", type: string }
+              - { name: price, label: "Price", type: string, required: false, description: "Just the number, e.g. 12 (or 3.5). Leave blank only if this item uses the Small/Large prices below." }
+              - { name: noteEn, label: "Note (English, optional)", type: string, required: false }
+              - { name: noteAr, label: "Note (Arabic, optional)", type: string, required: false }
+              - { name: featured, label: "Highlight in gold", type: boolean, default: false, description: "Turn on to feature this item on the menu." }
+              - { name: priceSmall, label: "Small price — Froby & Juices only", type: string, required: false, description: "Leave blank for every other section." }
+              - { name: priceLarge, label: "Large price — Froby & Juices only", type: string, required: false, description: "Leave blank for every other section." }
+              # --- hidden: kept in the file, not shown in the form ---
+              - { name: twoPrice, type: boolean, default: false, hidden: true }
+              - { name: subcatAr, type: string, required: false, hidden: true }
+              - { name: subcatEn, type: string, required: false, hidden: true }
 
-          # ---- Section appearance & settings (advanced; rarely changed) ----
-          - name: group
-            label: "Filter group (advanced)"
-            type: select
-            options: { values: [drinks, sweets, savory] }
-            default: drinks
+          # ---- Section photo ----
           - name: media
-            label: "Photo / Video (advanced)"
+            label: Section photo
             type: object
             fields:
-              - { name: type, type: select, options: { values: [image, video] }, default: image }
-              - { name: image, label: "Upload a photo", type: image, required: false }
-              - { name: base, label: "Image filename (no extension)", type: string, required: false }
-              - { name: poster, label: "Video poster filename", type: string, required: false }
-              - { name: alt, type: string, required: false }
-              - { name: caption, type: string, required: false }
-              - { name: width, type: number, required: false }
-              - { name: height, type: number, required: false }
-          # sizeRow: small/large price columns — Froby & Fresh Juices only.
-          # MUST stay declared even though most sections leave it blank, otherwise
-          # Pages CMS would wipe it from those two sections on the next save.
+              - { name: image, label: "Upload photo", type: image, required: false, description: "Choose a photo for this section. It appears on the live menu about 2 minutes after you Save." }
+              - { name: caption, label: "Caption under the photo (optional)", type: string, required: false }
+              # --- hidden: kept in the file, not shown in the form ---
+              - { name: type, type: select, options: { values: [image, video] }, default: image, hidden: true }
+              - { name: base, type: string, required: false, hidden: true }
+              - { name: poster, type: string, required: false, hidden: true }
+              - { name: alt, type: string, required: false, hidden: true }
+              - { name: width, type: number, required: false, hidden: true }
+              - { name: height, type: number, required: false, hidden: true }
+
+          # ---- hidden section settings: kept in the file, not shown in the form ----
           - name: sizeRow
-            label: "Size columns — juices/froby only, leave blank otherwise (advanced)"
             type: object
             required: false
+            hidden: true
             fields:
-              - { name: smallAr, label: "Small (Arabic)", type: string, required: false }
-              - { name: smallEn, label: "Small (English)", type: string, required: false }
-              - { name: largeAr, label: "Large (Arabic)", type: string, required: false }
-              - { name: largeEn, label: "Large (English)", type: string, required: false }
-          - { name: id, label: "Section ID (advanced)", type: string }
-          - name: theme
-            label: "Theme (advanced)"
-            type: select
-            options: { values: [dark, light] }
-            default: dark
-          - { name: flip, label: "Flip layout (advanced)", type: boolean, default: false }
-          - { name: showHead, label: "Show header (advanced)", type: boolean, default: true }
+              - { name: smallAr, type: string, required: false }
+              - { name: smallEn, type: string, required: false }
+              - { name: largeAr, type: string, required: false }
+              - { name: largeEn, type: string, required: false }
+          - { name: group, type: select, options: { values: [drinks, sweets, savory] }, default: drinks, hidden: true }
+          - { name: id, type: string, hidden: true }
+          - { name: theme, type: select, options: { values: [dark, light] }, default: dark, hidden: true }
+          - { name: flip, type: boolean, default: false, hidden: true }
+          - { name: showHead, type: boolean, default: true, hidden: true }
