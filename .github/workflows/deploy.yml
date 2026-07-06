@@ -15,17 +15,19 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Run one deployment at a time, but do NOT cancel an in-progress one: a menu
+# editor often saves twice in a row, and cancelling a running Pages publish
+# mid-way can leave it failed. Let it finish; the latest queued save deploys next.
 concurrency:
   group: 'pages'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   # Single deploy job since we're just building and deploying
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,6 +47,17 @@ jobs:
         with:
           # Upload dist folder
           path: './dist'
+      # GitHub Pages sometimes returns a transient "Deployment failed, try again
+      # later". Attempt the publish, and if it flakes, wait and retry once so an
+      # editor's save still goes live without anyone re-running the workflow.
       - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before retrying
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
