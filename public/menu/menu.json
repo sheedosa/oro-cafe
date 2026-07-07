@@ -7,87 +7,87 @@
       },
       "items": [
         {
-          "ar": "فلات وايت",
           "en": "Flat White",
+          "ar": "فلات وايت",
           "price": "5",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مكياطة",
           "en": "Macchiato",
+          "ar": "مكياطة",
           "price": "4",
-          "noteAr": "دبل + 2",
           "noteEn": "Double +2",
+          "noteAr": "دبل + 2",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "إسبريسو",
           "en": "Espresso",
+          "ar": "إسبريسو",
           "price": "5",
-          "noteAr": "دبل + 2",
           "noteEn": "Double +2",
+          "noteAr": "دبل + 2",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "أمريكانو",
           "en": "Americano",
+          "ar": "أمريكانو",
           "price": "5",
-          "noteAr": "دبل + 3",
           "noteEn": "Double +3",
+          "noteAr": "دبل + 3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كافيه لاتيه",
           "en": "Café Latte",
+          "ar": "كافيه لاتيه",
           "price": "6",
-          "noteAr": "دبل + 3",
           "noteEn": "Double +3",
+          "noteAr": "دبل + 3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "قهوة عربية",
           "en": "Arabic Coffee",
+          "ar": "قهوة عربية",
           "price": "6",
-          "noteAr": "دبل + 3",
           "noteEn": "Double +3",
+          "noteAr": "دبل + 3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سبسيال",
           "en": "Special",
+          "ar": "سبسيال",
           "price": "6",
-          "noteAr": "دبل + 2",
           "noteEn": "Double +2",
+          "noteAr": "دبل + 2",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كابتشينو",
           "en": "Cappuccino",
+          "ar": "كابتشينو",
           "price": "6",
-          "noteAr": "دبل + 3",
           "noteEn": "Double +3",
+          "noteAr": "دبل + 3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "نسكافيه",
           "en": "Nescafé",
+          "ar": "نسكافيه",
           "price": "6",
-          "noteAr": "دبل + 3",
           "noteEn": "Double +3",
+          "noteAr": "دبل + 3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "محلى",
           "en": "Sweetened",
+          "ar": "محلى",
           "price": "+2",
           "featured": false,
           "twoPrice": false,
@@ -95,15 +95,15 @@
           "subcatEn": "Add‑on"
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Brewed in‑house",
         "type": "image",
         "base": "hot-drinks",
         "alt": "ORO hot drinks in branded cups",
-        "caption": "Brewed in‑house",
         "width": 599,
         "height": 309
       },
+      "group": "drinks",
       "id": "hot-drinks",
       "theme": "dark",
       "flip": false,
@@ -116,8 +116,8 @@
       },
       "items": [
         {
-          "ar": "ليبتون",
           "en": "Lipton",
+          "ar": "ليبتون",
           "price": "3",
           "featured": false,
           "twoPrice": false,
@@ -125,15 +125,15 @@
           "subcatEn": "Red Tea"
         },
         {
-          "ar": "شاي تونسي",
           "en": "Tunisian Tea",
+          "ar": "شاي تونسي",
           "price": "4",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ليبتون",
           "en": "Lipton",
+          "ar": "ليبتون",
           "price": "3",
           "featured": false,
           "twoPrice": false,
@@ -141,15 +141,15 @@
           "subcatEn": "Green Tea"
         },
         {
-          "ar": "شاي تونسي",
           "en": "Tunisian Tea",
+          "ar": "شاي تونسي",
           "price": "4",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "هوت شوكليت بالمكسرات",
           "en": "Hot Chocolate with Nuts",
+          "ar": "هوت شوكليت بالمكسرات",
           "price": "12",
           "featured": false,
           "twoPrice": false,
@@ -157,15 +157,15 @@
           "subcatEn": "Hot Chocolate"
         },
         {
-          "ar": "هوت شوكليت تيراميسو",
           "en": "Hot Chocolate Tiramisu",
+          "ar": "هوت شوكليت تيراميسو",
           "price": "14",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سنترا — صغير",
           "en": "Sentra — Small",
+          "ar": "سنترا — صغير",
           "price": "10",
           "featured": false,
           "twoPrice": false,
@@ -173,22 +173,22 @@
           "subcatEn": "Sentra"
         },
         {
-          "ar": "سنترا — كبير",
           "en": "Sentra — Large",
+          "ar": "سنترا — كبير",
           "price": "18",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Tea & chocolate",
         "type": "image",
         "base": "tea-chocolate",
         "alt": "Hot chocolate with pistachio and toppings",
-        "caption": "Tea & chocolate",
         "width": 988,
         "height": 743
       },
+      "group": "drinks",
       "id": "tea",
       "theme": "dark",
       "flip": true,
@@ -201,78 +201,78 @@
       },
       "items": [
         {
-          "ar": "آيس أمريكانو",
           "en": "Iced Americano",
+          "ar": "آيس أمريكانو",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس لاتيه",
           "en": "Iced Latte",
+          "ar": "آيس لاتيه",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس موكا بستاشيو",
           "en": "Iced Mocha Pistachio",
+          "ar": "آيس موكا بستاشيو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس موكا فراولة",
           "en": "Iced Mocha Strawberry",
+          "ar": "آيس موكا فراولة",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس وايت موكا فرابتشينو",
           "en": "Iced White Mocha Frappuccino",
+          "ar": "آيس وايت موكا فرابتشينو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس موكا كراميل",
           "en": "Iced Mocha Caramel",
+          "ar": "آيس موكا كراميل",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس سبانيش لاتيه",
           "en": "Iced Spanish Latte",
+          "ar": "آيس سبانيش لاتيه",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس كراميل ماكياتو",
           "en": "Iced Caramel Macchiato",
+          "ar": "آيس كراميل ماكياتو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "آيس موكا ماكياتو",
           "en": "Iced Mocha Macchiato",
+          "ar": "آيس موكا ماكياتو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Iced coffee bar",
         "type": "image",
         "base": "iced-coffee",
         "alt": "Row of iced coffee drinks in ORO cups",
-        "caption": "Iced coffee bar",
         "width": 900,
         "height": 542
       },
+      "group": "drinks",
       "id": "iced-coffee",
       "theme": "light",
       "flip": true,
@@ -285,64 +285,64 @@
       },
       "items": [
         {
-          "ar": "أوريو",
           "en": "Oreo",
+          "ar": "أوريو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مانجو",
           "en": "Mango",
+          "ar": "مانجو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فراولة",
           "en": "Strawberry",
+          "ar": "فراولة",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "نوتيلا",
           "en": "Nutella",
+          "ar": "نوتيلا",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "لوتس",
           "en": "Lotus",
+          "ar": "لوتس",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بندق",
           "en": "Hazelnut",
+          "ar": "بندق",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فستق",
           "en": "Pistachio",
+          "ar": "فستق",
           "price": "20",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Hand‑shaken",
         "type": "image",
         "base": "milkshake",
         "alt": "ORO milkshake cup with cat-ear lid",
-        "caption": "Hand‑shaken",
         "width": 530,
         "height": 900
       },
+      "group": "drinks",
       "id": "milkshakes",
       "theme": "dark",
       "flip": false,
@@ -355,120 +355,120 @@
       },
       "items": [
         {
-          "ar": "رمان",
           "en": "Pomegranate",
+          "ar": "رمان",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "برتقال",
           "en": "Orange",
+          "ar": "برتقال",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مانجو",
           "en": "Mango",
+          "ar": "مانجو",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "باشن فروت",
           "en": "Passion Fruit",
+          "ar": "باشن فروت",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بلو بيري",
           "en": "Blueberry",
+          "ar": "بلو بيري",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "غلال الغابة",
           "en": "Forest Fruits",
+          "ar": "غلال الغابة",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "لافندر",
           "en": "Lavender",
+          "ar": "لافندر",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بلو كوراساو",
           "en": "Blue Curaçao",
+          "ar": "بلو كوراساو",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "علكة مارشميلو",
           "en": "Gum Marshmallow",
+          "ar": "علكة مارشميلو",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فراولة",
           "en": "Strawberry",
+          "ar": "فراولة",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "أناناس",
           "en": "Pineapple",
+          "ar": "أناناس",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بطيخ",
           "en": "Watermelon",
+          "ar": "بطيخ",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بلو أورنج",
           "en": "Blue Orange",
+          "ar": "بلو أورنج",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سفن أب",
           "en": "7Up",
+          "ar": "سفن أب",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ماكس فلام",
           "en": "Max Flam",
+          "ar": "ماكس فلام",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ريد بول",
           "en": "Red Bull",
+          "ar": "ريد بول",
           "price": "22",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بابل",
           "en": "Bubble",
+          "ar": "بابل",
           "price": "+5",
           "featured": false,
           "twoPrice": false,
@@ -476,15 +476,15 @@
           "subcatEn": "Add‑on"
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Mojito collection",
         "type": "image",
         "base": "mojito",
         "alt": "Colorful ORO mojito drinks on pedestals",
-        "caption": "Mojito collection",
         "width": 900,
         "height": 387
       },
+      "group": "drinks",
       "id": "mojitos",
       "theme": "light",
       "flip": true,
@@ -497,85 +497,85 @@
       },
       "items": [
         {
-          "ar": "كرز",
           "en": "Cherry",
+          "ar": "كرز",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بلوبيري",
           "en": "Blueberry",
+          "ar": "بلوبيري",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مكس",
           "en": "Mix",
+          "ar": "مكس",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "برتقال",
           "en": "Orange",
+          "ar": "برتقال",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "باشن فروت",
           "en": "Passion Fruit",
+          "ar": "باشن فروت",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "توت",
           "en": "Berry",
+          "ar": "توت",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فراولة",
           "en": "Strawberry",
+          "ar": "فراولة",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مانجو",
           "en": "Mango",
+          "ar": "مانجو",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "أناناس",
           "en": "Pineapple",
+          "ar": "أناناس",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "تفاح أخضر",
           "en": "Green Apple",
+          "ar": "تفاح أخضر",
           "price": "18",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Fresh fruit blends",
         "type": "image",
         "base": "smoothie",
         "alt": "ORO smoothie cups",
-        "caption": "Fresh fruit blends",
         "width": 1000,
         "height": 668
       },
+      "group": "drinks",
       "id": "smoothies",
       "theme": "dark",
       "flip": false,
@@ -588,52 +588,51 @@
       },
       "items": [
         {
-          "ar": "مانجو",
           "en": "Mango",
+          "ar": "مانجو",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "27"
+          "priceLarge": "27",
+          "twoPrice": true
         },
         {
-          "ar": "جوافة وكرز",
           "en": "Guava & Cherry",
+          "ar": "جوافة وكرز",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "27"
+          "priceLarge": "27",
+          "twoPrice": true
         },
         {
-          "ar": "كوكتيل",
           "en": "Cocktail",
+          "ar": "كوكتيل",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "27"
+          "priceLarge": "27",
+          "twoPrice": true
         },
         {
-          "ar": "جوافة بلو",
           "en": "Guava Blue",
+          "ar": "جوافة بلو",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "27"
+          "priceLarge": "27",
+          "twoPrice": true
         },
         {
-          "ar": "فراولة",
           "en": "Strawberry",
+          "ar": "فراولة",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "27"
+          "priceLarge": "27",
+          "twoPrice": true
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Blended & bottled",
         "type": "image",
         "base": "froby",
         "alt": "ORO Froby bottled drinks",
-        "caption": "Blended & bottled",
         "width": 1000,
         "height": 1000
       },
@@ -643,6 +642,7 @@
         "largeAr": "كبير",
         "largeEn": "LARGE"
       },
+      "group": "drinks",
       "id": "froby",
       "theme": "light",
       "flip": false,
@@ -655,84 +655,83 @@
       },
       "items": [
         {
-          "ar": "ليمون ونعناع",
           "en": "Lemon & Mint",
+          "ar": "ليمون ونعناع",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "8",
-          "priceLarge": "24"
+          "priceLarge": "24",
+          "twoPrice": true
         },
         {
-          "ar": "فراولة",
           "en": "Strawberry",
+          "ar": "فراولة",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "8",
-          "priceLarge": "24"
+          "priceLarge": "24",
+          "twoPrice": true
         },
         {
-          "ar": "مانجو",
           "en": "Mango",
+          "ar": "مانجو",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "8",
-          "priceLarge": "24"
+          "priceLarge": "24",
+          "twoPrice": true
         },
         {
-          "ar": "جوافة",
           "en": "Guava",
+          "ar": "جوافة",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "8",
-          "priceLarge": "24"
+          "priceLarge": "24",
+          "twoPrice": true
         },
         {
-          "ar": "جوافة بالكرز",
           "en": "Guava with Cherry",
+          "ar": "جوافة بالكرز",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "25"
+          "priceLarge": "25",
+          "twoPrice": true
         },
         {
-          "ar": "جوافة بلو",
           "en": "Guava Blue",
+          "ar": "جوافة بلو",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "9",
-          "priceLarge": "25"
+          "priceLarge": "25",
+          "twoPrice": true
         },
         {
-          "ar": "كوكتيل",
           "en": "Cocktail",
+          "ar": "كوكتيل",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "10",
-          "priceLarge": "28"
+          "priceLarge": "28",
+          "twoPrice": true
         },
         {
-          "ar": "تمر ولوز",
           "en": "Dates & Almonds",
+          "ar": "تمر ولوز",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "10",
-          "priceLarge": "28"
+          "priceLarge": "28",
+          "twoPrice": true
         },
         {
-          "ar": "برتقال",
           "en": "Orange",
+          "ar": "برتقال",
           "featured": false,
-          "twoPrice": true,
           "priceSmall": "10",
-          "priceLarge": "28"
+          "priceLarge": "28",
+          "twoPrice": true
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Cold‑pressed daily",
         "type": "image",
         "base": "juice",
         "alt": "ORO branded fresh juice bottles",
-        "caption": "Cold‑pressed daily",
         "width": 638,
         "height": 900
       },
@@ -742,6 +741,7 @@
         "largeAr": "كبير",
         "largeEn": "LARGE"
       },
+      "group": "drinks",
       "id": "juices",
       "theme": "dark",
       "flip": true,
@@ -754,8 +754,8 @@
       },
       "items": [
         {
-          "ar": "ساندوتش أومليت",
           "en": "Omelette Sandwich",
+          "ar": "ساندوتش أومليت",
           "price": "8",
           "featured": false,
           "twoPrice": false,
@@ -763,15 +763,15 @@
           "subcatEn": "Bread · Wheat · Barley · Oats"
         },
         {
-          "ar": "ساندوتش تن وجبنة",
           "en": "Tuna & Cheese Sandwich",
+          "ar": "ساندوتش تن وجبنة",
           "price": "10",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": " بوكس ساندوتش فلافل",
           "en": "Flafel Box Sandwich ",
+          "ar": " بوكس ساندوتش فلافل",
           "price": "12",
           "featured": false,
           "twoPrice": false,
@@ -779,43 +779,43 @@
           "subcatEn": "Healthy Breakfast"
         },
         {
-          "ar": "بوكس ساندوتش فلافل (بالمقليات)",
           "en": "Flafel Box Sandwich (Eggplant& Potato)",
+          "ar": "بوكس ساندوتش فلافل (بالمقليات)",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "توست أجبان",
           "en": "Cheese Toast",
+          "ar": "توست أجبان",
           "price": "16",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "توست أفوكادو وعسل",
-          "en": "Avocado & Honey Toast",
-          "price": "16",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "ar": "بريوش جبنة ولانشون",
           "en": "Cheese& Luncheon Croissant ",
+          "ar": "بريوش جبنة ولانشون",
+          "price": "16",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "en": "Avocado & Honey Toast",
+          "ar": "توست أفوكادو وعسل",
           "price": "16",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "savory",
       "media": {
+        "caption": "Morning plates",
         "type": "image",
         "base": "breakfast",
         "alt": "Egg, cheese, and tomato baguette with pickles",
-        "caption": "Morning plates",
         "width": 900,
         "height": 732
       },
+      "group": "savory",
       "id": "breakfast",
       "theme": "light",
       "flip": false,
@@ -828,64 +828,64 @@
       },
       "items": [
         {
-          "ar": "آيس كريم",
           "en": "Ice Cream",
+          "ar": "آيس كريم",
           "price": "10",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فستق",
           "en": "Pistachio",
+          "ar": "فستق",
           "price": "10",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "جبنة وعسل وزعتر",
           "en": "Cheese, Honey & Za'atar",
+          "ar": "جبنة وعسل وزعتر",
           "price": "10",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سماش نوتيلا وفراولة",
           "en": "Smash · Nutella & Strawberry",
+          "ar": "سماش نوتيلا وفراولة",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سماش بندق",
           "en": "Smash · Hazelnut",
+          "ar": "سماش بندق",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سماش فستق",
           "en": "Smash · Pistachio",
+          "ar": "سماش فستق",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "سماش لوتس",
           "en": "Smash · Lotus",
+          "ar": "سماش لوتس",
           "price": "12",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Buttery & flaky",
         "type": "image",
         "base": "croissant",
         "alt": "Golden croissant with honey drizzle and za'atar",
-        "caption": "Buttery & flaky",
         "width": 900,
         "height": 830
       },
+      "group": "sweets",
       "id": "croissant",
       "theme": "dark",
       "flip": true,
@@ -898,50 +898,50 @@
       },
       "items": [
         {
-          "ar": "بابل مالح",
           "en": "Savory Bubble",
+          "ar": "بابل مالح",
           "price": "15",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فستق",
           "en": "Pistachio",
+          "ar": "فستق",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "نوتيلا",
           "en": "Nutella",
+          "ar": "نوتيلا",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بندق",
           "en": "Hazelnut",
+          "ar": "بندق",
           "price": "18",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "أورو",
           "en": "Oro",
+          "ar": "أورو",
           "price": "28",
           "featured": true,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Waffle stick",
         "type": "image",
         "base": "waffle",
         "alt": "Waffle stick with strawberry and chocolate",
-        "caption": "Waffle stick",
         "width": 900,
         "height": 636
       },
+      "group": "sweets",
       "id": "waffles",
       "theme": "light",
       "flip": true,
@@ -954,36 +954,36 @@
       },
       "items": [
         {
-          "ar": "كريب نوتيلا",
           "en": "Nutella Crepe",
+          "ar": "كريب نوتيلا",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كريب كلاسيك",
           "en": "Classic Crepe",
+          "ar": "كريب كلاسيك",
           "price": "24",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كريب أورو",
           "en": "Oro Crepe",
+          "ar": "كريب أورو",
           "price": "28",
           "featured": true,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Sweet crepes",
         "type": "image",
         "base": "crepe",
         "alt": "Crepe with chocolate, pistachio, and strawberry",
-        "caption": "Sweet crepes",
         "width": 900,
         "height": 628
       },
+      "group": "sweets",
       "id": "crepes",
       "theme": "dark",
       "flip": true,
@@ -996,50 +996,50 @@
       },
       "items": [
         {
-          "ar": "بانكيك أورو",
           "en": "Oro Pancake",
+          "ar": "بانكيك أورو",
           "price": "28",
           "featured": true,
           "twoPrice": false
         },
         {
-          "ar": "بانكيك نوتيلا",
           "en": "Nutella Pancake",
+          "ar": "بانكيك نوتيلا",
           "price": "20",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بانكيك فستق",
           "en": "Pistachio Pancake",
+          "ar": "بانكيك فستق",
           "price": "22",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بانكيك بندق",
           "en": "Hazelnut Pancake",
+          "ar": "بانكيك بندق",
           "price": "22",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بانكيك لوتس",
           "en": "Lotus Pancake",
+          "ar": "بانكيك لوتس",
           "price": "22",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Mini pancakes",
         "type": "image",
         "base": "pancakes",
         "alt": "Mini pancakes with pistachio cream",
-        "caption": "Mini pancakes",
         "width": 900,
         "height": 631
       },
+      "group": "sweets",
       "id": "pancakes",
       "theme": "light",
       "flip": false,
@@ -1052,15 +1052,15 @@
       },
       "items": [
         {
-          "ar": "سادة",
           "en": "Plain",
+          "ar": "سادة",
           "price": "7",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "نوتيلا",
           "en": "Nutella",
+          "ar": "نوتيلا",
           "price": "+3",
           "featured": false,
           "twoPrice": false,
@@ -1068,43 +1068,43 @@
           "subcatEn": "Add‑on"
         },
         {
-          "ar": "فستق",
           "en": "Pistachio",
+          "ar": "فستق",
           "price": "+3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كراميل",
           "en": "Caramel",
+          "ar": "كراميل",
           "price": "+3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مربى",
           "en": "Jam",
+          "ar": "مربى",
           "price": "+3",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بندق",
           "en": "Hazelnut",
+          "ar": "بندق",
           "price": "+3",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Filled donuts",
         "type": "image",
         "base": "donuts",
         "alt": "Two filled donuts on a plate",
-        "caption": "Filled donuts",
         "width": 900,
         "height": 640
       },
+      "group": "sweets",
       "id": "donuts",
       "theme": "dark",
       "flip": false,
@@ -1117,57 +1117,57 @@
       },
       "items": [
         {
-          "ar": "نوتيلا",
           "en": "Nutella",
+          "ar": "نوتيلا",
           "price": "16",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "فستق",
           "en": "Pistachio",
+          "ar": "فستق",
           "price": "16",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كراميل",
           "en": "Caramel",
+          "ar": "كراميل",
           "price": "16",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "لوتس",
           "en": "Lotus",
+          "ar": "لوتس",
           "price": "16",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بندق",
           "en": "Hazelnut",
+          "ar": "بندق",
           "price": "16",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "توت",
           "en": "Berry",
+          "ar": "توت",
           "price": "16",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Cinnabon bowls",
         "type": "image",
         "base": "cinnabon",
         "alt": "Lotus and Nutella strawberry cinnabon bowls",
-        "caption": "Cinnabon bowls",
         "width": 991,
         "height": 460
       },
+      "group": "sweets",
       "id": "cinnabon",
       "theme": "light",
       "flip": true,
@@ -1180,50 +1180,50 @@
       },
       "items": [
         {
-          "ar": "نوتيلا وبندق",
           "en": "Nutella & Hazelnut",
+          "ar": "نوتيلا وبندق",
           "price": "10",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "شوكلت تشيبس",
           "en": "Chocolate Chips",
+          "ar": "شوكلت تشيبس",
           "price": "10",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "شوكلاتة",
           "en": "Chocolate",
+          "ar": "شوكلاتة",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كوكيز دبي",
           "en": "Dubai Cookies",
+          "ar": "كوكيز دبي",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "نوتيلا",
           "en": "Nutella",
+          "ar": "نوتيلا",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بستاشيو",
           "en": "Pistachio",
+          "ar": "بستاشيو",
           "price": "12",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "علبة كوكيز شوكلاتة",
           "en": "Chocolate Cookie Box",
+          "ar": "علبة كوكيز شوكلاتة",
           "price": "20",
           "featured": false,
           "twoPrice": false,
@@ -1231,22 +1231,22 @@
           "subcatEn": "Box of 8"
         },
         {
-          "ar": "علبة كوكيز بستاشيو",
           "en": "Pistachio Cookie Box",
+          "ar": "علبة كوكيز بستاشيو",
           "price": "20",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "sweets",
       "media": {
+        "caption": "Baked this morning",
         "type": "image",
         "base": "cookies",
         "alt": "Chocolate hazelnut and pistachio cookie stacks",
-        "caption": "Baked this morning",
         "width": 917,
         "height": 706
       },
+      "group": "sweets",
       "id": "cookies",
       "theme": "dark",
       "flip": false,
@@ -1259,202 +1259,202 @@
       },
       "items": [
         {
-          "ar": "مسخن",
           "en": "Musakhan",
+          "ar": "مسخن",
           "price": "3",
-          "noteAr": "رول صغير من خبز الصاج محشو بدجاج مطهو مع السماق، الزيتون والبصل.",
           "noteEn": "A small saj-bread roll filled with chicken cooked with sumac, olives and onion.",
+          "noteAr": "رول صغير من خبز الصاج محشو بدجاج مطهو مع السماق، الزيتون والبصل.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بوريك جبنة",
           "en": "Cheese Borek",
+          "ar": "بوريك جبنة",
           "price": "3.5",
-          "noteAr": "أصابع من العجين الهش محشوة بمزيج الأجبان البيضاء والأعشاب.",
           "noteEn": "Crisp pastry fingers filled with a blend of white cheeses and herbs.",
+          "noteAr": "أصابع من العجين الهش محشوة بمزيج الأجبان البيضاء والأعشاب.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "صفيحة سبانخ",
           "en": "Spinach Sfiha",
+          "ar": "صفيحة سبانخ",
           "price": "3.5",
-          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع الليمون والسماق.",
           "noteEn": "Light dough filled with fresh spinach, lemon and sumac.",
+          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع الليمون والسماق.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بوريك مفروم",
           "en": "Minced Meat Borek",
+          "ar": "بوريك مفروم",
           "price": "4.5",
-          "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل.",
           "noteEn": "Layers of crisp jallash pastry filled with spiced minced meat.",
+          "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "تارت دجاج",
           "en": "Chicken Tart",
+          "ar": "تارت دجاج",
           "price": "8",
-          "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل مع البصل والبهارات.",
           "noteEn": "Layers of crisp jallash pastry filled with spiced minced meat, onion and spices.",
+          "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل مع البصل والبهارات.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ميني برجر",
           "en": "Mini Burger",
+          "ar": "ميني برجر",
           "price": "6",
-          "noteAr": "قطعة صغيرة من لحم البقر المشوي داخل خبز طري، مع جبنة ذائبة.",
           "noteEn": "A small grilled beef patty in soft bread with melted cheese.",
+          "noteAr": "قطعة صغيرة من لحم البقر المشوي داخل خبز طري، مع جبنة ذائبة.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "صفيحة جبنة",
           "en": "Cheese Sfiha",
+          "ar": "صفيحة جبنة",
           "price": "3",
-          "noteAr": "عجينة خفيفة مغطاة بمزيج من الأجبان الغنية، مخبوزة حتى الذوبان.",
           "noteEn": "Light dough topped with a blend of rich cheeses, baked until melted.",
+          "noteAr": "عجينة خفيفة مغطاة بمزيج من الأجبان الغنية، مخبوزة حتى الذوبان.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بيتزا ملفوفة مفروم",
           "en": "Rolled Pizza · Minced Meat",
+          "ar": "بيتزا ملفوفة مفروم",
           "price": "6",
-          "noteAr": "لفائف من العجين الذهبي بداخلها مزيج من اللحم المفروم المتبل.",
           "noteEn": "Rolls of golden dough filled with a blend of spiced minced meat.",
+          "noteAr": "لفائف من العجين الذهبي بداخلها مزيج من اللحم المفروم المتبل.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "بيتزا ملفوفة تن",
           "en": "Rolled Pizza · Tuna",
+          "ar": "بيتزا ملفوفة تن",
           "price": "5.5",
-          "noteAr": "رول من عجينة البيتزا الهشة محشو بالتن الفاخر وصلصة الطماطم.",
           "noteEn": "A roll of crisp pizza dough filled with premium tuna and tomato sauce.",
+          "noteAr": "رول من عجينة البيتزا الهشة محشو بالتن الفاخر وصلصة الطماطم.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "رهيفة دجاج",
           "en": "Chicken Rhifa",
+          "ar": "رهيفة دجاج",
           "price": "7",
-          "noteAr": "رول من عجينة البيتزا الهشة محشو بالتن الفاخر، صوص الطماطم، جبنة موزاريلا الساخنة.",
           "noteEn": "A roll of crisp pizza dough filled with premium tuna, tomato sauce and hot mozzarella.",
+          "noteAr": "رول من عجينة البيتزا الهشة محشو بالتن الفاخر، صوص الطماطم، جبنة موزاريلا الساخنة.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كفتة",
           "en": "Kofta",
+          "ar": "كفتة",
           "price": "6",
-          "noteAr": "أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.",
           "noteEn": "Grilled kofta fingers seasoned with Eastern spices and herbs.",
+          "noteAr": "أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كرواسون تن",
           "en": "Tuna Croissant",
+          "ar": "كرواسون تن",
           "price": "3.5",
-          "noteAr": "كرواسون محشو بالتن المتبل مع الزيتون والأعشاب الساخنة.",
           "noteEn": "Croissant filled with seasoned tuna, olives and warm herbs.",
+          "noteAr": "كرواسون محشو بالتن المتبل مع الزيتون والأعشاب الساخنة.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كباب",
           "en": "Kebab",
+          "ar": "كباب",
           "price": "6",
-          "noteAr": "قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.",
           "noteEn": "Small char-grilled kebab pieces with a rich, smoky seasoning.",
+          "noteAr": "قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "صفيحة مفروم",
           "en": "Minced Meat Sfiha",
+          "ar": "صفيحة مفروم",
           "price": "4",
-          "noteAr": "رقاقة عجين مقرمشة، تعلوها طبقة من اللحم المتبل مع البصل والطماطم.",
           "noteEn": "Crisp thin dough topped with seasoned meat, onion and tomato.",
+          "noteAr": "رقاقة عجين مقرمشة، تعلوها طبقة من اللحم المتبل مع البصل والطماطم.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "رهيفة مفروم",
           "en": "Minced Meat Rhifa",
+          "ar": "رهيفة مفروم",
           "price": "8",
-          "noteAr": "رقاقة عجين مقرمشة ومخبوزة، تعلوها طبقة من اللحم المفروم المتبل.",
           "noteEn": "Crisp baked thin dough topped with a layer of spiced minced meat.",
+          "noteAr": "رقاقة عجين مقرمشة ومخبوزة، تعلوها طبقة من اللحم المفروم المتبل.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ميني بيتزا",
           "en": "Mini Pizza",
+          "ar": "ميني بيتزا",
           "price": "4",
-          "noteAr": "قطع بيتزا صغيرة، مغطاة بصلصة الطماطم وجبنة الموزاريلا.",
           "noteEn": "Small pizza pieces topped with tomato sauce and mozzarella.",
+          "noteAr": "قطع بيتزا صغيرة، مغطاة بصلصة الطماطم وجبنة الموزاريلا.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "شاورما دجاج",
           "en": "Chicken Shawarma",
+          "ar": "شاورما دجاج",
           "price": "5.5",
-          "noteAr": "لفائف صغيرة (ميني) من شاورما الدجاج المتبلة، مع الثومية والمخلل.",
           "noteEn": "Mini rolls of seasoned chicken shawarma with garlic sauce and pickles.",
+          "noteAr": "لفائف صغيرة (ميني) من شاورما الدجاج المتبلة، مع الثومية والمخلل.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كرسبي دجاج",
           "en": "Crispy Chicken",
+          "ar": "كرسبي دجاج",
           "price": "7",
-          "noteAr": "قطع دجاج مقرمشة ذهبية من الخارج، طرية من الداخل، متبلة بخلطتنا السرية.",
           "noteEn": "Golden, crispy chicken pieces — tender inside — seasoned with our secret blend.",
+          "noteAr": "قطع دجاج مقرمشة ذهبية من الخارج، طرية من الداخل، متبلة بخلطتنا السرية.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "كرواسون فاهيتا",
           "en": "Fajita Croissant",
+          "ar": "كرواسون فاهيتا",
           "price": "7",
-          "noteAr": "قطع كرواسون صغيرة ومقرمشة، محشوة بدجاج الفاهيتا المتبل مع الفلفل الملون.",
           "noteEn": "Small, crisp croissant pieces filled with seasoned fajita chicken and bell peppers.",
+          "noteAr": "قطع كرواسون صغيرة ومقرمشة، محشوة بدجاج الفاهيتا المتبل مع الفلفل الملون.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "صفيحة سبانخ وجبنة",
           "en": "Spinach & Cheese Sfiha",
+          "ar": "صفيحة سبانخ وجبنة",
           "price": "3",
-          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.",
           "noteEn": "Light dough filled with fresh spinach and a blend of white cheeses.",
+          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ميني شيش",
           "en": "Mini Shish",
+          "ar": "ميني شيش",
           "price": "7",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "savory",
       "media": {
+        "caption": "Hot from the oven",
         "type": "image",
         "base": "appetizers",
         "alt": "Hot pastries display in bakery case",
-        "caption": "Hot from the oven",
         "width": 729,
         "height": 899
       },
+      "group": "savory",
       "id": "appetizers",
       "theme": "light",
       "flip": false,
@@ -1467,43 +1467,43 @@
       },
       "items": [
         {
-          "ar": "مياه (500 مل)",
           "en": "Water · 500 ml",
+          "ar": "مياه (500 مل)",
           "price": "1",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "مشروب غازي",
           "en": "Soft Drink",
+          "ar": "مشروب غازي",
           "price": "4",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ماكس فلاي",
           "en": "Max Fly",
+          "ar": "ماكس فلاي",
           "price": "5",
           "featured": false,
           "twoPrice": false
         },
         {
-          "ar": "ريد بول",
           "en": "Red Bull",
+          "ar": "ريد بول",
           "price": "12",
           "featured": false,
           "twoPrice": false
         }
       ],
-      "group": "drinks",
       "media": {
+        "caption": "Chilled & fizzy",
         "type": "image",
         "base": "cold-drinks",
         "alt": "Cold canned drinks and water bottle",
-        "caption": "Chilled & fizzy",
         "width": 936,
         "height": 523
       },
+      "group": "drinks",
       "id": "cold-drinks",
       "theme": "dark",
       "flip": false,
