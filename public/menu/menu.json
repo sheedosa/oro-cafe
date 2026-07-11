@@ -1259,11 +1259,20 @@
       },
       "items": [
         {
-          "en": "Musakhan",
-          "ar": "مسخن",
+          "en": "Spinach & Cheese Sfiha",
+          "ar": "صفيحة سبانخ وجبنة",
           "price": "3",
-          "noteEn": "A small saj-bread roll filled with chicken cooked with sumac, olives and onion.",
-          "noteAr": "رول صغير من خبز الصاج محشو بدجاج مطهو مع السماق، الزيتون والبصل.",
+          "noteEn": "Light dough filled with fresh spinach and a blend of white cheeses.",
+          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "en": "Minced Meat Sfiha",
+          "ar": "صفيحة مفروم",
+          "price": "4",
+          "noteEn": "Crisp thin dough topped with seasoned meat, onion and tomato.",
+          "noteAr": "رقاقة عجين مقرمشة، تعلوها طبقة من اللحم المتبل مع البصل والطماطم.",
           "featured": false,
           "twoPrice": false
         },
@@ -1277,56 +1286,11 @@
           "twoPrice": false
         },
         {
-          "en": "Spinach Sfiha",
-          "ar": "صفيحة سبانخ",
-          "price": "3.5",
-          "noteEn": "Light dough filled with fresh spinach, lemon and sumac.",
-          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع الليمون والسماق.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
           "en": "Minced Meat Borek",
           "ar": "بوريك مفروم",
           "price": "4.5",
           "noteEn": "Layers of crisp jallash pastry filled with spiced minced meat.",
           "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "en": "Chicken Tart",
-          "ar": "تارت دجاج",
-          "price": "8",
-          "noteEn": "Layers of crisp jallash pastry filled with spiced minced meat, onion and spices.",
-          "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل مع البصل والبهارات.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "en": "Mini Burger",
-          "ar": "ميني برجر",
-          "price": "6",
-          "noteEn": "A small grilled beef patty in soft bread with melted cheese.",
-          "noteAr": "قطعة صغيرة من لحم البقر المشوي داخل خبز طري، مع جبنة ذائبة.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "en": "Cheese Sfiha",
-          "ar": "صفيحة جبنة",
-          "price": "3",
-          "noteEn": "Light dough topped with a blend of rich cheeses, baked until melted.",
-          "noteAr": "عجينة خفيفة مغطاة بمزيج من الأجبان الغنية، مخبوزة حتى الذوبان.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "en": "Rolled Pizza · Minced Meat",
-          "ar": "بيتزا ملفوفة مفروم",
-          "price": "6",
-          "noteEn": "Rolls of golden dough filled with a blend of spiced minced meat.",
-          "noteAr": "لفائف من العجين الذهبي بداخلها مزيج من اللحم المفروم المتبل.",
           "featured": false,
           "twoPrice": false
         },
@@ -1340,20 +1304,11 @@
           "twoPrice": false
         },
         {
-          "en": "Chicken Rhifa",
-          "ar": "رهيفة دجاج",
-          "price": "7",
-          "noteEn": "A roll of crisp pizza dough filled with premium tuna, tomato sauce and hot mozzarella.",
-          "noteAr": "رول من عجينة البيتزا الهشة محشو بالتن الفاخر، صوص الطماطم، جبنة موزاريلا الساخنة.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "en": "Kofta",
-          "ar": "كفتة",
+          "en": "Rolled Pizza · Minced Meat",
+          "ar": "بيتزا ملفوفة مفروم",
           "price": "6",
-          "noteEn": "Grilled kofta fingers seasoned with Eastern spices and herbs.",
-          "noteAr": "أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.",
+          "noteEn": "Rolls of golden dough filled with a blend of spiced minced meat.",
+          "noteAr": "لفائف من العجين الذهبي بداخلها مزيج من اللحم المفروم المتبل.",
           "featured": false,
           "twoPrice": false
         },
@@ -1367,20 +1322,20 @@
           "twoPrice": false
         },
         {
-          "en": "Kebab",
-          "ar": "كباب",
-          "price": "6",
-          "noteEn": "Small char-grilled kebab pieces with a rich, smoky seasoning.",
-          "noteAr": "قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.",
+          "en": "Fajita Croissant",
+          "ar": "كرواسون فاهيتا",
+          "price": "7",
+          "noteEn": "Small, crisp croissant pieces filled with seasoned fajita chicken and bell peppers.",
+          "noteAr": "قطع كرواسون صغيرة ومقرمشة، محشوة بدجاج الفاهيتا المتبل مع الفلفل الملون.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "en": "Minced Meat Sfiha",
-          "ar": "صفيحة مفروم",
-          "price": "4",
-          "noteEn": "Crisp thin dough topped with seasoned meat, onion and tomato.",
-          "noteAr": "رقاقة عجين مقرمشة، تعلوها طبقة من اللحم المتبل مع البصل والطماطم.",
+          "en": "Chicken Rhifa",
+          "ar": "رهيفة دجاج",
+          "price": "7",
+          "noteEn": "A roll of crisp pizza dough filled with premium tuna, tomato sauce and hot mozzarella.",
+          "noteAr": "رول من عجينة البيتزا الهشة محشو بالتن الفاخر، صوص الطماطم، جبنة موزاريلا الساخنة.",
           "featured": false,
           "twoPrice": false
         },
@@ -1403,6 +1358,49 @@
           "twoPrice": false
         },
         {
+          "en": "Mini Burger",
+          "ar": "ميني برجر",
+          "price": "6",
+          "noteEn": "A small grilled beef patty in soft bread with melted cheese.",
+          "noteAr": "قطعة صغيرة من لحم البقر المشوي داخل خبز طري، مع جبنة ذائبة.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "en": "Mini Shish",
+          "ar": "ميني شيش",
+          "price": "7",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "en": "Musakhan",
+          "ar": "مسخن",
+          "price": "3",
+          "noteEn": "A small saj-bread roll filled with chicken cooked with sumac, olives and onion.",
+          "noteAr": "رول صغير من خبز الصاج محشو بدجاج مطهو مع السماق، الزيتون والبصل.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "en": "Kofta",
+          "ar": "كفتة",
+          "price": "6",
+          "noteEn": "Grilled kofta fingers seasoned with Eastern spices and herbs.",
+          "noteAr": "أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
+          "en": "Kebab",
+          "ar": "كباب",
+          "price": "6",
+          "noteEn": "Small char-grilled kebab pieces with a rich, smoky seasoning.",
+          "noteAr": "قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
           "en": "Chicken Shawarma",
           "ar": "شاورما دجاج",
           "price": "5.5",
@@ -1412,8 +1410,8 @@
           "twoPrice": false
         },
         {
-          "en": "Crispy Chicken",
-          "ar": "كرسبي دجاج",
+          "en": "Crispy Chicken Sandwich",
+          "ar": "كرسبي دجاج ساندوتش",
           "price": "7",
           "noteEn": "Golden, crispy chicken pieces — tender inside — seasoned with our secret blend.",
           "noteAr": "قطع دجاج مقرمشة ذهبية من الخارج، طرية من الداخل، متبلة بخلطتنا السرية.",
@@ -1421,26 +1419,24 @@
           "twoPrice": false
         },
         {
-          "en": "Fajita Croissant",
-          "ar": "كرواسون فاهيتا",
-          "price": "7",
-          "noteEn": "Small, crisp croissant pieces filled with seasoned fajita chicken and bell peppers.",
-          "noteAr": "قطع كرواسون صغيرة ومقرمشة، محشوة بدجاج الفاهيتا المتبل مع الفلفل الملون.",
+          "en": "Chicken Tart& Vegetables",
+          "ar": "تارت دجاج وخضار",
+          "price": "8",
+          "noteEn": "Layers of crisp jallash pastry filled with spiced minced meat, onion and spices.",
+          "noteAr": "طبقات من العجين المقرمش (جلاش) محشوة باللحم المفروم المتبل مع البصل والبهارات.",
           "featured": false,
           "twoPrice": false
         },
         {
-          "en": "Spinach & Cheese Sfiha",
-          "ar": "صفيحة سبانخ وجبنة",
-          "price": "3",
-          "noteEn": "Light dough filled with fresh spinach and a blend of white cheeses.",
-          "noteAr": "عجينة خفيفة محشوة بالسبانخ الطازجة مع مزيج الأجبان البيضاء.",
+          "en": "Chicken Cone",
+          "ar": "بوق الدجاج",
+          "price": "6",
           "featured": false,
           "twoPrice": false
         },
         {
-          "en": "Mini Shish",
-          "ar": "ميني شيش",
+          "en": "Samosa Cigar",
+          "ar": "سيجار سمبوسة",
           "price": "7",
           "featured": false,
           "twoPrice": false
