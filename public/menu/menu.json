@@ -1443,6 +1443,7 @@
         }
       ],
       "media": {
+        "image": "/menu/img/img0038.png",
         "caption": "Hot from the oven",
         "type": "image",
         "base": "appetizers",
