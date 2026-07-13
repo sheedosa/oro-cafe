@@ -1440,6 +1440,13 @@
           "price": "7",
           "featured": false,
           "twoPrice": false
+        },
+        {
+          "en": "Steak Donut",
+          "ar": "دونت ستيك",
+          "price": "8",
+          "featured": false,
+          "twoPrice": false
         }
       ],
       "media": {
