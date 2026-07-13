@@ -1367,6 +1367,15 @@
           "twoPrice": false
         },
         {
+          "en": "Mini Kebab",
+          "ar": "ميني كباب",
+          "price": "6",
+          "noteEn": "Small char-grilled kebab pieces with a rich, smoky seasoning.",
+          "noteAr": "قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.",
+          "featured": false,
+          "twoPrice": false
+        },
+        {
           "en": "Mini Shish",
           "ar": "ميني شيش",
           "price": "7",
@@ -1388,15 +1397,6 @@
           "price": "6",
           "noteEn": "Grilled kofta fingers seasoned with Eastern spices and herbs.",
           "noteAr": "أصابع كفتة مشوية ومتبلة بالبهارات الشرقية والأعشاب.",
-          "featured": false,
-          "twoPrice": false
-        },
-        {
-          "en": "Kebab",
-          "ar": "كباب",
-          "price": "6",
-          "noteEn": "Small char-grilled kebab pieces with a rich, smoky seasoning.",
-          "noteAr": "قطع كباب صغيرة مشوية على الفحم، متبلة بنكهة غنية ومدخنة.",
           "featured": false,
           "twoPrice": false
         },
